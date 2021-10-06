@@ -1,7 +1,7 @@
 <h1 align="center">GATHER COFFEE </h1>
 
 
-![Lobby](/src/static/image/room.png)
+![Lobby](/static/image/room.png)
 This is a project application web made by group at UIT
 
 ## Description

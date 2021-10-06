@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <title>Document</title>
+</head>
+<body>
+        <nav>
+            <h1 id="logo">COFFE GATHER</h1>
+            <ul class="nav_links">
+                <li><a href="#"></a>Home </li>
+                <li><a href="#"></a>About </li>
+                <li><a href="#"></a>Contact </li>
+                <li><a href="#"></a>Social</li>
+                <li><a href="#"></a>Facebook</li>
+            </ul>
+            <button id="btn-login">LOG IN</button>
+        </nav>
+        <section class="content">
+            <div class="cont-left">
+                <h1>Welcome to coffe online</p>
+                <h5>This is the best web presentation coffe base</h2>
+                <button id="btn-register">Register now</button>
+            </div>
+            <div class="cont-right">
+                <img src="/static/image/pngfind.com-mage-png-6194460.png" alt="">
+                <img src="/static/image/PngItem_2758576.png" alt="">
+               
+            </div>
+
+        </section>
+        <footer>
+            <div class="about">
+                <h1>Sinh Viên Thực Hiện</h1>
+                <ul>
+                    <li>Nguyễn Thành Lợi</li>
+                    <li>Nguyễn Ngọc Họp</li>
+                    <li>Đoàn Ngọc Luân</li>
+                </ul>
+            </div>
+            <div class="school">
+                
+                <h1>Trường Đại Học Công Nghệ Thông Tin </h1>
+              
+            </div>
+            <div class="mail">
+                <box-icon name='mail-send'></box-icon>
+                <p>19521771@gmail.com</p>
+            </div>
+            <div class="school"></div>
+        </footer>
+        <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+        
+        <script>
+            document.getElementById("btn-login").addEventListener("click",()=>{
+                window.location.href="/login";
+            });
+            document.getElementById("btn-register").addEventListener("click",()=>{
+                window.location.href="/create";
+            });
+        </script>
+</body>
+</html>

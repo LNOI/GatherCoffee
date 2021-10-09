@@ -11,7 +11,7 @@ def Home_page(request):
 def Login_page(request):
     forms_login=FormLogin(request.POST)
     if request.method=="POST":
-        print("VAO hma")
+       
         forms_login=FormLogin(request.POST)
         print(request.POST)
         if forms_login.is_valid():

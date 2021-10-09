@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>GattherCoffee</title>
+        <link rel="stylesheet" href="{%static 'css/rooms/style_setting.css'%}">
+    </head>
+
+    <body>
+        
+        <div class="container">
+            <div class="box-name">
+                <h1 id="person_name">{{username}}</h1>
+            </div>
+          
+            <div class="box-character">
+                <div class="prev">&#10094;</div>
+               
+                <div class="characters">
+                    <img src="{%static 'image/avt-dora.png'%}" alt="characters">
+                </div>
+                <div class="next">&#10095;</div>
+            </div>
+            
+
+            <div class="box-submit">
+
+                <input type="text" placeholder="Username" id="username-input">
+                <button id="room-name-submit">Submit </button>
+               
+               
+            </div>
+        
+            
+        </div>
+       
+        <script>
+            var avtIndex=1;
+            function Character(index){
+                var avt=document.querySelector(".characters img");
+                if (index==1) avt.src="{%static 'image/avt-1.png'%}";
+                else if (index==2) avt.src="{%static 'image/avt-2.png'%}";
+                else avt.src="{%static 'image/avt-3.png'%}";
+             
+            }
+            Character(avtIndex);
+            document.querySelector(".prev").addEventListener("click",()=>{
+                avtIndex--;
+                if(avtIndex<1){
+                    avtIndex=3;
+                }
+                Character(avtIndex);
+            })
+            document.querySelector(".next").addEventListener("click",()=>{
+                avtIndex++;
+                if(avtIndex>3){
+                    avtIndex=1;
+                }
+                Character(avtIndex);
+            })
+
+            document.querySelector('#room-name-submit').onclick = function(e) {
+                sessionStorage.setItem("avtCharacters",avtIndex);
+                
+                var userName = document.querySelector('#username-input').value;
+                window.location.replace('lobby' + '/?username=' + userName);
+            };
+           
+        </script>
+    </body>
+</html>

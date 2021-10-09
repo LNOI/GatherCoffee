@@ -6,22 +6,14 @@
         <title>Chatty</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
         <!-- <link rel="stylesheet" href="{%static 'css/style_room.css'%}"> -->
-        <link rel="stylesheet" href="{%static 'css/style_area.css'%}">
+        <link rel="stylesheet" href="{%static 'css/rooms/style_area.css'%}">
    
     </head>
     <body>
         <canvas id="canvas">
-            <button >  ok12121212</button>
+            
         </canvas>
-        <!-- <div class="bg">
-        </div>
 
-        <section class="section">
-            <div id="btn-exit">
-                <button>Exit</button>
-            </div>
-          
-        </section> -->
        {{ room_name|json_script:"json-roomname" }}
        {{ username|json_script:"json-username" }}
         

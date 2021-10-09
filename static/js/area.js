@@ -1,23 +1,23 @@
-
+var avtCharacters=sessionStorage.getItem("avtCharacters");
+console.log(avtCharacters);
 const canvas=document.getElementById("canvas");
 const context=canvas.getContext("2d");
-
 const width=canvas.width=1800;
-const height=canvas.height=700;
+const height=canvas.height=800;
 const fps=60;
 const spriteSheet=new Image();
-spriteSheet.src="/static/image/character.png"
-const frameWidth=178;
-const frameHeight=250;
-var xPos=50;
-var yPos=100;
+spriteSheet.src="/static/image/animate-"+avtCharacters+".png"
+const frameWidth=150;
+const frameHeight=170;
+var xPos=10;
+var yPos=200;
 const scale=1;
 const secondsToUpdate=1*fps;
 var count=0;
 var reverse=0;
 var frameIndex=0;
 canvas.style.marginTop=window.innerHeight/2-height/2+"px";
-context.scale(1,1);
+context.scale(0.7,0.7);
 function animateMain(){
     context.drawImage(
         spriteSheet,
@@ -62,7 +62,7 @@ const statePlayer={
 }
 
 function frame(){
-    context.clearRect(0,0,width,height);
+    context.clearRect(0,0,2600,1200);
     animateMain();
     Object.keys(statePlayer.states).forEach((name)=>{
          animateSub(statePlayer.states[name].indexFrame,statePlayer.states[name].xPosFriend,statePlayer.states[name].yPosFriend,0);
@@ -71,32 +71,35 @@ function frame(){
     requestAnimationFrame(frame);
 }
 
+const walk=20;
+
 document.addEventListener("keydown",(e)=>{
     if(e.key=='d'){
         reverse=0;
-        xPos+=10;
-        if (xPos>=900) xPos=900;
+        xPos+=walk;
+        if (xPos>=2450) xPos=2450;
     }else if(e.key=='a'){
-        xPos-=10;
+        xPos-=walk;
         reverse=1;
         if (xPos<=0) xPos=0;
     }
     else if(e.key=='w'){
-        yPos-=10;
+        yPos-=walk;
         if(yPos<=0) yPos=0;
     }
     else if(e.key=='s'){
-        yPos+=10;
-        if(yPos>=495) yPos=495;
+        yPos+=walk;
+        if(yPos>=1000) yPos=1000;
 
     }
     if (count > 1){
         frameIndex++;
         count=0;
     }
-    if (frameIndex >4){
+    if (frameIndex >5){
         frameIndex=0;
     }
+   
     count++;
     chatSocket.send(JSON.stringify({
         'message': '',
@@ -112,8 +115,9 @@ document.addEventListener("keydown",(e)=>{
 
 }) 
 function CheckArea(){
-    if(xPos >=410 && xPos<=570 && yPos>=130 && yPos<=240){
+    if(xPos >=630 && xPos<=870 && yPos>=320 && yPos<=440){
         indexArea=1;
+        console.log("area1");
     }else{
         indexArea=0;
     }
@@ -159,19 +163,16 @@ chatSocket.onmessage = function(e) {
 chatSocket.onclose = function(e) {
     console.log('The socket close unexpectadly');
 };
-
-var ExitArea=0
 document.addEventListener("keydown",(e)=>{
-    if(e.key=="Enter" && ExitArea){
-    console.log("ExitCoffe");
-    chatSocket.send(JSON.stringify({
-            'message': 'disconnect',
-            'username': userName,
-            'room': roomName,
-            'indexFrame':0,
-            'xPos':0,
-            'yPos':0,
-    }));
-    window.location.replace("/room/lobby/?username="+userName);
-    }
+    // if(e.key=="Enter" && indexArea){
+    // chatSocket.send(JSON.stringify({
+    //             'message': 'disconnect',
+    //             'username': userName,
+    //             'room': roomName,
+    //             'indexFrame':0,
+    //             'xPos':0,
+    //             'yPos':0,
+    // }));
+    // window.location.replace('/room/area-'+indexArea+"/?username="+userName);
+    // }
 })

@@ -2,19 +2,19 @@ from django.shortcuts import render
 
 from .models import Message
 
-def Index(request):
+def settingUser(request):
     context={
         'username':request.session["username"]
     }
-    return render(request, 'tem_room/index.html',context)
+    return render(request, 'rooms/settingUser.html',context)
 
-def Area_Coffe(request, index_area):
+def areaCoffe(request, index_area):
     username = request.GET.get('username', 'Anonymous')
     messages = Message.objects.filter(room=index_area)[0:25]
-    return render(request, 'tem_room/area.html', {'room_name': index_area, 'username': username, 'messages': messages})
+    return render(request, 'rooms/areaCoffee.html', {'room_name': index_area, 'username': username, 'messages': messages})
   
 
-def room(request):
+def lobby(request):
     username = request.GET.get('username', 'Anonymous')
     messages = Message.objects.filter(room='lobby')[0:25]
-    return render(request, 'tem_room/room.html', {'room_name': 'lobby', 'username': username, 'messages': messages})
+    return render(request, 'rooms/lobby.html', {'room_name': 'lobby', 'username': username, 'messages': messages})

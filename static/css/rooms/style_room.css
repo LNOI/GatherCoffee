@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+#canvas {
+    background-image: url('./../../image/room.png');
+  
+    display: block;
+    margin: 0 auto;
+    border: solid 6px rgb(10, 5, 5);
+    border-radius: 10px;
+} 
+

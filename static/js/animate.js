@@ -4,21 +4,28 @@ const canvas=document.getElementById("canvas");
 const context=canvas.getContext("2d");
 const width=canvas.width=1800;
 const height=canvas.height=800;
-
 const fps=60;
+
+// ----------------------------image character---------------
 const spriteSheet=new Image();
 spriteSheet.src="/static/image/animate-"+avtCharacters+".png"
 const frameWidth=150;
 const frameHeight=170;
+
 var xPos=10;
 var yPos=200;
-const scale=1;
-const secondsToUpdate=1*fps;
 var count=0;
 var reverse=0;
+
+
+
+const scale=1;
+const secondsToUpdate=1*fps;
 var frameIndex=0;
 canvas.style.marginTop=window.innerHeight/2-height/2+"px";
 context.scale(0.7,0.7);
+
+
 function animateMain(){
     context.drawImage(
         spriteSheet,
@@ -32,9 +39,11 @@ function animateMain(){
         frameHeight*scale,
     );
 }
-function animateSub(indexFrameSub,xPosSub,yPosSub,reSub){
+function animateSub(indexFrameSub,xPosSub,yPosSub,reSub,avtFriends){
+    const friend=new Image();
+    friend.src="/static/image/animate-"+avtFriends+".png"
     context.drawImage(
-        spriteSheet,
+        friend,
         frameWidth*indexFrameSub,
         frameHeight*reSub,
         frameWidth,
@@ -48,12 +57,15 @@ function animateSub(indexFrameSub,xPosSub,yPosSub,reSub){
 }
 const statePlayer={
     states:{},
-    generalState:function(name,xPosFriend,yPosFriend) {
+    generalState:function(name,xPosFriend,yPosFriend,avtCharacters) {
         if(!this.states[name]){
             this.states[name]={
                 indexFrame:0,
                 xPosFriend:xPosFriend,
                 yPosFriend:yPosFriend,
+                avtCharacters:avtCharacters,
+                
+
             }
         }
     },
@@ -62,11 +74,12 @@ const statePlayer={
     }
 }
 
+
 function frame(){
     context.clearRect(0,0,2600,1200);
     animateMain();
     Object.keys(statePlayer.states).forEach((name)=>{
-         animateSub(statePlayer.states[name].indexFrame,statePlayer.states[name].xPosFriend,statePlayer.states[name].yPosFriend,0);
+         animateSub(statePlayer.states[name].indexFrame,statePlayer.states[name].xPosFriend,statePlayer.states[name].yPosFriend,statePlayer.states[name].frameReverse,statePlayer.states[name].avtCharacters);
     });
 
     requestAnimationFrame(frame);
@@ -107,8 +120,11 @@ document.addEventListener("keydown",(e)=>{
         'username': userName,
         'room': roomName,
         'indexFrame':frameIndex,
+        'frameReverse':reverse,
         'xPos':xPos,
         'yPos':yPos,
+        'avtCharacters':avtCharacters,
+        'checkCoffee':0
     }));
     CheckArea();
 
@@ -152,18 +168,26 @@ chatSocket.onmessage = function(e) {
     }
     
     if(!statePlayer.states[friend]&&friend!=userName){
-        statePlayer.generalState(friend,0,0);
+        statePlayer.generalState(friend,0,0,1);
     }
     if(friend!=userName){
         statePlayer.states[friend].indexFrame=data.indexFrame;
+        statePlayer.states[friend].frameReverse=data.frameReverse;
         statePlayer.states[friend].xPosFriend=data.xPos;
         statePlayer.states[friend].yPosFriend=data.yPos;
+        statePlayer.states[friend].avtCharacters=data.avtCharacters;
+
+        console.log("Doi phuong="+data.avtCharacters);
     }
 };
 
 chatSocket.onclose = function(e) {
     console.log('The socket close unexpectadly');
 };
+
+
+
+
 document.addEventListener("keydown",(e)=>{
     if(e.key=="Enter" && indexArea){
     chatSocket.send(JSON.stringify({
@@ -171,8 +195,11 @@ document.addEventListener("keydown",(e)=>{
                 'username': userName,
                 'room': roomName,
                 'indexFrame':0,
+                'frameReverse':0,
                 'xPos':0,
                 'yPos':0,
+                'avtCharacters':avtCharacters,
+                'checkCoffee':0
     }));
     window.location.replace('/room/area-'+indexArea+"/?username="+userName);
     }

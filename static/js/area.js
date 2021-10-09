@@ -5,19 +5,40 @@ const context=canvas.getContext("2d");
 const width=canvas.width=1800;
 const height=canvas.height=800;
 const fps=60;
+
+// ----------------------------image character---------------
 const spriteSheet=new Image();
 spriteSheet.src="/static/image/animate-"+avtCharacters+".png"
 const frameWidth=150;
 const frameHeight=170;
+
 var xPos=10;
 var yPos=200;
-const scale=1;
-const secondsToUpdate=1*fps;
 var count=0;
 var reverse=0;
+
+// ----------------------------image coffee---------------
+
+const imageCoffee=new Image();
+imageCoffee.src="/static/image/h1.png"
+const frameWidthCoffee=60;
+const frameHeightCoffee=90;
+
+var xPosCoffee=xPos;
+var yPosCoffee=yPos;
+
+// -----------------------------------------------------------
+
+
+const scale=1;
+const secondsToUpdate=1*fps;
 var frameIndex=0;
 canvas.style.marginTop=window.innerHeight/2-height/2+"px";
 context.scale(0.7,0.7);
+
+
+var getCoffee=0;
+
 function animateMain(){
     context.drawImage(
         spriteSheet,
@@ -30,10 +51,27 @@ function animateMain(){
         frameWidth*scale,
         frameHeight*scale,
     );
+    if (getCoffee){
+        context.drawImage(
+            imageCoffee,
+            0,
+            0,
+            frameWidthCoffee,
+            frameHeightCoffee,
+            xPos,
+            yPos,
+            frameWidthCoffee*scale,
+            frameHeightCoffee*scale,
+        )
+    }
 }
-function animateSub(indexFrameSub,xPosSub,yPosSub,reSub){
+
+function animateSub(indexFrameSub,xPosSub,yPosSub,reSub,avtFriends,checkCoffee){
+
+    const friend=new Image();
+    friend.src="/static/image/animate-"+avtFriends+".png"
     context.drawImage(
-        spriteSheet,
+        friend,
         frameWidth*indexFrameSub,
         frameHeight*reSub,
         frameWidth,
@@ -43,16 +81,31 @@ function animateSub(indexFrameSub,xPosSub,yPosSub,reSub){
         frameWidth*scale,
         frameHeight*scale,
     );
-
+    if(checkCoffee){
+        context.drawImage(
+            imageCoffee,
+            0,
+            0,
+            frameWidthCoffee,
+            frameHeightCoffee,
+            xPosSub,
+            yPosSub,
+            frameWidthCoffee*scale,
+            frameHeightCoffee*scale,
+        );
+    }
 }
 const statePlayer={
     states:{},
-    generalState:function(name,xPosFriend,yPosFriend) {
+    generalState:function(name,xPosFriend,yPosFriend,avtCharacters,checkCoffee) {
         if(!this.states[name]){
             this.states[name]={
                 indexFrame:0,
                 xPosFriend:xPosFriend,
                 yPosFriend:yPosFriend,
+                avtCharacters:avtCharacters,
+                checkCoffee:checkCoffee
+
             }
         }
     },
@@ -65,7 +118,7 @@ function frame(){
     context.clearRect(0,0,2600,1200);
     animateMain();
     Object.keys(statePlayer.states).forEach((name)=>{
-         animateSub(statePlayer.states[name].indexFrame,statePlayer.states[name].xPosFriend,statePlayer.states[name].yPosFriend,0);
+         animateSub(statePlayer.states[name].indexFrame,statePlayer.states[name].xPosFriend,statePlayer.states[name].yPosFriend,statePlayer.states[name].frameReverse,statePlayer.states[name].avtCharacters,statePlayer.states[name].checkCoffee);
     });
 
     requestAnimationFrame(frame);
@@ -106,18 +159,17 @@ document.addEventListener("keydown",(e)=>{
         'username': userName,
         'room': roomName,
         'indexFrame':frameIndex,
+        'frameReverse':reverse,
         'xPos':xPos,
         'yPos':yPos,
+        'avtCharacters':avtCharacters,
+        'checkCoffee':getCoffee
     }));
     CheckArea();
-
-
-
 }) 
 function CheckArea(){
-    if(xPos >=630 && xPos<=870 && yPos>=320 && yPos<=440){
-        indexArea=1;
-        console.log("area1");
+    if(xPos >=90 && xPos<=310 && yPos>=400 && yPos<=1000){
+        indexArea=1
     }else{
         indexArea=0;
     }
@@ -151,12 +203,17 @@ chatSocket.onmessage = function(e) {
     }
     
     if(!statePlayer.states[friend]&&friend!=userName){
-        statePlayer.generalState(friend,0,0);
+        statePlayer.generalState(friend,0,0,1,0);
     }
     if(friend!=userName){
         statePlayer.states[friend].indexFrame=data.indexFrame;
+        statePlayer.states[friend].frameReverse=data.frameReverse;
         statePlayer.states[friend].xPosFriend=data.xPos;
         statePlayer.states[friend].yPosFriend=data.yPos;
+        
+        statePlayer.states[friend].avtCharacters=data.avtCharacters;
+        statePlayer.states[friend].checkCoffee=data.checkCoffee;
+        
     }
 };
 
@@ -164,15 +221,8 @@ chatSocket.onclose = function(e) {
     console.log('The socket close unexpectadly');
 };
 document.addEventListener("keydown",(e)=>{
-    // if(e.key=="Enter" && indexArea){
-    // chatSocket.send(JSON.stringify({
-    //             'message': 'disconnect',
-    //             'username': userName,
-    //             'room': roomName,
-    //             'indexFrame':0,
-    //             'xPos':0,
-    //             'yPos':0,
-    // }));
-    // window.location.replace('/room/area-'+indexArea+"/?username="+userName);
-    // }
+    if(e.key=="Enter" && indexArea){
+        console.log("get cofffe enter");
+        getCoffee=1;
+    }
 })

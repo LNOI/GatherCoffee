@@ -10,13 +10,25 @@
    
     </head>
     <body>
+        <div class="menu">
+            <ul>
+                <li id="coffee-1"><h1>coffee1</h1></li>
+                <li id="coffee-2"><h1>coffee2</h1></li>
+                <li id="coffee-3"><h1>coffee3</h1></li>
+                <li id="coffee-4"><h1>coffee4</h1></li>
+                <li id="coffee-5"><h1>coffee5</h1></li>
+                <li id="coffee-6"><h1>coffee6</h1></li>
+              
+            </ul>
+        </div>
         <canvas id="canvas">
             
         </canvas>
-
+        <div></div>
        {{ room_name|json_script:"json-roomname" }}
        {{ username|json_script:"json-username" }}
         
       <script src="{%static 'js/area.js'%}"></script>
+      <script src="{%static 'js/eventOrder.js'%}"></script>
     </body>
 </html>

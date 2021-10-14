@@ -4,7 +4,7 @@
     padding: 0px;
 }
 #canvas {
-    background-image: url('./../../image/room.png');
+    /* background-image: url('./../../image/room.png'); */
   
     display: block;
     margin: 0 auto;

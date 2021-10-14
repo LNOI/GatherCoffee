@@ -12,6 +12,19 @@ spriteSheet.src="/static/image/animate-"+avtCharacters+".png"
 const frameWidth=150;
 const frameHeight=170;
 
+
+const Background=new Image();
+Background.src="/static/image/JangNam.png";
+var bgframex=0;
+var bgframey=0;
+const bgWidth=1800;
+const bgHeight=800;
+const bgPosX=0;
+const bgPosY=0;
+
+
+
+
 var xPos=10;
 var yPos=200;
 var count=0;
@@ -34,12 +47,23 @@ const scale=1;
 const secondsToUpdate=1*fps;
 var frameIndex=0;
 canvas.style.marginTop=window.innerHeight/2-height/2+"px";
-context.scale(0.7,0.7);
+context.scale(1,1);
 
 
 var getCoffee=0;
 
 function animateMain(){
+    context.drawImage(
+        Background,
+        bgframex,
+        bgframey,
+        bgWidth,
+        bgHeight,
+        bgPosX,
+        bgPosY,
+        bgWidth,
+        bgHeight,
+    );
     context.drawImage(
         spriteSheet,
         frameWidth*frameIndex,
@@ -115,7 +139,7 @@ const statePlayer={
 }
 
 function frame(){
-    context.clearRect(0,0,2600,1200);
+    context.clearRect(0,0,width,height);
     animateMain();
     Object.keys(statePlayer.states).forEach((name)=>{
          animateSub(statePlayer.states[name].indexFrame,statePlayer.states[name].xPosFriend,statePlayer.states[name].yPosFriend,statePlayer.states[name].frameReverse,statePlayer.states[name].avtCharacters,statePlayer.states[name].checkCoffee);
@@ -130,19 +154,47 @@ document.addEventListener("keydown",(e)=>{
     if(e.key=='d'){
         reverse=0;
         xPos+=walk;
-        if (xPos>=2450) xPos=2450;
+        if (xPos>=1150) {
+            if(bgframex+bgWidth<=4980){
+            
+                xPos=1150;
+                bgframex+=walk;
+            };
+        }
+
+        if(xPos>=1700) xPos=1700;
     }else if(e.key=='a'){
         xPos-=walk;
         reverse=1;
-        if (xPos<=0) xPos=0;
+       
+        if (xPos<=350){
+            if(bgframex>=30){
+                xPos=350;
+                bgframex-=walk;
+            };
+        };
+        if(xPos<=0) xPos=0;
     }
     else if(e.key=='w'){
         yPos-=walk;
-        if(yPos<=0) yPos=0;
+        if(yPos<=100) {
+            if(bgframey>=30){
+                yPos=100;
+                bgframey-=walk;
+            };
+        };
+        if(yPos<=-30) yPos=-30;
+        
     }
     else if(e.key=='s'){
         yPos+=walk;
-        if(yPos>=1000) yPos=1000;
+        if(yPos>=500){
+            if(bgframey+bgHeight<=2800){
+                yPos=500;
+                bgframey+=walk;
+            };
+        } 
+        if (yPos>=700) yPos=700;
 
     }
     if (count > 1){
@@ -168,8 +220,10 @@ document.addEventListener("keydown",(e)=>{
     CheckArea();
 }) 
 function CheckArea(){
+    
     if(xPos >=90 && xPos<=310 && yPos>=400 && yPos<=1000){
-        indexArea=1
+        indexArea=1;
+        console.log("vao roi");
     }else{
         indexArea=0;
     }
@@ -210,7 +264,6 @@ chatSocket.onmessage = function(e) {
         statePlayer.states[friend].frameReverse=data.frameReverse;
         statePlayer.states[friend].xPosFriend=data.xPos;
         statePlayer.states[friend].yPosFriend=data.yPos;
-        
         statePlayer.states[friend].avtCharacters=data.avtCharacters;
         statePlayer.states[friend].checkCoffee=data.checkCoffee;
         

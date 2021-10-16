@@ -35,8 +35,6 @@ var frameIndex=0;
 canvas.style.marginTop=window.innerHeight/2-height/2+"px";
 context.scale(1,1);
 
-
-
 function animateMain(){
 
     context.drawImage(
@@ -72,8 +70,8 @@ function animateSub(indexFrameSub,xPosSub,yPosSub,reSub,avtFriends){
         frameHeight*reSub,
         frameWidth,
         frameHeight,
-        xPosSub,
-        yPosSub,
+        xPosSub-bgframex,
+        yPosSub-bgframey,
         frameWidth*scale,
         frameHeight*scale,
     );
@@ -153,7 +151,7 @@ document.addEventListener("keydown",(e)=>{
     else if(e.key=='s'){
         yPos+=walk;
         if(yPos>=500){
-            if(bgframey+bgHeight<=2000){
+            if(bgframey+bgHeight<=1480){
                 yPos=500;
                 bgframey+=walk;
             };
@@ -176,8 +174,8 @@ document.addEventListener("keydown",(e)=>{
         'room': roomName,
         'indexFrame':frameIndex,
         'frameReverse':reverse,
-        'xPos':xPos,
-        'yPos':yPos,
+        'xPos':xPos+bgframex,
+        'yPos':yPos+bgframey,
         'avtCharacters':avtCharacters,
         'checkCoffee':0
     }));

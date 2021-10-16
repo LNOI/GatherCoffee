@@ -24,7 +24,6 @@ const bgPosY=0;
 
 
 
-
 var xPos=10;
 var yPos=200;
 var count=0;
@@ -100,8 +99,8 @@ function animateSub(indexFrameSub,xPosSub,yPosSub,reSub,avtFriends,checkCoffee){
         frameHeight*reSub,
         frameWidth,
         frameHeight,
-        xPosSub,
-        yPosSub,
+        xPosSub-bgframex,
+        yPosSub-bgframey,
         frameWidth*scale,
         frameHeight*scale,
     );
@@ -112,8 +111,8 @@ function animateSub(indexFrameSub,xPosSub,yPosSub,reSub,avtFriends,checkCoffee){
             0,
             frameWidthCoffee,
             frameHeightCoffee,
-            xPosSub,
-            yPosSub,
+            xPosSub-bgframex,
+            yPosSub-bgframey,
             frameWidthCoffee*scale,
             frameHeightCoffee*scale,
         );
@@ -212,8 +211,8 @@ document.addEventListener("keydown",(e)=>{
         'room': roomName,
         'indexFrame':frameIndex,
         'frameReverse':reverse,
-        'xPos':xPos,
-        'yPos':yPos,
+        'xPos':xPos+bgframex,
+        'yPos':yPos+bgframey,
         'avtCharacters':avtCharacters,
         'checkCoffee':getCoffee
     }));

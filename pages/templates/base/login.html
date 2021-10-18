@@ -114,9 +114,15 @@
                     </div>
 
                     {% if login == True %}
-                        <a href="/create" class="link-primary " style="float: right;">Create</a>
+                    <div class="inputBx">
+                        <div>If you don't have account:<a href="/create" class="link-primary ">Create</a></div>
+                     </div>
+                        <!-- <a href="/create" class="link-primary " style="float: right;">Create</a> -->
                     {% else %} 
-                        <a href="/login" class="link-primary" style="float: right;">Login</a>
+                    <div class="inputBx">
+                       <div>If you have account:<a href="/login" class="link-primary" >     Login   </a></div>
+                    </div>
+                     <!-- <a href="/login" class="link-primary" style="float: right;">Login</a> -->
                     {% endif %}
                 </form>
             </div>

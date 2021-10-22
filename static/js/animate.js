@@ -2,8 +2,8 @@ var avtCharacters=sessionStorage.getItem("avtCharacters");
 console.log(avtCharacters);
 const canvas=document.getElementById("canvas");
 const context=canvas.getContext("2d");
-const width=canvas.width=1800;
-const height=canvas.height=800;
+const width=canvas.width=1500;
+const height=canvas.height=600;
 const fps=60;
 
 // ----------------------------image character---------------
@@ -15,19 +15,19 @@ const frameHeight=170;
 
 const Background=new Image();
 Background.src="/static/image/Lobby.png";
+const widthLobby=2000;
+const heightLobby=1000;
 var bgframex=0;
 var bgframey=0;
-const bgWidth=1800;
-const bgHeight=800;
+const bgWidth=1500;
+const bgHeight=600;
 const bgPosX=0;
 const bgPosY=0;
 
 var xPos=10;
-var yPos=200;
+var yPos=400;
 var count=0;
 var reverse=0;
-
-
 
 const scale=1;
 const secondsToUpdate=1*fps;
@@ -56,8 +56,8 @@ function animateMain(){
         frameHeight,
         xPos,
         yPos,
-        frameWidth*scale,
-        frameHeight*scale,
+        frameWidth*0.7,
+        frameHeight*0.7,
     );
     
 }
@@ -116,14 +116,13 @@ document.addEventListener("keydown",(e)=>{
 
        
         if (xPos>=1150) {
-            if(bgframex+bgWidth<=2980){
+            if(bgframex+bgWidth<=widthLobby-20){
             
                 xPos=1150;
                 bgframex+=walk;
             };
         }
-
-        if(xPos>=1700) xPos=1700;
+        if(xPos>=width) xPos=width-100;
     }else if(e.key=='a'){
         xPos-=walk;
         reverse=1;
@@ -151,13 +150,12 @@ document.addEventListener("keydown",(e)=>{
     else if(e.key=='s'){
         yPos+=walk;
         if(yPos>=500){
-            if(bgframey+bgHeight<=1480){
+            if(bgframey+bgHeight<=heightLobby-20){
                 yPos=500;
                 bgframey+=walk;
             };
         } 
-        if (yPos>=700) yPos=700;
-
+        if (yPos>=height) yPos=height;
     }
     if (count > 1){
         frameIndex++;
@@ -186,7 +184,7 @@ document.addEventListener("keydown",(e)=>{
 }) 
 function CheckArea(){
     console.log("offset x: "+(xPos+bgframex)+"   y :"+(yPos+bgframey))
-    if(xPos+bgframex>=630 && bgframex+xPos<=910 && yPos+bgframey>=360 && bgframey+yPos<=440){
+    if(xPos+bgframex>=430 && bgframex+xPos<=590 && yPos+bgframey>=240 && bgframey+yPos<=320){
         indexArea=1;
         console.log("area1");
     }else{
@@ -238,9 +236,6 @@ chatSocket.onmessage = function(e) {
 chatSocket.onclose = function(e) {
     console.log('The socket close unexpectadly');
 };
-
-
-
 
 document.addEventListener("keydown",(e)=>{
     if(e.key=="Enter" && indexArea){

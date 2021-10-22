@@ -37,6 +37,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         frameReverse=data['frameReverse']
         avtCharacters=data['avtCharacters']
         checkCoffee=data['checkCoffee']
+        idCoffee=data['idCoffee']
         # await self.save_message(username, room, message)
 
         # Send message to room group
@@ -51,7 +52,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 'indexFrame':indexFrame,
                 'avtCharacters':avtCharacters,
                 'checkCoffee':checkCoffee,
-                'frameReverse':frameReverse
+                'frameReverse':frameReverse,
+                'idCoffee':idCoffee
             }
         )
     
@@ -66,6 +68,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         avtCharacters=event['avtCharacters']
         checkCoffee=event['checkCoffee']
+        idCoffee=event['idCoffee']
         # Send message to WebSocket
         await self.send(text_data=json.dumps({
             'message': message,
@@ -75,7 +78,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
             'indexFrame':index,
             'avtCharacters':avtCharacters,
             'checkCoffee':checkCoffee,
-            'frameReverse':frameReverse
+            'frameReverse':frameReverse,
+            'idCoffee':idCoffee
            
         }))
 

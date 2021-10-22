@@ -12,7 +12,6 @@ spriteSheet.src="/static/image/animate-"+avtCharacters+".png"
 const frameWidth=150;
 const frameHeight=170;
 
-
 const Background=new Image();
 Background.src="/static/image/Lobby.png";
 const widthLobby=2000;
@@ -248,7 +247,8 @@ document.addEventListener("keydown",(e)=>{
                 'xPos':0,
                 'yPos':0,
                 'avtCharacters':avtCharacters,
-                'checkCoffee':0
+                'checkCoffee':0,
+                'idCoffee':0,
     }));
     window.location.replace('/room/area-'+indexArea+"/?username="+userName);
     }

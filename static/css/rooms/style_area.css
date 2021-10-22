@@ -1,4 +1,3 @@
-
 *{
     box-sizing: border-box;
     padding: 0;
@@ -6,31 +5,105 @@
 }
 #canvas {
    
-   
     display: block;
     margin: 0 auto;
     border: solid 6px rgb(10, 5, 5);
     border-radius: 10px;
-} 
+}
+
+.eventCustomer{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.eventCustomer #event-Order{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    top: 100px;
+    left: 500px;
+    border: none;
+    border-radius: 10px;
+    color:white ;
+    background-color: rgb(204, 97, 10);
+    font-family: 'Kaushan Script', cursive;
+}
 
 .menu{
-    width: 300px;
-    height: 500px;
-    background-color: cadetblue;
     position: absolute;
-    top: 20%;
-    left: 40%;
+    top: 100px;
+    left: 30%;
+    width: 555px;
+    height: 391px;
+    background-image: url('../../image/MenuCoffee.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.dt-menu{
+    width: 555px;
+    height: 391px;
+    position: relative;
+}
+.dt-menu ul{
+    width: 30%;
+    text-align: center;
+}
+ul li p{
+    color: azure;
+    font-family: 'Kaushan Script', cursive;
+    display: inline;
+}
+ul li {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+
+}
+ul li:hover{
+    background-color: rgb(65, 168, 236);
+}
+ul li:active{
+    background-color: rgb(65, 168, 236);
+}
+.menu1{
+    position: absolute;
+    top: 150px;
+    left: 20px;
+}
+.menu2{
+    position: absolute;
+    top: 150px;
+    left: 370px;
+    
+}
+.menu3{
+    position: absolute;
+    top: 270px;
+    left: 200px;
+  
+}
+.btn-exitMenu{
+    width: 40px;
+    height: 30px;
+    background-color: tomato;
+    color: white;
+    font-weight: bold;
+    float: right;
+
+}
+.btn-order{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(36, 114, 240);
+    float: right;
+    font-family: 'Kaushan Script', cursive;
+    color: azure;
+}
+.order:hover{
+    background-color: brown;
 }
 
-.menu ul li{
-    width: 100%;
-    height: 50px;
-    background-color: cyan;
-    text-align: center;
-    list-style: none;
-}
-.menu ul li:hover{
-    background-color: darkgray;
-}
 
 

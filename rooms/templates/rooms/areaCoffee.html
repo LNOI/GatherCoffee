@@ -7,20 +7,38 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
         <!-- <link rel="stylesheet" href="{%static 'css/style_room.css'%}"> -->
         <link rel="stylesheet" href="{%static 'css/rooms/style_area.css'%}">
-   
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     </head>
     <body>
-        <!-- <div class="menu">
-            <ul>
-                <li id="coffee-1"><h1>coffee1</h1></li>
-                <li id="coffee-2"><h1>coffee2</h1></li>
-                <li id="coffee-3"><h1>coffee3</h1></li>
-                <li id="coffee-4"><h1>coffee4</h1></li>
-                <li id="coffee-5"><h1>coffee5</h1></li>
-                <li id="coffee-6"><h1>coffee6</h1></li>
-              
-            </ul>
-        </div> -->
+        <div class="container">
+            <div class="eventCustomer">
+                <button id="event-Order">Nhấn E để mua Coffee</button>
+            </div> 
+            <div class="menu">
+                
+                <div class="dt-menu">
+                    <button class="btn-exitMenu">X</button>
+                    <ul class="menu1">
+                        <li id="1"><p>Coffe 1</p><p>5$</p></li>
+                        <li id="2"><p>Coffe 2</p><p>5$</p></li>
+                        <li id="3"><p>Coffe 3</p><p>5$</p></li>
+                    </ul>
+                    <ul class="menu2">
+                        <li id="4"><p>Coffe 4</p><p>5$</p></li>
+                        <li id="5"><p>Coffe 5</p><p>5$</p></li>
+                        <li id="6"><p>Coffe 6</p><p>5$</p></li>
+                    </ul>
+                    <ul class="menu3">
+                        <li id="7"><p>Coffe 7</p><p>5$</p></li>
+                        <li id="8"><p>Coffe 8</p><p>5$</p></li>
+                        <li id="9"><p>Coffe 9</p><p>5$</p></li>
+                        <li id="10"><p>Coffe 10</p><p>5$</p></li>
+                    </ul>
+                </div>
+                <button class="btn-order">Order1</button>
+                
+            </div>
+        </div>
         <canvas id="canvas">
             
         </canvas>
@@ -29,6 +47,6 @@
        {{ username|json_script:"json-username" }}
         
       <script src="{%static 'js/area.js'%}"></script>
-      <script src="{%static 'js/eventOrder.js'%}"></script>
+    
     </body>
 </html>

@@ -3,18 +3,11 @@
     padding: 0;
     margin: 0;
 }
-#canvas {
-   
-    display: block;
-    margin: 0 auto;
-    border: solid 6px rgb(10, 5, 5);
-    border-radius: 10px;
-}
 
 .eventCustomer{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
 }
 .eventCustomer #event-Order{
     position: absolute;
@@ -38,6 +31,7 @@
     background-image: url('../../image/MenuCoffee.png');
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 1;
 }
 .dt-menu{
     width: 555px;
@@ -104,6 +98,5 @@ ul li:active{
 .order:hover{
     background-color: brown;
 }
-
 
 

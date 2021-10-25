@@ -4,17 +4,44 @@
     <head>
         <meta charset="utf-8"/>
         <title>Chatty</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+        
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
         <link rel="stylesheet" href="{%static 'css/rooms/style_room.css'%}">
    
     </head>
     <body> 
         <canvas id="canvas"></canvas>
-    
+        <div class="container">
+            <div class="section">
+                <div class="panel-user">
+                    <button class="home">Home</button>
+                    <button class="btn-messenger"><i class='bx bxs-message-dots' ></i></button>
+                    <button class="btn-friends"><i class='bx bxs-user-detail'></i></button>
+                </div>
+                <div class="sub-panel">
+                    <div class="sub-chat">
+                        <div class="nav-chat">
+                            <h1 id="titleChat">Chat</h1>
+                            <button class="hidden-nav-chat"> >> </p>
+                        </div>
+                        <div class="box-chat" style="overflow-y: scroll;">
+                            {% for m in messages %}
+                                <b><i class='bx bx-user-circle'></i> {{ m.username }}</b>:<p>{{ m.content }}</p>
+                            {% endfor %} 
+                        
+                        </div>
+                        <div class="box-send">
+                            <input id="input-messenger" type="text">
+                            <button id="chat-messenger-submit"><i class='bx bxs-send' ></i></button>
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
        {{ room_name|json_script:"json-roomname" }}
        {{ username|json_script:"json-username" }}
-        
        <script src="{%static 'js/animate.js'%}"></script>
-      
+       <script src="{%static 'js/animate-btn.js'%}"></script>
     </body>
 </html>

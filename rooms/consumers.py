@@ -15,7 +15,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
             self.room_group_name,
             self.channel_name
         )
-
         await self.accept()
     
     async def disconnect(self, close_code):
@@ -38,7 +37,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
         avtCharacters=data['avtCharacters']
         checkCoffee=data['checkCoffee']
         idCoffee=data['idCoffee']
-        # await self.save_message(username, room, message)
+
+       
+
+        await self.save_message(username, room, message)
+        
+
 
         # Send message to room group
         await self.channel_layer.group_send(
@@ -56,6 +60,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 'idCoffee':idCoffee
             }
         )
+
     
     # Receive message from room group
     async def chat_message(self, event):
@@ -80,9 +85,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
             'checkCoffee':checkCoffee,
             'frameReverse':frameReverse,
             'idCoffee':idCoffee
-           
         }))
 
     @sync_to_async
     def save_message(self, username, room, message):
-        Message.objects.create(username=username, room=room, content=message)
+        if message!="":
+          
+            Message.objects.create(username=username, room=room, content=message)

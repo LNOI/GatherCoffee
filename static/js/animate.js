@@ -1,25 +1,21 @@
 var avtCharacters=sessionStorage.getItem("avtCharacters");
-console.log(avtCharacters);
 const canvas=document.getElementById("canvas");
 const context=canvas.getContext("2d");
-const width=canvas.width=1500;
-const height=canvas.height=600;
+const width=canvas.width= window.innerWidth;
+const height=canvas.height= window.innerHeight;
 const fps=60;
-
-// ----------------------------image character---------------
 const spriteSheet=new Image();
 spriteSheet.src="/static/image/animate-"+avtCharacters+".png"
 const frameWidth=150;
 const frameHeight=170;
-
 const Background=new Image();
 Background.src="/static/image/Lobby.png";
 const widthLobby=2000;
 const heightLobby=1000;
 var bgframex=0;
 var bgframey=0;
-const bgWidth=1500;
-const bgHeight=600;
+const bgWidth=width;
+const bgHeight=height;
 const bgPosX=0;
 const bgPosY=0;
 
@@ -31,11 +27,10 @@ var reverse=0;
 const scale=1;
 const secondsToUpdate=1*fps;
 var frameIndex=0;
-canvas.style.marginTop=window.innerHeight/2-height/2+"px";
+
 context.scale(1,1);
 
 function animateMain(){
-
     context.drawImage(
         Background,
         bgframex,
@@ -113,7 +108,6 @@ document.addEventListener("keydown",(e)=>{
         reverse=0;
         xPos+=walk;
 
-       
         if (xPos>=1150) {
             if(bgframex+bgWidth<=widthLobby-20){
             
@@ -174,15 +168,14 @@ document.addEventListener("keydown",(e)=>{
         'xPos':xPos+bgframex,
         'yPos':yPos+bgframey,
         'avtCharacters':avtCharacters,
-        'checkCoffee':0
+        'checkCoffee':0,
+        'idCoffee':0,
     }));
     CheckArea();
 
-
-
 }) 
 function CheckArea(){
-    console.log("offset x: "+(xPos+bgframex)+"   y :"+(yPos+bgframey))
+  
     if(xPos+bgframex>=430 && bgframex+xPos<=590 && yPos+bgframey>=240 && bgframey+yPos<=320){
         indexArea=1;
         console.log("area1");
@@ -217,7 +210,9 @@ chatSocket.onmessage = function(e) {
         console.log("Disconect");
         return;
     }
-    
+    if (data.message){
+        document.querySelector('.box-chat').innerHTML += ('<b><i class="bx bx-user-circle"></i>' + data.username + '</b>: <p>' + data.message + '</p>');
+    }
     if(!statePlayer.states[friend]&&friend!=userName){
         statePlayer.generalState(friend,0,0,1);
     }
@@ -252,4 +247,33 @@ document.addEventListener("keydown",(e)=>{
     }));
     window.location.replace('/room/area-'+indexArea+"/?username="+userName);
     }
+})
+
+
+
+
+const fieldInput=document.querySelector("#input-messenger");
+const btnMessSubmit=document.querySelector("#chat-messenger-submit");
+const btnHome=document.querySelector(".home");
+btnHome.addEventListener("click",()=>{
+    window.location.href="/";
+})
+btnMessSubmit.addEventListener("click",()=>{
+    
+     var mess=fieldInput.value;
+     if(mess){
+        chatSocket.send(JSON.stringify({
+            'message': mess,
+            'username': userName,
+            'room': roomName,
+            'indexFrame':frameIndex,
+            'frameReverse':reverse,
+            'xPos':xPos+bgframex,
+            'yPos':yPos+bgframey,
+            'avtCharacters':avtCharacters,
+            'checkCoffee':0,
+            'idCoffee':0,
+        }));
+     }
+     fieldInput.value="";
 })

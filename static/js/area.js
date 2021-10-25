@@ -2,8 +2,8 @@ var avtCharacters=sessionStorage.getItem("avtCharacters");
 console.log(avtCharacters);
 const canvas=document.getElementById("canvas");
 const context=canvas.getContext("2d");
-const width=canvas.width=1500;
-const height=canvas.height=600;
+const width=canvas.width=window.innerWidth;
+const height=canvas.height=window.innerHeight;
 const fps=60;
 
 // ----------------------------image character---------------
@@ -18,8 +18,8 @@ const widthJangNam=3112;
 const heightJangNam=1868;
 var bgframex=0;
 var bgframey=0;
-const bgWidth=1500;
-const bgHeight=600;
+const bgWidth=width;
+const bgHeight=height;
 const bgPosX=0;
 const bgPosY=0;
 
@@ -93,7 +93,7 @@ function animateSub(indexFrameSub,xPosSub,yPosSub,reSub,avtFriends,checkCoffee,i
     const friend=new Image();
     friend.src="/static/image/animate-"+avtFriends+".png"
     const cfOfFriend=new Image();
-    cfOfFriend.src="/static/image/h"+idCoffee+".png";
+    cfOfFriend.src="/static/image/Drink_of_Store_1/Drink_"+idCoffee+".png";
     context.drawImage(
         friend,
         frameWidth*indexFrameSub,
@@ -235,7 +235,7 @@ document.addEventListener("keydown",(e)=>{
 
 
 function CheckArea(){
-    // console.log("offset x: "+(xPos+bgframex)+"   y :"+(yPos+bgframey))
+   
    CheckOrder();
     
 }
@@ -302,11 +302,13 @@ var eventOrder=document.getElementById("event-Order");
 var btnExitMenu=document.querySelector(".btn-exitMenu");
 var btnOrderMenu=document.querySelector(".btn-order");
 var idCoffee=1;
+var lobby=document.querySelector(".lobby");
 function initMenu(){
     listDrinkCoffee.forEach((e)=>{
         e.addEventListener("click",()=>{
             e.style.background="rgb(65, 168, 236)";
-            imageCoffee.src="/static/image/h"+e.id+".png";
+            imageCoffee.src="/static/image/Drink_of_Store_1/Drink_"+e.id+".png";
+            console.log(imageCoffee.src);
             idCoffee=e.id;
             listDrinkCoffee.forEach((other)=>{
                 if(other!=e){
@@ -323,7 +325,14 @@ function initMenu(){
     btnOrderMenu.addEventListener("click",()=>{
         Menu.hidden=true;
         getCoffee=1;
-    })
-    
+    });
+    lobby.addEventListener("click",()=>{
+        console.log(userName);
+        window.location.href="/room/lobby/?username="+userName;
+    });
 }
 initMenu();
+
+
+
+

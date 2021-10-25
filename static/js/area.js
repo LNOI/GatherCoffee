@@ -24,7 +24,6 @@ const bgPosX=0;
 const bgPosY=0;
 
 
-
 var xPos=10;
 var yPos=200;
 var count=0;
@@ -154,22 +153,22 @@ document.addEventListener("keydown",(e)=>{
         checkKey=1;
         reverse=0;
         xPos+=walk;
-        if (xPos>=1000) {
-            if(bgframex+bgWidth<=widthJangNam-20){
+        if (xPos>=(width/2+30)) {
+            if(bgframex+bgWidth<=widthJangNam){
             
-                xPos=1000;
+                xPos=(width/2+30);
                 bgframex+=walk;
             };
         }
-        if(xPos>=width) xPos=width;
+        if(xPos>=width-150) xPos=width-150;
     }else if(e.key=='a'){
         checkKey=1;
         xPos-=walk;
         reverse=1;
        
-        if (xPos<=350){
+        if (xPos<=(width/2-80)){
             if(bgframex>=30){
-                xPos=350;
+                xPos=(width/2-80);
                 bgframex-=walk;
             };
         };
@@ -178,9 +177,9 @@ document.addEventListener("keydown",(e)=>{
     else if(e.key=='w'){
         checkKey=1;
         yPos-=walk;
-        if(yPos<=100) {
+        if(yPos<=(height/2-50)) {
             if(bgframey>=30){
-                yPos=100;
+                yPos=(height/2-50);
                 bgframey-=walk;
             };
         };
@@ -190,13 +189,13 @@ document.addEventListener("keydown",(e)=>{
     else if(e.key=='s'){
         checkKey=1;
         yPos+=walk;
-        if(yPos>=300){
+        if(yPos>=(height/2+30)){
             if(bgframey+bgHeight<=heightJangNam){
-                yPos=300;
+                yPos=(height/2+30);
                 bgframey+=walk;
             };
         } 
-        if (yPos>=height) yPos=height;
+        if (yPos>=height-150) yPos=height-150;
     }
     else if (e.key=="e"|| e.key=="E"){
         if(!eventOrder.hidden){
@@ -274,6 +273,9 @@ chatSocket.onmessage = function(e) {
         console.log("Disconect");
         return;
     }
+    if (data.message){
+        document.querySelector('.box-chat').innerHTML += ('<b><i class="bx bx-user-circle"></i>' + data.username + '</b>: <p>' + data.message + '</p>');
+    }
     if(!statePlayer.states[friend]&&friend!=userName){
         statePlayer.generalState(friend,0,0,1,0,0);
     }
@@ -303,6 +305,8 @@ var btnExitMenu=document.querySelector(".btn-exitMenu");
 var btnOrderMenu=document.querySelector(".btn-order");
 var idCoffee=1;
 var lobby=document.querySelector(".lobby");
+const fieldInput=document.querySelector("#input-messenger");
+const btnMessSubmit=document.querySelector("#chat-messenger-submit");
 function initMenu(){
     listDrinkCoffee.forEach((e)=>{
         e.addEventListener("click",()=>{
@@ -330,6 +334,28 @@ function initMenu(){
         console.log(userName);
         window.location.href="/room/lobby/?username="+userName;
     });
+
+    btnMessSubmit.addEventListener("click",()=>{
+        
+        var mess=fieldInput.value;
+        if(mess){
+            console.log(mess);
+           chatSocket.send(JSON.stringify({
+               'message': mess,
+               'username': userName,
+               'room': roomName,
+               'indexFrame':frameIndex,
+               'frameReverse':reverse,
+               'xPos':xPos+bgframex,
+               'yPos':yPos+bgframey,
+               'avtCharacters':avtCharacters,
+               'checkCoffee':0,
+               'idCoffee':0,
+           }));
+        }
+        fieldInput.value="";
+   })
+
 }
 initMenu();
 

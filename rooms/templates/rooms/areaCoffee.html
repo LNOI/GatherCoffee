@@ -11,9 +11,7 @@
     </head>
     <body>
         <div class="container">
-           
         </div>
-
         <div class="container">
             <div class="eventCustomer">
                 <button id="event-Order">Nhấn E để mua Coffee</button>
@@ -58,6 +56,9 @@
                             {% endfor %} 
                         
                         </div>
+                        <div class="box-friends" style="overflow-y: scroll;">
+                            <b><i class='bx bx-user-circle'></i> ALEX</b>
+                        </div>
                         <div class="box-send">
                             <input id="input-messenger" type="text">
                             <button id="chat-messenger-submit"><i class='bx bxs-send' ></i></button>
@@ -74,6 +75,6 @@
        {{ username|json_script:"json-username" }}
         
       <script src="{%static 'js/area.js'%}"></script>
-    
+      <script src="{%static 'js/animate-btn.js'%}"></script>
     </body>
 </html>

@@ -81,7 +81,6 @@ const statePlayer={
                 yPosFriend:yPosFriend,
                 avtCharacters:avtCharacters,
                 
-
             }
         }
     },
@@ -108,21 +107,21 @@ document.addEventListener("keydown",(e)=>{
         reverse=0;
         xPos+=walk;
 
-        if (xPos>=1150) {
+        if (xPos>=(width/2+30)) {
             if(bgframex+bgWidth<=widthLobby-20){
             
-                xPos=1150;
+                xPos=(width/2+30);
                 bgframex+=walk;
             };
         }
-        if(xPos>=width) xPos=width-100;
+        if(xPos>=width-150) xPos=width-150;
     }else if(e.key=='a'){
         xPos-=walk;
         reverse=1;
        
-        if (xPos<=350){
+        if (xPos<=(width/2-80)){
             if(bgframex>=30){
-                xPos=350;
+                xPos=(width/2-80);
                 bgframex-=walk;
             };
         };
@@ -131,9 +130,9 @@ document.addEventListener("keydown",(e)=>{
     else if(e.key=='w'){
         yPos-=walk;
 
-        if(yPos<=100) {
+        if(yPos<=(height/2-50)) {
             if(bgframey>=30){
-                yPos=100;
+                yPos=(height/2-50);
                 bgframey-=walk;
             };
         };
@@ -142,13 +141,13 @@ document.addEventListener("keydown",(e)=>{
     }
     else if(e.key=='s'){
         yPos+=walk;
-        if(yPos>=500){
+        if(yPos>=(height/2+30)){
             if(bgframey+bgHeight<=heightLobby-20){
-                yPos=500;
+                yPos=(height/2+30);
                 bgframey+=walk;
             };
         } 
-        if (yPos>=height) yPos=height;
+        if (yPos>=height-150) yPos=height-150;
     }
     if (count > 1){
         frameIndex++;
@@ -258,6 +257,7 @@ const btnHome=document.querySelector(".home");
 btnHome.addEventListener("click",()=>{
     window.location.href="/";
 })
+
 btnMessSubmit.addEventListener("click",()=>{
     
      var mess=fieldInput.value;

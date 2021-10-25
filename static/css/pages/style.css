@@ -1,52 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-#logo , .nav_links , #login{
+#logo,
+.nav_links,
+#login {
     font-family: 'Open Sans', sans-serif;
     color: rgb(7, 10, 10);
-    
 }
 
-nav{
+nav {
     margin: 10px 0px 0 0;
     display: flex;
-    justify-content:flex-end;
+    justify-content: flex-end;
     align-items: center;
     padding: 30px 10%;
-  
-   
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
-#logo{
+#logo {
     margin-right: auto;
     cursor: pointer;
     font-size: 45px;
     color: rgb(26, 231, 221);
     font-family: 'Nunito Sans', sans-serif;
-    
 }
-.nav_links{
+
+.nav_links {
     list-style: none;
-    
 }
-.nav_links li{
+
+.nav_links li {
     display: inline-block;
     margin: 0 20px 0 0;
     cursor: pointer;
 }
-.nav_links li{
-    
+
+.nav_links li {
     transition: all 0.3s ease 0s;
 }
-.nav_links li:hover{
 
+.nav_links li:hover {
     color: black;
 }
-#login{
+
+#login {
     width: 100px;
     height: 30px;
     background-color: rgb(250, 229, 215);
@@ -55,68 +56,12 @@ nav{
     color: black;
     transition: all 0.3s ease 0s;
 }
-#login:hover{
+
+#login:hover {
     background-color: rgb(59, 107, 240);
     color: azure;
 }
 
-
-
-.content{
-    margin: 10px 0 0 0;
-    width:100%;
-    height: 1000px;
-    display: flex;
-    justify-content:space-between ;
-    padding: 50px 5%;
-   
-}
-
-.content .cont-left{
-    padding: 5% 5%;
-
-    
-}
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
-.cont-left h1{
-    font-family: 'PT Serif', serif;
-    font-size: 50px;
-    opacity: 0.9;
-}
-
-
-
-.cont-left h5{
-    margin: 40px 0 0 15px;
-    font-size: 25px;
-    opacity: 0.5;
-}
-.content .cont-right{
-    
-    width: 600px;
-    height: 600px;
-    display: flex;
-   
-    flex-direction: column;
-    padding: 5% 10%;
-   
-}
-.content .cont-left button#btn-register{
-    margin:50px 0 0 200px;
-    font-family: 'Open Sans', sans-serif;
-    border: none;
-    background-color: rgb(89, 200, 228);
-    color:white;
-    border-radius: 25px;
-    width: 150px;
-    font-size: 20px;
-    height: 50px;
-    
-}
-.cont-right img{
-    width: 25%;
-    height: 25%;
-}
 
 /* footer{
    
@@ -130,106 +75,123 @@ footer .about,.school,.mail{
     font-size: 10px;
 } */
 
+
 /* Hop them ngay 9/10/2021 */
+
+
 /* footer */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-.footer{
-    background-color:#24262b ;
+.footer {
+    background-color: #24262b;
     padding: 70px 0;
 }
-.container{
+
+.container {
     max-width: 90%;
     margin: auto;
-    
 }
-.row{
+
+.row {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 }
-.footer-col{
+
+.footer-col {
     width: 25%;
     padding: 0 15px;
 }
-.footer-col h4{
+
+.footer-col h4 {
     font-family: 'Roboto Mono', monospace;
     font-size: 18px;
-    color:#ffffff;
+    color: #ffffff;
     text-transform: capitalize;
     margin-bottom: 35px;
-    position:relative;
+    position: relative;
 }
-.footer-col h4::before{
-    content:'';
+
+.footer-col h4::before {
+    content: '';
     position: absolute;
-    left:0;
+    left: 0;
     bottom: -10px;
     background-color: #e91e63;
     height: 2px;
     box-sizing: border-box;
     width: 50px;
 }
-.footer-col ul li:not(:last-child){
-    margin-bottom: 10px;
 
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
 }
-.footer-col ul li a{
+
+.footer-col ul li a {
     font-size: 16px;
     text-transform: capitalize;
     color: #ffffff;
     text-decoration: none;
-    font-weight:300 ;
-    color:#bbbbbb;
+    font-weight: 300;
+    color: #bbbbbb;
     display: block;
     transition: all 0.3s ease;
 }
-.footer-col ul li a:hover{
-    color:#ffffff;
+
+.footer-col ul li a:hover {
+    color: #ffffff;
     padding-left: 8px;
 }
-.footer-col .social-links a{
+
+.footer-col .social-links a {
     display: inline-block;
     height: 40px;
     width: 40px;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     margin-right: 10px;
     margin: 0 10px 10px 0;
     text-align: center;
     line-height: 40px;
     border-radius: 50%;
-    color:#ffffff;
+    color: #ffffff;
     transition: all 0.5s ease;
 }
-.footer-col .social-links a:hover{
-    color:#24262b;
+
+.footer-col .social-links a:hover {
+    color: #24262b;
     background-color: #ffffff;
 }
-.footer-col p{
-    color:#bbbbbb;
+
+.footer-col p {
+    color: #bbbbbb;
     padding-bottom: 8px;
 }
-.footer-col p:hover{
-    color:#ffffff;
+
+.footer-col p:hover {
+    color: #ffffff;
     padding-left: 8px;
 }
-@media(max-width: 767px){
-    .footer-col{
-        width:50%;
+
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
         margin-bottom: 30px;
     }
 }
-@media(max-width: 574px){
-    .footer-col{
-        width:100%;
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
     }
 }
-ul{
+
+ul {
     list-style: none;
 }
 
 
-
 /* Login */
-#btn-login{
+
+#btn-login {
     padding: 9px 25px;
     background-color: rgb(26, 231, 221);
     border: none;
@@ -239,8 +201,202 @@ ul{
     width: 150px;
 }
 
-#btn-login:hover{
+#btn-login:hover {
     background-color: #4BFB6A;
 }
+
+
 /* /* End Hop them ngay 9/10/2021 * */
 
+
+/* Hop them ngay 24/10/2021 */
+
+.content {
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 670px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5%;
+}
+
+.content .cont-left {
+    padding: 5% 5%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+.cont-left h1 {
+    font-family: 'PT Serif', serif;
+    font-size: 50px;
+    opacity: 0.9;
+}
+
+.cont-left h5 {
+    margin: 40px 0 0 15px;
+    font-size: 25px;
+    opacity: 0.5;
+}
+
+.content .cont-left button#btn-register {
+    margin: 50px 0 0 200px;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    background-color: rgb(89, 200, 228);
+    color: white;
+    border-radius: 25px;
+    width: 150px;
+    font-size: 20px;
+    height: 50px;
+}
+
+.content .cont-right {
+    width: 700px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    /* padding: 5% 10%; */
+}
+
+.content .cont-right .div_cha1 {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 390px;
+    top: 150px;
+}
+
+.content .cont-right .div_mess1 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 368px;
+    top: 135px;
+}
+
+.content .cont-right .div_cha2 {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 268px;
+    top: 275px;
+}
+
+.content .cont-right .div_mess2 {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 200px;
+    top: 241px;
+}
+
+.content .cont-right .div_cha3 {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 182px;
+    top: 370px;
+}
+
+.content .cont-right .div_mess3 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 190px;
+    top: 470px;
+}
+
+.content .cont-right .div_cha4 {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 290px;
+    top: 430px;
+}
+
+.content .cont-right .div_mess4 {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 280px;
+    top: 550px;
+}
+
+.content .cont-right .div_cha5 {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 477px;
+    top: 230px;
+}
+
+.content .cont-right .div_mess5 {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 550px;
+    top: 160px;
+}
+
+.content .cont-right .div_cha6 {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 478px;
+    top: 433px;
+}
+
+.content .cont-right .div_mess6 {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 470px;
+    top: 543px;
+}
+
+.content .cont-right .div_cha7 {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 583px;
+    top: 370px;
+}
+
+.content .cont-right .div_mess7 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 680px;
+    top: 340px;
+}
+
+.content .cont-right .div_cha8 {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 385px;
+    top: 330px;
+}
+
+.content .cont-right #image {
+    display: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* End Hop them 24/10/2021 */

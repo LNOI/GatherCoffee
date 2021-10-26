@@ -23,9 +23,9 @@ nav {
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
 .cont-logo{
     position: relative;
-    width: 650px;
-    margin: 0 30px 50px 0;
-
+    width: 600px;
+    margin: 0 50px 50px 0;
+   
 }
 
 .cont-logo #logo {
@@ -248,7 +248,7 @@ ul {
 }
 
 .content .cont-left {
-    padding: 10% 5%;
+    padding: 5% 5%;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
@@ -260,7 +260,7 @@ ul {
 
 
 .content .cont-left button#btn-register {
-    margin: 50px 0 0 150px;
+    margin: 80px 0 0 180px;
     font-family: 'Open Sans', sans-serif;
     border: none;
     background-color: rgb(89, 200, 228);

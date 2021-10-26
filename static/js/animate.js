@@ -66,8 +66,8 @@ function animateSub(indexFrameSub,xPosSub,yPosSub,reSub,avtFriends){
         frameHeight,
         xPosSub-bgframex,
         yPosSub-bgframey,
-        frameWidth*scale,
-        frameHeight*scale,
+        frameWidth*0.7,
+        frameHeight*0.7,
     );
 
 }

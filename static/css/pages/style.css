@@ -21,12 +21,25 @@ nav {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
-#logo {
-    margin-right: auto;
+.cont-logo{
+    position: relative;
+    width: 650px;
+    margin: 0 30px 50px 0;
+
+}
+
+.cont-logo #logo {
+    position: absolute;
     cursor: pointer;
     font-size: 45px;
     color: rgb(26, 231, 221);
     font-family: 'Nunito Sans', sans-serif;
+}
+
+.cont-logo img{
+    position: absolute;
+    top: -25px;
+    left: 180px;
 }
 
 .nav_links {
@@ -45,7 +58,17 @@ nav {
 
 .nav_links li:hover {
     color: black;
+    
 }
+.nav_links li  a{
+    text-decoration: none;
+    color: black;
+
+}
+.nav_links li  a:hover{
+    border-bottom: 3px solid #f04c36;
+}
+
 
 #login {
     width: 100px;
@@ -198,11 +221,15 @@ ul {
     border-radius: 45px;
     cursor: pointer;
     transition: all 0.2s ease 0s;
-    width: 150px;
+    width: 130px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 #btn-login:hover {
-    background-color: #4BFB6A;
+    background-color: #f04c36;
+    
 }
 
 
@@ -221,7 +248,7 @@ ul {
 }
 
 .content .cont-left {
-    padding: 5% 5%;
+    padding: 10% 5%;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
@@ -231,14 +258,9 @@ ul {
     opacity: 0.9;
 }
 
-.cont-left h5 {
-    margin: 40px 0 0 15px;
-    font-size: 25px;
-    opacity: 0.5;
-}
 
 .content .cont-left button#btn-register {
-    margin: 50px 0 0 200px;
+    margin: 50px 0 0 150px;
     font-family: 'Open Sans', sans-serif;
     border: none;
     background-color: rgb(89, 200, 228);
@@ -247,6 +269,16 @@ ul {
     width: 150px;
     font-size: 20px;
     height: 50px;
+}
+.content .cont-left button#btn-register:hover{
+    background-color: #f04c36;
+}
+.content .cont-right {
+    width: 700px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    /* padding: 5% 10%; */
 }
 
 .content .cont-right {

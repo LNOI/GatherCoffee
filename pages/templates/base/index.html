@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/pages/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/pages/textEffect.css'%}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <title>Document</title>
 
@@ -16,30 +17,33 @@
 
 <body>
     <nav>
-
-        <h1 id="logo">COFFE GATHER</h1>
+        <div class="cont-logo"> 
+            <h1 id="logo"> COFFEE &nbsp;&nbsp;&nbsp;&nbsp; GATHER</h1>
+            <img src="/static/image/background_HOME/Food/Coffee_1.png" alt="">
+        </div>
         <ul class="nav_links">
             <li>
-                <a href="#"></a>Home </li>
+                <a href="#">Home</a> </li>
             <li>
-                <a href="#"></a>About </li>
+                <a href="#">About</a> </li>
             <li>
-                <a href="#"></a>Contact </li>
+                <a href="#">Contact</a> </li>
             <li>
-                <a href="#"></a>Social</li>
+                <a href="#">Social</a></li>
             <li>
-                <a href="#"></a>Facebook</li>
+                <a href="#">Facebook</a></li>
         </ul>
         <button id="btn-login">LOG IN</button>
     </nav>
 
     <section class="content">
         <div class="cont-left">
-            <h1>Welcome to coffe online</p>
-                <h5>This is the best web presentation coffe base</h2>
-                    <button id="btn-register">Register now</button>
+            <h1>Welcome to coffee online</p>
+            <div class='console-container'><span id='text'>1212</span><div class='console-underscore' id='console'>&#95;</div></div>
+                <!-- <h5>This is the best web presentation coffee base</h2> -->
+                <button id="btn-register">Register now</button>
         </div>
-
+       
         <!-- Hop them 24/10/2021 -->
         <div class="cont-right">
             <div class=div_cha1><img src="/static/image/background_HOME/Character/Cha_1/Character_1.png" alt="hinh1" id="image"> </div>
@@ -125,7 +129,7 @@
     </footer>
 
     <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
-
+    <script src="{%static 'js/textEffect.js' %}"
     <script>
         document.getElementById("btn-login").addEventListener("click", () => {
             window.location.href = "/login";
@@ -133,6 +137,12 @@
         document.getElementById("btn-register").addEventListener("click", () => {
             window.location.href = "/create";
         });
+
+
+
+
+
+
     </script>
 </body>
 

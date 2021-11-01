@@ -6,35 +6,38 @@
         <meta charset="utf-8"/>
         <title>GattherCoffee</title>
         <link rel="stylesheet" href="{%static 'css/rooms/style_setting.css'%}">
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
     </head>
 
     <body>
-        
-        <div class="container">
-            <div class="box-name">
-                <h1 id="person_name">{{username}}</h1>
+        <div class="nav-options">
+            <div class="cont-lef"> 
+                <h1 id="logo"> COFFEE &nbsp;&nbsp;&nbsp;&nbsp; GATHER</h1>
+                <img src="{%static 'image/background_HOME/Food/Coffee_1.png'%}" alt="img">
             </div>
-          
+            <div class="cont-right">
+                 <img src="{%static 'image/avtUser/p1.png'%}" alt="avatar"><h1>{{username}}</h1>
+
+            </div>
+        </div>
+        <div class="container">
+
+            <h2>Customer</h2>
+            <input type="text" placeholder="Username" id="username-input">
+            <h2>Character</h2>
             <div class="box-character">
-                <div class="prev">&#10094;</div>
-               
+                <div class="prev"><i class='bx bx-skip-previous' ></i></div>
                 <div class="characters">
                     <img src="{%static 'image/avt-dora.png'%}" alt="characters">
                 </div>
-                <div class="next">&#10095;</div>
+                <div class="next"><i class='bx bx-skip-next' ></i></div>
             </div>
-            
-            <div class="box-submit">
 
-                <input type="text" placeholder="Username" id="username-input">
-                <button id="room-name-submit">Submit </button>
-               
-               
+            <div class="box-submit">
+                <button id="room-name-submit">Apply</button>
             </div>
-        
-            
         </div>
-       
         <script>
             var avtIndex=1;
             function Character(index){
@@ -42,7 +45,6 @@
                 if (index==1) avt.src="{%static 'image/avt-1.png'%}";
                 else if (index==2) avt.src="{%static 'image/avt-2.png'%}";
                 else avt.src="{%static 'image/avt-3.png'%}";
-             
             }
             Character(avtIndex);
             document.querySelector(".prev").addEventListener("click",()=>{
@@ -59,10 +61,8 @@
                 }
                 Character(avtIndex);
             })
-
             document.querySelector('#room-name-submit').onclick = function(e) {
                 sessionStorage.setItem("avtCharacters",avtIndex);
-                
                 var userName = document.querySelector('#username-input').value;
                 window.location.replace('lobby' + '/?username=' + userName);
             };

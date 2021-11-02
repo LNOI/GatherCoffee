@@ -4,8 +4,7 @@ const subPanel=document.querySelector(".sub-panel");
 const hdnavChat=document.querySelector(".hidden-nav-chat");
 const boxFriends=document.querySelector(".box-friends");
 const boxChat=document.querySelector(".box-chat");
-const Input=document.querySelector("#input-messenger");
-const MessSubmit=document.querySelector("#chat-messenger-submit");
+const boxsend=document.querySelector(".box-send");
 subPanel.hidden=true;
 
 btnMessenger.addEventListener("click",()=>{
@@ -14,9 +13,6 @@ btnMessenger.addEventListener("click",()=>{
     boxChat.hidden=false;
     boxSend.hidden=false;
 
-    Input.hidden=false;
-
-    MessSubmit.hidden=false;
     scrollToBottom();
 });
 
@@ -25,9 +21,6 @@ btnFriends.addEventListener("click",()=>{
     boxFriends.hidden=false;
     boxChat.hidden=true;
     boxSend.hidden=true;
-    Input.hidden=true;
-
-    MessSubmit.hidden=true;
     scrollToBottom();
 });
 

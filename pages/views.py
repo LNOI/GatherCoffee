@@ -6,12 +6,13 @@ from django.http import HttpResponseRedirect
 from .models import Account_data
 # Create your views here.
 def Home_page(request):
-    return render(request,"base/index.html",{})
+    return render(request,"base/home.html",{})
 
+def About_page(request):
+    return render(request,"base/about.html",{})
 def Login_page(request):
     forms_login=FormLogin(request.POST)
     if request.method=="POST":
-       
         forms_login=FormLogin(request.POST)
         print(request.POST)
         if forms_login.is_valid():
@@ -19,7 +20,6 @@ def Login_page(request):
             user=request.POST["username"]
             passwd=request.POST["password"]
             ac=Account_data.objects.all().filter(username=user,password=passwd)
-            
             if ac:
                 print("Login thanhconmg")
                 request.session['username']=user
@@ -27,18 +27,13 @@ def Login_page(request):
                 print("crearte session")
                 return redirect('/room')
             else:
-                print("NOt login")
-                
+                print("NOt login")         
     else:
         forms_login=FormLogin()
-
     context={
         'form':forms_login,
         'login':True,
     }
-   
-
-
     return render(request,'base/login.html',context)
 
 def Create_page(request):

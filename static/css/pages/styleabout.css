@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+    background-image: url("https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/248451068_929367044657469_4088067124055551503_n.png?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_ohc=4UyTT1UeoN8AX-kvrxL&_nc_oc=AQlVdQmppl7n50fvVFmaGwOkYeILic1ajIglOfvWhPH2IylxTuFr-yc9U0lJGHWsxhC9HC0JLeW12bWYPyDG2usI&_nc_ht=scontent.fdad3-5.fna&oh=b5c6732eb910b1c190afac624a73ddb0&oe=61A4E2D7");
+    background-size: 100% 100%;
+}
+.content .content_intro{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 100px;
+    padding: 0 150px 0 150px;
+    display: flex;
+}
+.content .content_intro .context{
+    width: 40%;
+    display: inline;
+    
+}
+.content .content_intro .context .title_1 h1{
+    margin: 5px 5px 0 0;
+    font-family: "Zen Antique Soft";
+    font-size: 36px;
+    display: inline;
+
+}
+.content .content_intro .context p{
+    margin: 10px 0 0 0;
+    font-family: "Roboto";
+    font-size: 20px;
+}
+.content .content_intro .image{
+    margin-top: 10px;
+    display: inline;
+    
+}
+.content .content_add{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0 150px 0 150px;
+    display: flex;
+}
+.content .content_add .image_2{
+    margin-top: 10px;
+    display: inline;
+    width: 40%;
+    text-align: center;
+}
+
+.content .content_add .context_2{
+    width: 40%;
+    display: inline;
+}
+.content .content_add .context_2 .title_2 h1{
+    margin: 5px 5px 0 0;
+    font-family: "Zen Antique Soft";
+    font-size: 36px;
+    display: inline;
+
+}
+.content .content_add .context_2 p{
+    margin: 10px 0 0 0;
+    font-family: "Roboto";
+    font-size: 20px;
+}

@@ -210,7 +210,7 @@ chatSocket.onmessage = function(e) {
         return;
     }
     if (data.message){
-        document.querySelector('.box-chat').innerHTML += ('<b><i class="bx bx-user-circle"></i>' + data.username + '</b>: <p>' + data.message + '</p>');
+        document.querySelector('.box-chat').innerHTML += ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p>' + data.message + '</p> </div>');
     }
     if(!statePlayer.states[friend]&&friend!=userName){
         statePlayer.generalState(friend,0,0,1);
@@ -248,9 +248,6 @@ document.addEventListener("keydown",(e)=>{
     }
 })
 
-
-
-
 const fieldInput=document.querySelector("#input-messenger");
 const btnMessSubmit=document.querySelector("#chat-messenger-submit");
 const btnHome=document.querySelector(".home");
@@ -259,7 +256,6 @@ btnHome.addEventListener("click",()=>{
 })
 
 btnMessSubmit.addEventListener("click",()=>{
-    
      var mess=fieldInput.value;
      if(mess){
         chatSocket.send(JSON.stringify({

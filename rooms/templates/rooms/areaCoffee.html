@@ -13,6 +13,7 @@
         <div class="container">
         </div>
         <div class="container">
+            <div id="myMoney"><div> <img src="/static/image/dollars.png" alt=""> <p>100</p></div></div>
             <div class="eventCustomer">
                 <button id="event-Order">Nhấn E để mua Coffee</button>
             </div>
@@ -39,25 +40,30 @@
                 <button class="btn-order">Order1</button>
             </div>
             <div class="section">
-                 <div class="panel-user">
-                    <button class="lobby">Lobby</button>
-                    <button class="btn-messenger"><i class='bx bxs-message-dots' ></i></button>
-                    <button class="btn-friends"><i class='bx bxs-user-detail'></i></button>
+                <div class="panel-user">
+                    <button class="home lobby"> <img src="/static/image/Drink_of_Store_1/Drink_7.png" alt="coffe"></button>
+                    <button class="btn-messenger"><img src="/static/image/Button/messenger.png" alt="messenger"></i></button>
+                    <button class="btn-friends"><img src="/static/image/Button/people.png" alt="people"></i></button>
                 </div>
                 <div class="sub-panel">
                     <div class="sub-chat">
                         <div class="nav-chat">
                             <h1 id="titleChat">Chat</h1>
-                            <button class="hidden-nav-chat"> >> </p>
+                            <button class="hidden-nav-chat"> <img src="/static/image/Button/hidden.png" alt="hidden"> </p>
+                        </div>
+                        <div class="navcoffee">
+                            <img src="/static/image/navcoffee.png" alt="navcoffee">
                         </div>
                         <div class="box-chat" style="overflow-y: scroll;">
                             {% for m in messages %}
-                                <b><i class='bx bx-user-circle'></i> {{ m.username }}</b>:<p>{{ m.content }}</p>
+                            <div>
+                                <img src="/static/image/avtUser/p2.png" alt=""><b> {{ m.username }}</b>:<p>{{ m.content }}</p>
+                            </div>
                             {% endfor %} 
-                        
+    
                         </div>
                         <div class="box-friends" style="overflow-y: scroll;">
-                            <b><i class='bx bx-user-circle'></i> ALEX</b>
+                            <b><img src="/static/image/avtUser/p2.png" alt=""></i> ALEX</b>
                         </div>
                         <div class="box-send">
                             <input id="input-messenger" type="text">
@@ -73,7 +79,6 @@
         <div></div>
        {{ room_name|json_script:"json-roomname" }}
        {{ username|json_script:"json-username" }}
-        
       <script src="{%static 'js/area.js'%}"></script>
       <script src="{%static 'js/animate-btn.js'%}"></script>
     </body>

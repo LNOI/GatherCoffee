@@ -231,8 +231,6 @@ document.addEventListener("keydown",(e)=>{
    
 }) 
 
-
-
 function CheckArea(){
    
    CheckOrder();
@@ -274,7 +272,7 @@ chatSocket.onmessage = function(e) {
         return;
     }
     if (data.message){
-        document.querySelector('.box-chat').innerHTML += ('<b><i class="bx bx-user-circle"></i>' + data.username + '</b>: <p>' + data.message + '</p>');
+        document.querySelector('.box-chat').innerHTML +=  ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p>' + data.message + '</p> </div>');
     }
     if(!statePlayer.states[friend]&&friend!=userName){
         statePlayer.generalState(friend,0,0,1,0,0);
@@ -296,7 +294,6 @@ chatSocket.onclose = function(e) {
 };
 
 
-// --------------------------------------------Event Order----------------------------------------------
 
 var listDrinkCoffee=document.querySelectorAll(".menu .dt-menu ul li");
 var Menu=document.querySelector(".menu");
@@ -307,13 +304,16 @@ var idCoffee=1;
 var lobby=document.querySelector(".lobby");
 const fieldInput=document.querySelector("#input-messenger");
 const btnMessSubmit=document.querySelector("#chat-messenger-submit");
+const valueMoney=document.querySelector("#myMoney p");
+
+
 function initMenu(){
     listDrinkCoffee.forEach((e)=>{
         e.addEventListener("click",()=>{
             e.style.background="rgb(65, 168, 236)";
             imageCoffee.src="/static/image/Drink_of_Store_1/Drink_"+e.id+".png";
-            console.log(imageCoffee.src);
             idCoffee=e.id;
+           
             listDrinkCoffee.forEach((other)=>{
                 if(other!=e){
                     other.style.background="";
@@ -328,16 +328,17 @@ function initMenu(){
     })
     btnOrderMenu.addEventListener("click",()=>{
         Menu.hidden=true;
+        valueMoney.innerHTML=parseInt(valueMoney.innerHTML)-20;
         getCoffee=1;
+        
     });
     lobby.addEventListener("click",()=>{
-        console.log(userName);
         window.location.href="/room/lobby/?username="+userName;
     });
 
     btnMessSubmit.addEventListener("click",()=>{
-        
         var mess=fieldInput.value;
+        console.log("Ok");
         if(mess){
             console.log(mess);
            chatSocket.send(JSON.stringify({
@@ -355,7 +356,6 @@ function initMenu(){
         }
         fieldInput.value="";
    })
-
 }
 initMenu();
 

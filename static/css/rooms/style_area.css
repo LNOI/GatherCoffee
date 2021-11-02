@@ -3,7 +3,29 @@
     padding: 0;
     margin: 0;
 }
+#myMoney{
+    position: absolute;
+    width: 100px;
+    align-items: center;
 
+}
+#myMoney div{
+    position: relative;
+}
+#myMoney  div img{
+    position: absolute;
+    width: 50px;
+    left: 0px;
+    top: 0px;
+}
+#myMoney div p{
+    position: absolute;
+    left: 60px;
+    top: 8px;
+    font-size: 30px;
+    font-weight: bold;
+    color: azure;
+}
 .eventCustomer{
     position: absolute;
     top: 0px;

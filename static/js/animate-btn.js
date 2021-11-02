@@ -4,7 +4,8 @@ const subPanel=document.querySelector(".sub-panel");
 const hdnavChat=document.querySelector(".hidden-nav-chat");
 const boxFriends=document.querySelector(".box-friends");
 const boxChat=document.querySelector(".box-chat");
-const boxsend=document.querySelector(".box-send");
+const boxSend=document.querySelector(".box-send");
+
 subPanel.hidden=true;
 
 btnMessenger.addEventListener("click",()=>{
@@ -12,7 +13,6 @@ btnMessenger.addEventListener("click",()=>{
     boxFriends.hidden=true;
     boxChat.hidden=false;
     boxSend.hidden=false;
-
     scrollToBottom();
 });
 
@@ -21,6 +21,7 @@ btnFriends.addEventListener("click",()=>{
     boxFriends.hidden=false;
     boxChat.hidden=true;
     boxSend.hidden=true;
+    console.log(boxSend);
     scrollToBottom();
 });
 

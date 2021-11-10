@@ -66,7 +66,7 @@ def Create_page(request):
         if forms_create.is_valid():
             print('3')
             if request.POST["password"]== request.POST["repassword"]:
-              
+                
                 if Account_data.objects.filter(username=request.POST["username"]).count()==0:
                     account={
                         "email":request.POST["email"],
@@ -90,7 +90,6 @@ def Create_page(request):
 
     }
     return render(request,'base/login.html',context)
-
 def InformationUser(request):
     context={}
     if request.method=="GET":

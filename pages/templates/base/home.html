@@ -3,6 +3,7 @@
 {% block stylecss%}
 <link rel="stylesheet" href="{% static 'css/pages/style.css'%}">
 <link rel="stylesheet" href="{% static 'css/pages/textEffect.css'%}">
+
 {% endblock %}
 {% block content %}
     <section class="content">
@@ -38,17 +39,5 @@
    
     <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
     <script src="{%static 'js/textEffect.js' %}"></script>
-    <script>
-        document.getElementById("btn-gocoffee").addEventListener("click",()=>{
-                console.log("pk");
-        })
-        document.getElementById("btn-login").addEventListener("click", () => {
-            window.location.href = "/login";
-        });
-        document.getElementById("btn-register").addEventListener("click", () => {
-            window.location.href = "/create";
-        });
-        
 
-    </script>
 {% endblock %}

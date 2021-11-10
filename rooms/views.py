@@ -4,7 +4,6 @@ from django.shortcuts import render
 from .models import Message
 
 def settingUser(request):
-    print("User name: "+ request.session["username"])
     context={
         'username':request.session["username"]
     }

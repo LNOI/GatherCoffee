@@ -24,13 +24,16 @@ function InitBase(){
             window.location.href = "/logout";
         })
     }
-    
     if(btnGetUser){
         btnGetUser.addEventListener("click",()=>{
-            window.location.href = "/info/?username=thanhloi";
+          
+            var name=document.querySelector(".box-information #info-users p").innerHTML;
+
+            window.location.href = "/info/?username="+name;
         })
     }
-   
+
+
     if(btnlogin){
         btnlogin.addEventListener("click", () => {
             window.location.href = "/login";

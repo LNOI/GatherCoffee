@@ -96,7 +96,6 @@ function frame(){
     Object.keys(statePlayer.states).forEach((name)=>{
          animateSub(statePlayer.states[name].indexFrame,statePlayer.states[name].xPosFriend,statePlayer.states[name].yPosFriend,statePlayer.states[name].frameReverse,statePlayer.states[name].avtCharacters);
     });
-
     requestAnimationFrame(frame);
 }
 
@@ -156,7 +155,6 @@ document.addEventListener("keydown",(e)=>{
     if (frameIndex >5){
         frameIndex=0;
     }
-   
     count++;
     chatSocket.send(JSON.stringify({
         'message': '',
@@ -171,10 +169,8 @@ document.addEventListener("keydown",(e)=>{
         'idCoffee':0,
     }));
     CheckArea();
-
 }) 
 function CheckArea(){
-  
     if(xPos+bgframex>=430 && bgframex+xPos<=590 && yPos+bgframey>=240 && bgframey+yPos<=320){
         indexArea=1;
         console.log("area1");
@@ -182,7 +178,6 @@ function CheckArea(){
         indexArea=0;
     }
 }
-
 frame();
 
 // ----------------------------------------------------------------------------------------------------
@@ -199,8 +194,23 @@ const chatSocket = new WebSocket(
 );
 
 chatSocket.onopen=function(e){
-    console.log(e);
+    console.log("1 ket noi da vao");
+    chatSocket.send(JSON.stringify({
+        'message': "Connecting",
+        'username': userName,
+        'room': roomName,
+        'indexFrame':0,
+        'frameReverse':0,
+        'xPos':10,
+        'yPos':400,
+        'avtCharacters':avtCharacters,
+        'checkCoffee':0,
+        'idCoffee':0,
+    }));
+
 }
+
+
 chatSocket.onmessage = function(e) {
     const data = JSON.parse(e.data);
     const friend=data.username;
@@ -209,6 +219,7 @@ chatSocket.onmessage = function(e) {
         console.log("Disconect");
         return;
     }
+   
     if (data.message){
         document.querySelector('.box-chat').innerHTML += ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p>' + data.message + '</p> </div>');
     }
@@ -216,13 +227,28 @@ chatSocket.onmessage = function(e) {
         statePlayer.generalState(friend,0,0,1);
     }
     if(friend!=userName){
+
         statePlayer.states[friend].indexFrame=data.indexFrame;
         statePlayer.states[friend].frameReverse=data.frameReverse;
         statePlayer.states[friend].xPosFriend=data.xPos;
         statePlayer.states[friend].yPosFriend=data.yPos;
         statePlayer.states[friend].avtCharacters=data.avtCharacters;
-
         console.log("Doi phuong="+data.avtCharacters);
+        
+        if (data.message=="Connecting" ){
+            chatSocket.send(JSON.stringify({
+                'message': '',
+                'username': userName,
+                'room': roomName,
+                'indexFrame':frameIndex,
+                'frameReverse':reverse,
+                'xPos':xPos+bgframex,
+                'yPos':yPos+bgframey,
+                'avtCharacters':avtCharacters,
+                'checkCoffee':0,
+                'idCoffee':0,
+            }));
+        }
     }
 };
 

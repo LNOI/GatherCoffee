@@ -1,15 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8"/>
         <title>GattherCoffee</title>
         <link rel="stylesheet" href="{%static 'css/rooms/style_setting.css'%}">
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-
     </head>
-
     <body>
         <div class="nav-options">
             <div class="cont-lef"> 
@@ -17,11 +14,10 @@
                 <img src="{%static 'image/background_HOME/Food/Coffee_1.png'%}" alt="img">
             </div>
             <div class="cont-right">
-                 <img src="{%static 'image/avtUser/p1.png'%}" alt="avatar"><h1>{{username}}</h1>
+                 <img src="{%static 'image/avtUser/p1.png'%}" alt="avatar"><h1 id="username">{{username}}</h1>
             </div>
         </div>
         <div class="container">
-
             <h2>Customer</h2>
             <input type="text" placeholder="Username" id="username-input">
             <h2>Character</h2>
@@ -32,7 +28,6 @@
                 </div>
                 <div class="next"><i class='bx bx-skip-next' ></i></div>
             </div>
-
             <div class="box-submit">
                 <button id="room-name-submit">Apply</button>
             </div>
@@ -62,10 +57,9 @@
             })
             document.querySelector('#room-name-submit').onclick = function(e) {
                 sessionStorage.setItem("avtCharacters",avtIndex);
-                var userName = document.querySelector('#username-input').value;
+                var userName = document.querySelector('#username').innerHTML;
                 window.location.replace('lobby' + '/?username=' + userName);
             };
-           
         </script>
     </body>
 </html>

@@ -100,8 +100,78 @@ ul {
 
 #btn-login:hover {
     background-color: #f04c36;
-    
 }
+
+.box-information{
+    position: relative;
+}
+.box-information .panel-info{
+    position: absolute;
+    background-color: rgb(231, 243, 242);
+    left: -50px;
+    top: 50px;
+    width: 200px;
+    height: 100px;
+}
+.box-information .panel-info #btn-getuser{
+   
+    border: none;
+    background-color: transparent;
+  
+}
+.box-information .panel-info button:hover{
+    color: rgb(233, 51, 27);
+}
+
+.box-information .panel-info #btn-getuser i{
+   float: left;
+    font-size: 30px;
+    margin: 10px 0 0 10px;
+}
+.box-information .panel-info #btn-getuser p{
+   float: right;
+    font-size: 16px;
+    margin: 15px 0 0 10px;
+}
+.box-information .panel-info #btn-logout{
+   
+    border: none;
+    background-color: transparent;
+}
+.box-information .panel-info #btn-logout i{
+    float: left;
+    margin: 10px 0 0 10px;
+    font-size: 30px;
+}
+.box-information .panel-info #btn-logout p{
+    float: right;
+    margin: 15px 0 0 10px;
+    font-size: 16px;
+}
+
+#info-users{
+    width: 100px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+}
+#info-users:hover{
+    border-radius: 10px;
+    background-color: rgb(132, 200, 245);
+}
+
+#info-users img{
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+}
+#info-users p{
+    margin-top: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 .footer {

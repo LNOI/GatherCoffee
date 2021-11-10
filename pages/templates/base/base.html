@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="stylesheet" href="{% static 'css/pages/base.css'%}">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     {% block stylecss %} {% endblock %}
@@ -30,7 +31,18 @@
             <li>
                 <a href="#">Facebook</a></li>
         </ul>
-        <button id="btn-login">LOG IN</button>
+        {% if username == "" %}
+            <button id="btn-login">LOG IN</button>
+        {% else  %}
+            <div class="box-information">
+                <button id="info-users"><img src="/static/image/avtUser/p1.png" alt="info"><p>{{username}}</p> 
+                </button>
+                <div class="panel-info">
+                    <button id="btn-getuser"><i class='bx bxs-user-circle' ></i> <p>Infomation User</p> </button>
+                    <button id="btn-logout"><i class='bx bx-log-out' ></i> <p>Log Out</p> </button>
+                </div>
+            </div>
+        {% endif %}
     </nav>
     {% block content %}
     {% endblock %}
@@ -72,5 +84,7 @@
             </div>
         </div>
     </footer>
+    <script src="{%static 'js/base.js'%}"></script>
+
 </body>
 </html>

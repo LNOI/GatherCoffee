@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.container{
+    width: 100%;
+
+    display: flex;
+}
+.container .info-left{
+    margin: 0 0 0 20%;
+  
+}
+.container .info-left h2{
+    margin-left: 40%;
+}
+
+.container .info-right{
+    
+    padding-top: 100px;
+   
+}
+.container .info-right div{
+    margin-top: 40px;
+    display: flex;
+}
+.container .info-right div p{
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0 0 0 20px;
+}

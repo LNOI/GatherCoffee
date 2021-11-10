@@ -9,7 +9,12 @@
         <div class="cont-left">
             <h1>Welcome to coffee online</p>
             <div class='console-container'><span id='text'>1212</span><div class='console-underscore' id='console'>&#95;</div></div>
+
+            {% if username == "" %}
                 <button id="btn-register">Register now</button>
+            {% else %}
+                <button id="btn-gocoffee">Go Coffee Now</button>
+            {% endif %}
         </div>
         <div class="cont-right">
             <div class=div_cha1><img src="/static/image/background_HOME/Character/Cha_1/Character_1.png" alt="hinh1" id="image"> </div>
@@ -34,12 +39,16 @@
     <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
     <script src="{%static 'js/textEffect.js' %}"></script>
     <script>
+        document.getElementById("btn-gocoffee").addEventListener("click",()=>{
+                console.log("pk");
+        })
         document.getElementById("btn-login").addEventListener("click", () => {
             window.location.href = "/login";
         });
         document.getElementById("btn-register").addEventListener("click", () => {
             window.location.href = "/create";
         });
+        
 
     </script>
 {% endblock %}

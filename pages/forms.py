@@ -25,12 +25,19 @@ class FormCreate(forms.Form):
         'aria-describedby':'emailHelp',
         'placeholder':'Email'
     }))
-    fullname=forms.CharField(max_length=20,required=True,widget=forms.TextInput(attrs={
+    
+    fullname=forms.CharField(max_length=30,required=True,widget=forms.TextInput(attrs={
         'class':'form-control',
         'type':'text',
-        'id':'InputName',
-        'placeholder':'Name'
+        'id':'InputFullName',
+        'placeholder':'Full name'
      
+    }))
+    username=forms.CharField(max_length=20,required=True,widget=forms.TextInput(attrs={
+        'class':'form-control',
+        'type':'text',
+        'id':'InputUserName',
+        'placeholder':'Username'
     }))
     password=forms.CharField(required=True,widget=forms.TextInput(attrs={
         'class':'form-control',

@@ -1,141 +1,71 @@
+{% extends "./base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{% static 'css/stylelogin.css'%}"> -->
-    <link rel="stylesheet" href="{% static 'css/pages/stylelogin.css'%}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+{% block stylecss%}
 
-    <title>Document</title>
-</head>
-<body>
-    <!-- <button id="btn-home">HOME</button>
-   
-   <h1 id="titlecoffe">COFFE GATHER</h1>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col col-lg-4">
-                <form action="" method="post">{% csrf_token %}
-                 {% for field in form %}
+<link rel="stylesheet" href="{% static 'css/pages/stylelogin.css'%}">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+ -->
+{% endblock %}
+{% block content %}
+<section>
+    <div class="imgBx">
+        <img src="{%static 'image/cofe_create.jpg'%}" >
+    </div>
+    <div class="contentBx">
+        <div class="formBx">
+            <h2>COFFE GATHER</h2>
+            <form action="" method="post">{%  csrf_token %}
+                {% for field in form %}
                     {% if field.name == 'email'%}
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <div class="inputBx">
+                            <span for="exampleInputEmail1">Email address</span>
                             {{field}}
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                     {% elif field.name == 'fullname' or field.name == 'username'%}
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">User Name</label>
+                        <div class="inputBx">
+                            <span for="exampleInputEmail1" >User Name</span>
                             {{field}}
                         </div>
                     {% elif field.name == 'password'%}
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <div class="inputBx">
+                            <span for="exampleInputPassword1">Password</span>
                             {{field}}
-                            
                         </div>
                     {% elif field.name == 'repassword'%}
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Re Password</label>
-                        {{field}}
-                        
-                    </div>
+                        <div class="inputBx">
+                            <label for="exampleInputPassword1">Re Password</label>
                     
+                            {{field}}
+                        </div>
                     {% endif %}
-                 {% endfor%}
-                 | <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div> || 
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  {% if login == True %}
-                   
-                    <a href="/create" class="link-primary " style="float: right;">Create</a>
-                   {% else %}
-                 
-                    <a href="/login" class="link-primary" style="float: right;">Login</a>
-                  {% endif %}
-                </form>
-            </div>
+                {% endfor%}    
+                <div class="inputBx">
+                    <input type="submit" value="Sign in" name="">
+                </div>
+
+                {% if login == True %}
+                <div class="inputBx">
+                    <div>If you don't have account:<a href="/create" class="link-primary ">Create</a></div>
+                 </div>
+
+                {% else %} 
+                <div class="inputBx">
+                   <div>If you have account:<a href="/login" class="link-primary" >     Login   </a></div>
+                </div>
+                {% endif %}
+            </form>
         </div>
-    </div> -->
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script>
+    document.getElementById("btn-home").addEventListener("click",()=>{
+        window.location.href="/"
+    })
+</script>
     
+{% endblock %}
 
-    <!-- Hop the 16.9.2021 -->
-    <section>
-        <div class="imgBx">
-            <img src="{%static 'image/cofe_create.jpg'%}" >
-        </div>
-        <div class="contentBx">
-            <div class="formBx">
-                <h2>COFFE GATHER</h2>
-                <form action="" method="post">{%  csrf_token %}
-                    {% for field in form %}
-                        {% if field.name == 'email'%}
-                            <div class="inputBx">
-                                <span for="exampleInputEmail1">Email address</span>
-                                {{field}}
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                            </div>
-                        {% elif field.name == 'fullname' or field.name == 'username'%}
-                            <div class="inputBx">
-                                <span for="exampleInputEmail1" >User Name</span>
-                                {{field}}
-                            </div>
-                        {% elif field.name == 'password'%}
-                            <div class="inputBx">
-                                <span for="exampleInputPassword1">Password</span>
-                                <!-- ||<input type="password" name=""> || -->
-                                {{field}}
-                            </div>
-                        {% elif field.name == 'repassword'%}
-                            <div class="inputBx">
-                                <label for="exampleInputPassword1">Re Password</label>
-                               <!-- || <input type="password" name=""> || -->
-                                {{field}}
-                            </div>
-                                <!-- ||
-                            <div class="remember">
-                                <label><input type="checkbox" name="">Remember me</label>
-                            </div>
-                            <div class="inputBx">
-                                <input type="submit" value="Sign in" name="">
-                            </div>
-                            <div class="inputBx">
-                                <p>Don't have an account?<a href="#">Sign up</a></p> || -->
-                        <!-- </div> -->
-                        {% endif %}
-                    {% endfor%}    
-                    <div class="inputBx">
-                        <input type="submit" value="Sign in" name="">
-                    </div>
 
-                    {% if login == True %}
-                    <div class="inputBx">
-                        <div>If you don't have account:<a href="/create" class="link-primary ">Create</a></div>
-                     </div>
-                        <!-- <a href="/create" class="link-primary " style="float: right;">Create</a> -->
-                    {% else %} 
-                    <div class="inputBx">
-                       <div>If you have account:<a href="/login" class="link-primary" >     Login   </a></div>
-                    </div>
-                     <!-- <a href="/login" class="link-primary" style="float: right;">Login</a> -->
-                    {% endif %}
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- End Hop them 16.9.2021 -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script>
-        document.getElementById("btn-home").addEventListener("click",()=>{
-            window.location.href="/"
-        })
-    </script>
-
-</body>
-</html>

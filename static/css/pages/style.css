@@ -33,6 +33,20 @@
 .content .cont-left button#btn-register:hover{
     background-color: #f04c36;
 }
+.content .cont-left button#btn-gocoffee {
+    margin: 80px 0 0 180px;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    background-color: rgb(89, 200, 228);
+    color: white;
+    border-radius: 25px;
+    width: 150px;
+    font-size: 20px;
+    height: 50px;
+}
+.content .cont-left button#btn-gocoffee:hover{
+    background-color: #f04c36;
+}
 .content .cont-right {
     width: 700px;
     height: 700px;

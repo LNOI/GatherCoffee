@@ -1,0 +1,197 @@
+
+.content {
+    margin: 5px 0 0 0;
+    width: 100%;
+    height: 670px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5%;
+}
+.content .cont-left {
+    padding: 5% 5%;
+}
+
+
+.cont-left h1 {
+    font-family: 'PT Serif', serif;
+    font-size: 42px;
+    opacity: 0.9;
+}
+
+
+.content .cont-left button#btn-register {
+    margin: 80px 0 0 180px;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    background-color: rgb(89, 200, 228);
+    color: white;
+    border-radius: 25px;
+    width: 150px;
+    font-size: 20px;
+    height: 50px;
+}
+.content .cont-left button#btn-register:hover{
+    background-color: #f04c36;
+}
+.content .cont-left button#btn-gocoffee {
+    margin: 80px 0 0 180px;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    background-color: rgb(89, 200, 228);
+    color: white;
+    border-radius: 25px;
+    width: 150px;
+    font-size: 20px;
+    height: 50px;
+}
+.content .cont-left button#btn-gocoffee:hover{
+    background-color: #f04c36;
+}
+.content .cont-right {
+    width: 700px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    /* padding: 5% 10%; */
+}
+
+.content .cont-right .div_cha1 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 390px;
+    top: 170px;
+}
+
+.content .cont-right .div_mess1 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 340px;
+    top: 75px;
+}
+
+
+.content .cont-right .div_cha2 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 225px;
+    top: 253px;
+}
+
+.content .cont-right .div_mess2 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 150px;
+    top: 170px;
+}
+
+.content .cont-right .div_cha3 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 130px;
+    top: 318px;
+}
+
+.content .cont-right .div_mess3 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 80px;
+    top: 395px;
+}
+
+.content .cont-right .div_cha4 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 225px;
+    top: 400px;
+}
+
+.content .cont-right .div_mess4 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 170px;
+    top: 475px;
+}
+
+.content .cont-right .div_cha5 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 477px;
+    top: 253px;
+}
+
+.content .cont-right .div_mess5 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 530px;
+    top: 160px;
+}
+
+.content .cont-right .div_cha6 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 477px;
+    top: 400px;
+}
+
+.content .cont-right .div_mess6 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 440px;
+    top: 465px;
+}
+
+.content .cont-right .div_cha7 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 580px;
+    top: 318px;
+}
+
+.content .cont-right .div_mess7 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 650px;
+    top: 220px;
+}
+
+.content .cont-right .div_cha8 {
+    height: 150px;
+    width: 160px;
+    position: absolute;
+    /* border: 2px solid red; */
+    right: 346px;
+    top: 350px;
+}
+.content .cont-right #image {
+    display: 100%;
+    width: 100%;
+    height: 100%;
+}

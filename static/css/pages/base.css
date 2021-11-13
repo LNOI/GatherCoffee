@@ -11,7 +11,6 @@
     font-family: 'Open Sans', sans-serif;
     color: rgb(7, 10, 10);
 }
-
 nav {
     margin: 10px 0px 0 0;
     display: flex;
@@ -68,8 +67,6 @@ ul {
 .nav_links li  a:hover{
     border-bottom: 3px solid #f04c36;
 }
-
-
 #login {
     width: 100px;
     height: 30px;
@@ -202,7 +199,6 @@ ul {
     margin-bottom: 35px;
     position: relative;
 }
-
 .footer-col h4::before {
     content: '';
     position: absolute;
@@ -213,7 +209,6 @@ ul {
     box-sizing: border-box;
     width: 50px;
 }
-
 .footer-col ul li:not(:last-child) {
     margin-bottom: 10px;
 }
@@ -228,12 +223,10 @@ ul {
     display: block;
     transition: all 0.3s ease;
 }
-
 .footer-col ul li a:hover {
     color: #ffffff;
     padding-left: 8px;
 }
-
 .footer-col .social-links a {
     display: inline-block;
     height: 40px;
@@ -247,7 +240,6 @@ ul {
     color: #ffffff;
     transition: all 0.5s ease;
 }
-
 .footer-col .social-links a:hover {
     color: #24262b;
     background-color: #ffffff;
@@ -263,15 +255,13 @@ ul {
     padding-left: 8px;
 }
 
-@media(max-width: 767px) {
+@media only screen and (max-width:768px) {
+
     .footer-col {
         width: 50%;
         margin-bottom: 30px;
     }
+    
+
 }
 
-@media(max-width: 574px) {
-    .footer-col {
-        width: 100%;
-    }
-}

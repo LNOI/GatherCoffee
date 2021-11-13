@@ -12,17 +12,18 @@ btnMessenger.addEventListener("click",()=>{
     subPanel.hidden=!subPanel.hidden;
     boxFriends.hidden=true;
     boxChat.hidden=false;
-    boxSend.hidden=false;
+    boxSend.style.display = "";
     scrollToBottom();
+    console.log("Click Messenger");
 });
 
 btnFriends.addEventListener("click",()=>{
     subPanel.hidden=!subPanel.hidden;   
     boxFriends.hidden=false;
     boxChat.hidden=true;
-    boxSend.hidden=true;
-    console.log(boxSend);
+    boxSend.style.display = "none";
     scrollToBottom();
+    console.log("Click Friends");
 });
 
 hdnavChat.addEventListener("click",()=>{

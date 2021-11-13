@@ -13,7 +13,7 @@
         <div class="container">
         </div>
         <div class="container">
-            <div id="myMoney"><div> <img src="/static/image/dollars.png" alt=""> <p>100</p></div></div>
+            <div id="myMoney"><div> <img src="/static/image/dollars.png" alt=""> <p>{{money}}</p></div></div>
             <div class="eventCustomer">
                 <button id="event-Order">Nhấn E để mua Coffee</button>
             </div>
@@ -21,27 +21,27 @@
                 <div class="dt-menu">
                     <button class="btn-exitMenu">X</button>
                     <ul class="menu1">
-                        <li id="1"><p>Coffe 1</p><p>5$</p></li>
-                        <li id="2"><p>Coffe 2</p><p>5$</p></li>
-                        <li id="3"><p>Coffe 3</p><p>5$</p></li>
+                        <li id="cof1"><p>Coffe 1</p><p class="price">15$</p></li>
+                        <li id="cof2"><p>Coffe 2</p><p class="price">20$</p></li>
+                        <li id="cof3"><p>Coffe 3</p><p class="price">30$</p></li>
                     </ul>
                     <ul class="menu2">
-                        <li id="4"><p>Coffe 4</p><p>5$</p></li>
-                        <li id="5"><p>Coffe 5</p><p>5$</p></li>
-                        <li id="6"><p>Coffe 6</p><p>5$</p></li>
+                        <li id="cof4"><p>Coffe 4</p><p class="price">10$</p></li>
+                        <li id="cof5"><p>Coffe 5</p><p class="price">30$</p></li>
+                        <li id="cof6"><p>Coffe 6</p><p class="price">25$</p></li>
                     </ul>
                     <ul class="menu3">
-                        <li id="7"><p>Coffe 7</p><p>5$</p></li>
-                        <li id="8"><p>Coffe 8</p><p>5$</p></li>
-                        <li id="9"><p>Coffe 9</p><p>5$</p></li>
-                        <li id="10"><p>Coffe 10</p><p>5$</p></li>
+                        <li id="cof7"><p>Coffe 7</p><p class="price">15$</p></li>
+                        <li id="cof8"><p>Coffe 8</p><p class="price">15$</p></li>
+                        <li id="cof9"><p>Coffe 9</p><p class="price">25$</p></li>
+                        <li id="cof10"><p>Coffe 10</p><p class="price">35$</p></li>
                     </ul>
                 </div>
                 <button class="btn-order">Order1</button>
             </div>
             <div class="section">
                 <div class="panel-user">
-                    <button class="home lobby"> <img src="/static/image/Drink_of_Store_1/Drink_7.png" alt="coffe"></button>
+                    <button class="home lobby"> <img src="/static/image/Drink_of_Store_1/Drink_cof7.png" alt="coffe"></button>
                     <button class="btn-messenger"><img src="/static/image/Button/messenger.png" alt="messenger"></i></button>
                     <button class="btn-friends"><img src="/static/image/Button/people.png" alt="people"></i></button>
                 </div>
@@ -63,7 +63,7 @@
     
                         </div>
                         <div class="box-friends" style="overflow-y: scroll;">
-                            <b><img src="/static/image/avtUser/p2.png" alt=""></i> ALEX</b>
+                            
                         </div>
                         <div class="box-send">
                             <input id="input-messenger" type="text">

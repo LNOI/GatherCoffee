@@ -80,7 +80,6 @@ const statePlayer={
                 xPosFriend:xPosFriend,
                 yPosFriend:yPosFriend,
                 avtCharacters:avtCharacters,
-                
             }
         }
     },
@@ -108,7 +107,6 @@ document.addEventListener("keydown",(e)=>{
 
         if (xPos>=(width/2+30)) {
             if(bgframex+bgWidth<=widthLobby-20){
-            
                 xPos=(width/2+30);
                 bgframex+=walk;
             };
@@ -194,7 +192,8 @@ const chatSocket = new WebSocket(
 );
 
 chatSocket.onopen=function(e){
-    console.log("1 ket noi da vao");
+ 
+    document.querySelector(".box-friends").innerHTML+=(' <div><b><img src="/static/image/avtUser/p2.png" alt="">'+userName+'</b></div>')
     chatSocket.send(JSON.stringify({
         'message': "Connecting",
         'username': userName,
@@ -210,31 +209,30 @@ chatSocket.onopen=function(e){
 
 }
 
-
 chatSocket.onmessage = function(e) {
     const data = JSON.parse(e.data);
     const friend=data.username;
     if(data.message=="disconnect"){
+        const iconD=document.getElementById("icon-"+friend);
+        iconD.parentNode.removeChild(iconD);
         delete statePlayer.states[friend];
         console.log("Disconect");
         return;
-    }
-   
+    } 
     if (data.message){
         document.querySelector('.box-chat').innerHTML += ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p>' + data.message + '</p> </div>');
     }
     if(!statePlayer.states[friend]&&friend!=userName){
+        document.querySelector(".box-friends").innerHTML+=(' <div id="icon-'+friend+'" ><b><img src="/static/image/avtUser/p2.png" alt="">'+friend+'</b></div>')
         statePlayer.generalState(friend,0,0,1);
     }
     if(friend!=userName){
-
+       
         statePlayer.states[friend].indexFrame=data.indexFrame;
         statePlayer.states[friend].frameReverse=data.frameReverse;
         statePlayer.states[friend].xPosFriend=data.xPos;
         statePlayer.states[friend].yPosFriend=data.yPos;
         statePlayer.states[friend].avtCharacters=data.avtCharacters;
-        console.log("Doi phuong="+data.avtCharacters);
-        
         if (data.message=="Connecting" ){
             chatSocket.send(JSON.stringify({
                 'message': '',
@@ -250,6 +248,7 @@ chatSocket.onmessage = function(e) {
             }));
         }
     }
+  
 };
 
 chatSocket.onclose = function(e) {

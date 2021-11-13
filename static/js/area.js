@@ -2,6 +2,7 @@ var avtCharacters=sessionStorage.getItem("avtCharacters");
 console.log(avtCharacters);
 const canvas=document.getElementById("canvas");
 const context=canvas.getContext("2d");
+
 const width=canvas.width=window.innerWidth;
 const height=canvas.height=window.innerHeight;
 const fps=60;
@@ -23,7 +24,6 @@ const bgHeight=height;
 const bgPosX=0;
 const bgPosY=0;
 
-
 var xPos=10;
 var yPos=200;
 var count=0;
@@ -41,13 +41,33 @@ var yPosCoffee=yPos;
 
 // -----------------------------------------------------------
 
-
 const scale=1;
 const secondsToUpdate=1*fps;
 var frameIndex=0;
 canvas.style.marginTop=window.innerHeight/2-height/2+"px";
 context.scale(1,1);
 var getCoffee=0;
+var my_mess=""
+
+function TimeHideMess(){
+    setTimeout(()=>{
+        my_mess="";
+        chatSocket.send(JSON.stringify({
+            'message': my_mess,
+            'username': userName,
+            'room': roomName,
+            'indexFrame':frameIndex,
+            'frameReverse':reverse,
+            'xPos':xPos+bgframex,
+            'yPos':yPos+bgframey,
+            'avtCharacters':avtCharacters,
+            'checkCoffee':getCoffee,
+            'idCoffee':idCoffee
+        }));
+    
+    },3000);
+}
+
 
 function animateMain(){
     context.drawImage(
@@ -85,9 +105,11 @@ function animateMain(){
             frameHeightCoffee*0.7,
         )
     }
+    context.font = "30px Arial";
+    context.fillText(my_mess, xPos, yPos-20);
 }
 
-function animateSub(indexFrameSub,xPosSub,yPosSub,reSub,avtFriends,checkCoffee,idCoffee){
+function animateSub(user_mess,indexFrameSub,xPosSub,yPosSub,reSub,avtFriends,checkCoffee,idCoffee,){
 
     const friend=new Image();
     friend.src="/static/image/animate-"+avtFriends+".png"
@@ -117,12 +139,15 @@ function animateSub(indexFrameSub,xPosSub,yPosSub,reSub,avtFriends,checkCoffee,i
             frameHeightCoffee*0.7,
         );
     }
+    context.font = "30px Arial";
+    context.fillText(user_mess, xPosSub-bgframex, yPosSub-bgframey-20);
 }
 const statePlayer={
     states:{},
     generalState:function(name,xPosFriend,yPosFriend,avtCharacters,checkCoffee,idCoffee) {
         if(!this.states[name]){
             this.states[name]={
+                user_mess:"",
                 indexFrame:0,
                 xPosFriend:xPosFriend,
                 yPosFriend:yPosFriend,
@@ -142,8 +167,8 @@ function frame(){
     context.clearRect(0,0,width,height);
     animateMain();
     Object.keys(statePlayer.states).forEach((name)=>{
-         animateSub(statePlayer.states[name].indexFrame,statePlayer.states[name].xPosFriend,statePlayer.states[name].yPosFriend,statePlayer.states[name].frameReverse,statePlayer.states[name].avtCharacters,statePlayer.states[name].checkCoffee,statePlayer.states[name].idCoffee);
-    });1
+         animateSub(statePlayer.states[name].user_mess,statePlayer.states[name].indexFrame,statePlayer.states[name].xPosFriend,statePlayer.states[name].yPosFriend,statePlayer.states[name].frameReverse,statePlayer.states[name].avtCharacters,statePlayer.states[name].checkCoffee,statePlayer.states[name].idCoffee);
+    });
     requestAnimationFrame(frame);
 }
 const walk=20;
@@ -165,7 +190,6 @@ document.addEventListener("keydown",(e)=>{
         checkKey=1;
         xPos-=walk;
         reverse=1;
-       
         if (xPos<=(width/2-80)){
             if(bgframex>=30){
                 xPos=(width/2-80);
@@ -211,7 +235,6 @@ document.addEventListener("keydown",(e)=>{
         if (frameIndex >5){
             frameIndex=0;
         }
-       
         count++;
         chatSocket.send(JSON.stringify({
             'message': '',
@@ -234,7 +257,7 @@ document.addEventListener("keydown",(e)=>{
 function CheckArea(){
    
    CheckOrder();
-    
+  
 }
 function CheckOrder(){
     if(xPos+bgframex>=470 &&xPos+bgframex<=830&&yPos+bgframey<=220&&yPos+bgframey>=60){
@@ -261,13 +284,27 @@ const chatSocket = new WebSocket(
 );
 
 chatSocket.onopen=function(e){
-    console.log(e);
+    document.querySelector(".box-friends").innerHTML+=(' <div><b><img src="/static/image/avtUser/p2.png" alt="">'+userName+'</b></div>')
+    chatSocket.send(JSON.stringify({
+        'message': "Connecting",
+        'username': userName,
+        'room': roomName,
+        'indexFrame':0,
+        'frameReverse':0,
+        'xPos':10,
+        'yPos':200,
+        'avtCharacters':avtCharacters,
+        'checkCoffee':0,
+        'idCoffee':0,
+    }));
 }
 chatSocket.onmessage = function(e) {
     const data = JSON.parse(e.data);
     const friend=data.username;
     if(data.message=="disconnect"){
         delete statePlayer.states[friend];
+        const iconD=document.getElementById("icon-"+friend);
+        iconD.parentNode.removeChild(iconD);
         console.log("Disconect");
         return;
     }
@@ -275,9 +312,11 @@ chatSocket.onmessage = function(e) {
         document.querySelector('.box-chat').innerHTML +=  ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p>' + data.message + '</p> </div>');
     }
     if(!statePlayer.states[friend]&&friend!=userName){
+        document.querySelector(".box-friends").innerHTML+=(' <div id="icon-'+friend+'" ><b><img src="/static/image/avtUser/p2.png" alt="">'+friend+'</b></div>')
         statePlayer.generalState(friend,0,0,1,0,0);
     }
     if(friend!=userName){
+        statePlayer.states[friend].user_mess=data.message;
         statePlayer.states[friend].indexFrame=data.indexFrame;
         statePlayer.states[friend].frameReverse=data.frameReverse;
         statePlayer.states[friend].xPosFriend=data.xPos;
@@ -285,15 +324,26 @@ chatSocket.onmessage = function(e) {
         statePlayer.states[friend].avtCharacters=data.avtCharacters;
         statePlayer.states[friend].checkCoffee=data.checkCoffee;
         statePlayer.states[friend].idCoffee=data.idCoffee;
-        
+        if (data.message=="Connecting" ){
+            chatSocket.send(JSON.stringify({
+                'message': '',
+                'username': userName,
+                'room': roomName,
+                'indexFrame':frameIndex,
+                'frameReverse':reverse,
+                'xPos':xPos+bgframex,
+                'yPos':yPos+bgframey,
+                'avtCharacters':avtCharacters,
+                'checkCoffee':getCoffee,
+                'idCoffee':idCoffee
+            }));
+        }
     }
 };
 
 chatSocket.onclose = function(e) {
     console.log('The socket close unexpectadly');
 };
-
-
 
 var listDrinkCoffee=document.querySelectorAll(".menu .dt-menu ul li");
 var Menu=document.querySelector(".menu");
@@ -313,7 +363,7 @@ function initMenu(){
             e.style.background="rgb(65, 168, 236)";
             imageCoffee.src="/static/image/Drink_of_Store_1/Drink_"+e.id+".png";
             idCoffee=e.id;
-           
+            
             listDrinkCoffee.forEach((other)=>{
                 if(other!=e){
                     other.style.background="";
@@ -328,19 +378,47 @@ function initMenu(){
     })
     btnOrderMenu.addEventListener("click",()=>{
         Menu.hidden=true;
-        valueMoney.innerHTML=parseInt(valueMoney.innerHTML)-20;
+        console.log("#"+idCoffee+" p.price")
+        priceCoffee=document.querySelector("#"+idCoffee+" p.price").innerHTML.split("$")[0];
+        
+        valueMoney.innerHTML=parseInt(valueMoney.innerHTML)-parseInt(priceCoffee);
+    
+        chatSocket.send(JSON.stringify({
+            'message': "-"+priceCoffee,
+            'username': userName,
+            'room': roomName,
+            'indexFrame':frameIndex,
+            'frameReverse':reverse,
+            'xPos':xPos+bgframex,
+            'yPos':yPos+bgframey,
+            'avtCharacters':avtCharacters,
+            'checkCoffee':0,
+            'idCoffee':0,
+        }));
         getCoffee=1;
         
     });
     lobby.addEventListener("click",()=>{
+        chatSocket.send(JSON.stringify({
+            'message': 'disconnect',
+            'username': userName,
+            'room': roomName,
+            'indexFrame':0,
+            'frameReverse':0,
+            'xPos':0,
+            'yPos':0,
+            'avtCharacters':avtCharacters,
+            'checkCoffee':0,
+            'idCoffee':0,
+        }));
         window.location.href="/room/lobby/?username="+userName;
-    });
 
+    });
     btnMessSubmit.addEventListener("click",()=>{
         var mess=fieldInput.value;
-        console.log("Ok");
         if(mess){
-            console.log(mess);
+            my_mess=mess;
+            TimeHideMess();
            chatSocket.send(JSON.stringify({
                'message': mess,
                'username': userName,
@@ -354,10 +432,27 @@ function initMenu(){
                'idCoffee':0,
            }));
         }
+
         fieldInput.value="";
    })
 }
+
 initMenu();
+
+// function SendDigital(mess){
+//     chatSocket.send(JSON.stringify({
+//         'message': mess,
+//         'username': userName,
+//         'room': roomName,
+//         'indexFrame':frameIndex,
+//         'frameReverse':reverse,
+//         'xPos':xPos+bgframex,
+//         'yPos':yPos+bgframey,
+//         'avtCharacters':avtCharacters,
+//         'checkCoffee':0,
+//         'idCoffee':0,
+//     }));
+// }
 
 
 

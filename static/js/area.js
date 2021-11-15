@@ -6,10 +6,12 @@ const context=canvas.getContext("2d");
 const width=canvas.width=window.innerWidth;
 const height=canvas.height=window.innerHeight;
 const fps=60;
-
 // ----------------------------image character---------------
 const spriteSheet=new Image();
 spriteSheet.src="/static/image/animate-"+avtCharacters+".png"
+
+const emoji=new Image();
+emoji.src="/static/image/emoji/emoji1.gif";
 const frameWidth=150;
 const frameHeight=170;
 
@@ -39,7 +41,6 @@ const frameHeightCoffee=90;
 var xPosCoffee=xPos;
 var yPosCoffee=yPos;
 
-// -----------------------------------------------------------
 
 const scale=1;
 const secondsToUpdate=1*fps;
@@ -64,7 +65,6 @@ function TimeHideMess(){
             'checkCoffee':getCoffee,
             'idCoffee':idCoffee
         }));
-    
     },3000);
 }
 
@@ -81,6 +81,7 @@ function animateMain(){
         bgWidth,
         bgHeight,
     );
+    
     context.drawImage(
         spriteSheet,
         frameWidth*frameIndex,
@@ -92,6 +93,17 @@ function animateMain(){
         frameWidth*0.7,
         frameHeight*0.7,
     );
+    // context.drawImage(
+    //     emoji,
+    //     0,
+    //     0,
+    //     400,
+    //     400,
+    //     xPos,
+    //     yPos,
+    //     frameWidth*0.7,
+    //     frameHeight*0.7,
+    // );
     if (getCoffee){
         context.drawImage(
             imageCoffee,
@@ -109,7 +121,7 @@ function animateMain(){
     context.fillText(my_mess, xPos, yPos-20);
 }
 
-function animateSub(user_mess,indexFrameSub,xPosSub,yPosSub,reSub,avtFriends,checkCoffee,idCoffee,){
+function animateSub(user_mess,indexFrameSub,xPosSub,yPosSub,reSub,avtFriends,checkCoffee,idCoffee){
 
     const friend=new Image();
     friend.src="/static/image/animate-"+avtFriends+".png"
@@ -309,7 +321,14 @@ chatSocket.onmessage = function(e) {
         return;
     }
     if (data.message){
-        document.querySelector('.box-chat').innerHTML +=  ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p>' + data.message + '</p> </div>');
+
+        if(data.message.includes("emoji")){
+            console.log(data.message);
+            document.querySelector('.box-chat').innerHTML +=  ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p> <img src="/static/image/emoji/' + data.message+ '.gif" alt="emoji"></p> </div>');
+
+        }else{
+            document.querySelector('.box-chat').innerHTML +=  ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p>' + data.message + '</p> </div>');
+        }
     }
     if(!statePlayer.states[friend]&&friend!=userName){
         document.querySelector(".box-friends").innerHTML+=(' <div id="icon-'+friend+'" ><b><img src="/static/image/avtUser/p2.png" alt="">'+friend+'</b></div>')
@@ -356,6 +375,7 @@ const fieldInput=document.querySelector("#input-messenger");
 const btnMessSubmit=document.querySelector("#chat-messenger-submit");
 const valueMoney=document.querySelector("#myMoney p");
 
+var listEmoji=document.querySelectorAll(".emoji ul li");
 
 function initMenu(){
     listDrinkCoffee.forEach((e)=>{
@@ -369,6 +389,24 @@ function initMenu(){
                     other.style.background="";
                 }
             })
+        })
+    });
+    listEmoji.forEach((e)=>{
+        e.addEventListener("click",()=>{
+         
+            const idEmoji=e.id;
+            chatSocket.send(JSON.stringify({
+                'message': idEmoji,
+                'username': userName,
+                'room': roomName,
+                'indexFrame':frameIndex,
+                'frameReverse':reverse,
+                'xPos':xPos+bgframex,
+                'yPos':yPos+bgframey,
+                'avtCharacters':avtCharacters,
+                'checkCoffee':getCoffee,
+                'idCoffee':idCoffee
+            }));
         })
     });
     Menu.hidden=true;
@@ -432,27 +470,12 @@ function initMenu(){
                'idCoffee':0,
            }));
         }
-
         fieldInput.value="";
    })
 }
 
 initMenu();
 
-// function SendDigital(mess){
-//     chatSocket.send(JSON.stringify({
-//         'message': mess,
-//         'username': userName,
-//         'room': roomName,
-//         'indexFrame':frameIndex,
-//         'frameReverse':reverse,
-//         'xPos':xPos+bgframex,
-//         'yPos':yPos+bgframey,
-//         'avtCharacters':avtCharacters,
-//         'checkCoffee':0,
-//         'idCoffee':0,
-//     }));
-// }
 
 
 

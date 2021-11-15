@@ -67,7 +67,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
             if("-" in message):
                 acc=Account_data.objects.get(username=username)
                 acc.money=str(int(acc.money)+int(message))
-               
                 acc.save()
                 return
             Message.objects.create(username=username, room=room, content=message)

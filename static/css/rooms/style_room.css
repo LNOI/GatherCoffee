@@ -177,6 +177,17 @@ body{
     color: rgb(185, 7, 7);
 }
 
+.emoji{
+    
+}
+.emoji ul {
+    display: flex;
+
+}
+.emoji ul li  img{
+    width: 30px;
+    height: 30px;
+}
 .box-chat div{
     margin-bottom: 10px;
 }
@@ -186,11 +197,13 @@ body{
     font-size: 25px;
     border-bottom: 1px dotted white;
 }
-.box-chat  img{
-  
+.box-chat div>img{
     width: 15%;
 }
-
+.box-chat div p>img{
+    width: 100px;
+    height: 100px;
+}
 .box-chat p{
     width: 70%; 
     margin-left: 20%;

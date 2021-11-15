@@ -13,7 +13,8 @@ def settingUser(request):
 
 def areaCoffe(request, index_area):
     user_name = request.GET.get('username', 'Anonymous')
-    messages = Message.objects.filter(room=index_area)[0:25]
+    count=len(Message.objects.filter(room=index_area))
+    messages = Message.objects.filter(room=index_area)[count-20:]
     acc=Account_data.objects.get(username=user_name)
     context={
         'room_name': index_area, 

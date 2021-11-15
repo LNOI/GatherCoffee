@@ -26,5 +26,7 @@ def areaCoffe(request, index_area):
   
 def lobby(request):
     username = request.GET.get('username', 'Anonymous')
-    messages = Message.objects.filter(room='lobby')[0:25]
+    count=len(Message.objects.filter(room='lobby'))
+    messages = Message.objects.filter(room='lobby')[count-20:]
+  
     return render(request, 'rooms/lobby.html', {'room_name': 'lobby', 'username': username, 'messages': messages})

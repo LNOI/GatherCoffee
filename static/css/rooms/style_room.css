@@ -177,12 +177,16 @@ body{
     color: rgb(185, 7, 7);
 }
 
-.emoji{
-    
-}
+
 .emoji ul {
     display: flex;
-
+}
+.emoji ul li{
+    list-style-type:none;
+    border-radius: 5px;
+}
+.emoji ul li:hover{
+    background-color: rgb(44, 151, 240);
 }
 .emoji ul li  img{
     width: 30px;

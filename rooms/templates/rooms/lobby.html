@@ -29,14 +29,29 @@
                         <div class="box-chat" style="overflow-y: scroll;">
                             {% for m in messages %}
                             <div>
-                                <img src="/static/image/avtUser/p2.png" alt=""><b> {{ m.username }}</b>:<p>{{ m.content }}</p>
+                                <img src="/static/image/avtUser/p2.png" alt=""><b> {{ m.username }}</b>:<p>
+                                    {% if 'emoji' in m.content %}
+                                    <img src='/static/image/emoji/{{ m.content }}.gif' alt="emoji">
+                                   {%  else %}
+                                    {{ m.content }}
+                                   {% endif %}
+                                </p>
                             </div>
                             {% endfor %} 
                         </div>
                         <div class="box-friends" style="overflow-y: scroll;">
                         </div>
+                        <div class="emoji">
+                            <ul>
+                                <li  id="emoji1"> <img src="/static/image/emoji/emoji1.gif" alt="emoji1"></li>
+                                <li  id="emoji2"> <img src="/static/image/emoji/emoji2.gif" alt="emoji1"></li>
+                                <li  id="emoji1"> <img src="/static/image/emoji/emoji1.gif" alt="emoji1"></li>
+                                <li  id="emoji2"> <img src="/static/image/emoji/emoji2.gif" alt="emoji1"></li>
+                                <li  id="emoji1"> <img src="/static/image/emoji/emoji1.gif" alt="emoji1"></li>
+                                <li  id="emoji2"> <img src="/static/image/emoji/emoji2.gif" alt="emoji1"></li>
+                            </ul>
+                        </div>
                         <div class="box-send">
-                            
                             <input id="input-messenger" type="text">
                             <button id="chat-messenger-submit"><i class='bx bxs-send' ></i></button>
                         </div>

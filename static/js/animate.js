@@ -220,7 +220,14 @@ chatSocket.onmessage = function(e) {
         return;
     } 
     if (data.message){
+
+        if(data.message.includes("emoji")){
+            console.log(data.message);
+            document.querySelector('.box-chat').innerHTML +=  ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p> <img src="/static/image/emoji/' + data.message+ '.gif" alt="emoji"></p> </div>');
+
+        }else{
         document.querySelector('.box-chat').innerHTML += ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p>' + data.message + '</p> </div>');
+        }
     }
     if(!statePlayer.states[friend]&&friend!=userName){
         document.querySelector(".box-friends").innerHTML+=(' <div id="icon-'+friend+'" ><b><img src="/static/image/avtUser/p2.png" alt="">'+friend+'</b></div>')
@@ -276,25 +283,47 @@ document.addEventListener("keydown",(e)=>{
 const fieldInput=document.querySelector("#input-messenger");
 const btnMessSubmit=document.querySelector("#chat-messenger-submit");
 const btnHome=document.querySelector(".home");
-btnHome.addEventListener("click",()=>{
-    window.location.href="/";
-})
+var listEmoji=document.querySelectorAll(".emoji ul li");
 
-btnMessSubmit.addEventListener("click",()=>{
-     var mess=fieldInput.value;
-     if(mess){
-        chatSocket.send(JSON.stringify({
-            'message': mess,
-            'username': userName,
-            'room': roomName,
-            'indexFrame':frameIndex,
-            'frameReverse':reverse,
-            'xPos':xPos+bgframex,
-            'yPos':yPos+bgframey,
-            'avtCharacters':avtCharacters,
-            'checkCoffee':0,
-            'idCoffee':0,
-        }));
-     }
-     fieldInput.value="";
-})
+function init(){
+    listEmoji.forEach((e)=>{
+        e.addEventListener("click",()=>{
+         
+            const idEmoji=e.id;
+            chatSocket.send(JSON.stringify({
+                'message': idEmoji,
+                'username': userName,
+                'room': roomName,
+                'indexFrame':frameIndex,
+                'frameReverse':reverse,
+                'xPos':xPos+bgframex,
+                'yPos':yPos+bgframey,
+                'avtCharacters':avtCharacters,
+                'checkCoffee':0,
+                'idCoffee':0,
+            }));
+        })
+    });
+    btnHome.addEventListener("click",()=>{
+        window.location.href="/";
+    })
+    btnMessSubmit.addEventListener("click",()=>{
+         var mess=fieldInput.value;
+         if(mess){
+            chatSocket.send(JSON.stringify({
+                'message': mess,
+                'username': userName,
+                'room': roomName,
+                'indexFrame':frameIndex,
+                'frameReverse':reverse,
+                'xPos':xPos+bgframex,
+                'yPos':yPos+bgframey,
+                'avtCharacters':avtCharacters,
+                'checkCoffee':0,
+                'idCoffee':0,
+            }));
+         }
+         fieldInput.value="";
+    })
+}
+init();

@@ -7,7 +7,6 @@ const btnGocoffee=document.querySelector("#btn-gocoffee");
 const btnlogin=document.querySelector("#btn-login");
 const btnRegister=document.querySelector("#btn-register");
 
-console.log(btnlogin);
 
 function InitBase(){
     if(panelInfo){

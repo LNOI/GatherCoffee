@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,146 @@
     <title>Document</title>
     <link rel="stylesheet" href="/static/css/pages/info.css">
 </head>
-<body>
-    <div class="container">
-       
-        <div class="info-left">
-            <img src="/static/image/avtUser/p3.png" alt="info">
-            <h2>{{username}}</h2>
-        </div>
-        <div class="info-right">
-            <div class="email"> <p>Email:</p> <p>{{ email }}</p></div>
-            <div class="fullname"> <p>Fullname:</p> <p> {{fullname}}</p></div>
-            <div class="phone"> <p>Phone Number:</p> <p>{{ phonenumber}}</p></div>
-            <div class="address"> <p>Address: </p> <p> {{address}} </p></div>
-        </div>
+
+<body> -->
+{% extends "./base.html" %} {% load static %} {% block stylecss%}
+<link rel="stylesheet" href="{% static 'css/pages/info.css'%}"> {% endblock %} {% block content %}
+
+<div class="container-info">
+
+    <div class="info-left">
+        <img src="/static/image/avtUser/p3.png" alt="info" class="info-left-image">
+
+        <h2>{{username}}</h2>
+
+        <button type="submit" onclick="myFunction()" class="js_click clickBtn">List Friend</button>
+        <!-- <button class="js_click2 clickBtn2">day ne</button> -->
+
+
+
+        <!-- <label for="CLICK_FRIEND" class="click-friend js_click">CHECK1</label>
+
+        <input type="checkbox" name="" id="CLICK_FRIEND" class="hide-show"> -->
+
+
+        <!-- <div class="click-friend">FRIEND</div> -->
     </div>
-</body>
-</html>
+    <div class="info-right">
+        <div class="email">
+            <!-- <p class="info-first">Email</p> -->
+            <!-- <p>{{ email }}</p> -->
+            <!-- <p class="info-second">hopnguyen081101@gmail.com</p> -->
+            <div class="info-first">Email</div>
+            <div class="info-second">
+                <p>hopnguyen081101@gmail.com</p>
+            </div>
+        </div>
+        <div class="fullname">
+            <!-- <p class="info-first">Fullname</p> -->
+            <!-- <p> {{fullname}}</p> -->
+            <!-- <p class="info-second">Nguyen Ngoc Hop</p> -->
+            <div class="info-first">Full Name</div>
+            <div class="info-second">
+                <p>Nguyen Ngoc Hop</p>
+            </div>
+        </div>
+        <div class="phone">
+            <!-- <p class="info-first">Phone Number</p> -->
+            <!-- <p>{{ phonenumber}}</p> -->
+            <!-- <p class="info-second">0944894457</p> -->
+            <div class="info-first">Phone Number</div>
+            <div class="info-second">
+                <p>09448944457</p>
+            </div>
+        </div>
+        <div class="address">
+            <!-- <p class="info-first">Address</p> -->
+            <!-- <p> {{address}} </p> -->
+            <!-- <p class="info-second">Tinh Long, Quang Ngai, Viet Nam</p> -->
+            <div class="info-first">Address</div>
+            <div class="info-second">
+                <p>Tinh Long, Quang Ngai, Viet Nam</p>
+            </div>
+        </div>
+
+
+
+        <div class="div-friend js_div_friend" id="FRIEND_LIST">
+            <ul class="ul-friend">
+                <li class="friend-item">
+                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
+                    <div class="friend-info">NAME ??</div>
+                </li>
+                <li class="friend-item">
+                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
+                    <div class="friend-info">NAME ??</div>
+                </li>
+                <li class="friend-item">
+                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
+                    <div class="friend-info">NAME ??</div>
+                </li>
+                <li class="friend-item">
+                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
+                    <div class="friend-info">NAME ??</div>
+                </li>
+                <li class="friend-item">
+                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
+                    <div class="friend-info">NAME ??</div>
+                </li>
+                <li class="friend-item">
+                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
+                    <div class="friend-info">NAME ??</div>
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="list-friend">
+            <div class="freind-item">
+                <div class="friend-image">
+                    <img src="/static/image/avtUser/p3.png" alt="" class="img-fr">
+                </div>
+                <div class="friend-info">NAME ???</div>
+            </div>
+            <div class="freind-item">
+                <div class="friend-image">
+                    <img src="/static/image/avtUser/p1.png" alt="" class="img-fr">
+                </div>
+                <div class="friend-info">NAME ??</div>
+            </div>
+            <div class="freind-item">
+                <div class="friend-image">
+                    <img src="/static/image/avtUser/p2.png" alt="" class="img-fr">
+                </div>
+                <div class="friend-info">NAME ????</div>
+            </div>
+        </div> -->
+    </div>
+</div>
+<script>
+    // const clickBtn = document.querySelector(".js_click")
+    // const clickBtn2 = document.querySelector(".js_click2")
+    // const d_friend = document.querySelector(".js_div_friend")
+
+    // function show() {
+    //     d_friend.classList.add('open')
+    // }
+
+    // function hide() {
+    //     d_friend.classList.remove('open')
+    // }
+
+
+    // clickBtn.addEventListener('click', show)
+    // clickBtn2.addEventListener('click', hide)
+    function myFunction() {
+        var x = document.getElementById("FRIEND_LIST");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}
+<!-- </body>
+
+</html> -->

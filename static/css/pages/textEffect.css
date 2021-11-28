@@ -1,0 +1,46 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@700;900&display=swap');
+body {
+  background: #111;
+}
+.hidden {
+  opacity:0;
+}
+.console-container {
+ 
+  font-family:'Rokkitt', serif;
+  font-size:20px;
+  text-align:center;
+  height:200px;
+  width:550px;
+  display:block;
+  position:absolute;
+  color:white;
+  margin-right: 30px;
+}
+.console-underscore {
+  display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
+}
+@media screen and (max-width: 500px) {
+.console-container {
+ 
+  font-family:'Rokkitt', serif;
+  font-size:14px;
+  text-align:center;
+  height:200px;
+  width:390px;
+  display:block;
+  position:absolute;
+  color:white;
+  margin-right: 10px;
+}
+.console-underscore {
+  display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
+}
+}

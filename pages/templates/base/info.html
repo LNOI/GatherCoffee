@@ -19,6 +19,13 @@
             <div class="fullname"> <p>Fullname:</p> <p> {{fullname}}</p></div>
             <div class="phone"> <p>Phone Number:</p> <p>{{ phonenumber}}</p></div>
             <div class="address"> <p>Address: </p> <p> {{address}} </p></div>
+            <div class="friend">
+                <ul> 
+                    {% for user in friend %}
+                        <li>{{user}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 </body>

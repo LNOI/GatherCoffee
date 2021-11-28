@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from .forms import FormLogin,FormCreate
 from django.http import HttpResponseRedirect
 from .models import Account_data
+from rooms import commonUser,routing
 import hashlib
 # Create your views here.
 def Home_page(request):
@@ -96,11 +97,14 @@ def InformationUser(request):
         if request.GET["username"]:
             info_name=request.GET["username"]
             info_user=Account_data.objects.filter(username=info_name)[0]
+           
+            listfriend=info_user.friend.split(',')
             context={
                 "email":info_user.email,
                 "username":info_user.username,
                 "fullname":info_user.fullname,
                 "phonenumber":info_user.phoneNumber,
-                "address":info_user.address
+                "address":info_user.address,
+                "friend":listfriend
             }
     return render(request,"base/info.html",context)

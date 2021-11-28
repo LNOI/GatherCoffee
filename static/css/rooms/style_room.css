@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fruktur&display=swap');
-*{
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+body{
+    -moz-user-select: none !important;
+    -webkit-touch-callout: none!important;
+    -webkit-user-select: none!important;
+    -khtml-user-select: none!important;
+    -moz-user-select: none!important;
+    -ms-user-select: none!important;
 }
 ::-webkit-scrollbar{
     display: none;
@@ -16,7 +19,7 @@ body{
 }
 #canvas {  
     display: block;
-    
+    position: absolute;
 } 
 .container{
     position: absolute;
@@ -38,7 +41,7 @@ body{
     width: 80px;
     height: 100vh;
     top: 0px;
-    right: 0px;
+    right: -12px;
     background-color: rgb(58, 63, 78);
 
 }
@@ -97,7 +100,7 @@ body{
     width: 250px;
     height: 100vh;
     top: 0px;
-    right: 80px;
+    right: 65px;
     background-color: rgb(50, 58, 80);
     opacity: 0.9;
 }
@@ -106,7 +109,6 @@ body{
     width: 100%;
     height: 100vh;
     transition: width 2s;
-    
 }
 .sub-panel .sub-chat .nav-chat{
     display: flex;
@@ -125,15 +127,13 @@ body{
 }
 
 .navcoffee{
-    margin-top: 50px;
+    margin-top: 20px;
     height: 50px;
     width: 100%;
-    
     opacity: 0.6;
 }
 .navcoffee img{
     width: 100%;
-    
 }
 .hidden-nav-chat{
     border: none;
@@ -144,8 +144,8 @@ body{
     width: 30px;
     height: 30px;
 }
-.sub-panel .sub-chat .box-chat,.box-friends{
-    margin-top: 20%;
+.sub-panel .sub-chat .box-chat,.box-friends,.box-myfriends{
+    margin-top: 10%;
     width: 100%;
     height: 65vh;
     color: white;
@@ -165,21 +165,24 @@ body{
     border-radius: 10px;
     border: none;
     padding: 5px;
+    margin: auto;
 }
 .sub-panel .sub-chat .box-send #chat-messenger-submit{
-    border-radius: 2px;
+  
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 30px;
+    font-size: 36px;
 }
 .sub-panel .sub-chat .box-send #chat-messenger-submit:hover{
     color: rgb(185, 7, 7);
 }
 
-
 .emoji ul {
+    padding: 0px;
     display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0px;
 }
 .emoji ul li{
     list-style-type:none;
@@ -193,7 +196,7 @@ body{
     height: 30px;
 }
 .box-chat div{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .box-chat b{
     display: inline-block;
@@ -215,22 +218,44 @@ body{
     text-overflow: clip;
     word-wrap: break-word;
 }
-.box-friends b{
-    font-size: 25px;
-    
+
+#boxMess{
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
-.box-friends b img{
-    width: 15%;
-    display: inline;
+.boxMessenger{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
 }
-.box-friends p{
-    width: 70%; 
-    margin-left: 20%;
-    overflow: hidden;
-    text-overflow: clip;
-    word-wrap: break-word;
+.subboxMessenger{
+    position: relative;
 }
-
-
-
-
+.bg_boxMessenger{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+.icon_boxMessenger{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width:70px;
+    z-index: 10px;
+}
+.headMess{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.text_boxMessenger{
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    font-size: 12px;
+    width: 100px;
+    height: 80px;
+    overflow-y: scroll;
+}

@@ -10,5 +10,6 @@ class Account_data(models.Model):
     phoneNumber=models.CharField(blank=True,max_length=11)
     address=models.CharField(blank=True,max_length=50)
     money=models.CharField(blank=True,max_length=100,default="100")
+    friend=models.TextField(blank=True)
     def __str__(self):
         return self.username

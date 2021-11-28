@@ -4,32 +4,27 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 from asgiref.sync import sync_to_async
 from pages.models import Account_data
 from .models import Message
-
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
+        print(self.room_name)
         self.room_group_name = 'chat_%s' % self.room_name
-
-        # Join room
+        print(self.room_group_name)
+        print( self.channel_name)
         await self.channel_layer.group_add(
             self.room_group_name,
             self.channel_name
         )
         await self.accept()
-    
     async def disconnect(self, close_code):
 
         await self.channel_layer.group_discard(
             self.room_group_name,
             self.channel_name
         )
-    
-    # Receive message from web socket
     async def receive(self, text_data):
         data = json.loads(text_data)
-
         await self.save_message(data['username'], data['room'],  data['message'])
-        # Send message to room group
         await self.channel_layer.group_send(
             self.room_group_name,
             {
@@ -45,10 +40,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 'idCoffee':data['idCoffee']
             }
         )
-
-    # Receive message from room group
+  
     async def chat_message(self, event):
-        # Send message to WebSocket
         await self.send(text_data=json.dumps({
             'message': event['message'],
             'username':event['username'],
@@ -63,10 +56,29 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     @sync_to_async
     def save_message(self, username, room, message):
-        if message!="":
-            if("-" in message):
+        if message!="" and ("__loop" not in message):
+            if "shareMoney" in message:
+                o=message.split("-")[0]
+                u=message.split("-")[2]
+                v=message.split("-")[3]
+                acc_o=Account_data.objects.get(username=o)
+                money_o=int(acc_o.money)
+                if money_o<=int(v):
+                 
+                    return
+                try:
+                    acc=Account_data.objects.get(username=u)
+                    print(acc.money)
+                    acc.money=str(int(acc.money)+int(v))
+                    print(acc.money)
+                    acc_o.money=str(int(acc_o.money)-int(v))
+                    acc_o.save()
+                    acc.save()
+                except :
+                    print("ObjectDoesNotExist")
+            elif "-" in message:
                 acc=Account_data.objects.get(username=username)
                 acc.money=str(int(acc.money)+int(message))
                 acc.save()
-                return
-            Message.objects.create(username=username, room=room, content=message)
+            else:
+                Message.objects.create(username=username, room=room, content=message)

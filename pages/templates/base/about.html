@@ -1,0 +1,41 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block stylecss %}
+<link rel="stylesheet" href="{% static 'css/pages/styleabout.css'%}">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Rokkitt:wght@700;800&display=swap" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="p-3">
+    <div class="row">
+        <div class="content">
+            <div class="content_intro">
+                <div class="context col-md-5">
+                    <div class="title_1">
+                        <h1>INTRODUCTION</h1>
+                        <img src="/static/image/1.png" alt="image"/>
+                    </div>
+                    <p>Gather Coffee is a website designed to make you feel like you are drinking coffee face-to-face with friends and family. Web simulates the model of coffee shops to help users have the most authentic atmosphere, besides the website also has the same functions as when we go to drink coffee at the shop such as ordering drinks, paying, ordering table and chat with friends via chat or video call. The design team firmly believes that with the above functions and the coffee shop model, it will create excitement, novelty and great feeling for users.</p>
+                </div>
+                <div class="image col-md-7">
+                    <img src="/static/image/about_img_1.png" alt="image">
+                </div>
+            </div>
+            <div class="content_add">
+                <div class="image_2 col-md-5">
+                    <img src="/static/image/about_img_2.png" alt="image">
+                </div>
+                <div class="context_2  col-md-5">
+                    <div class="title_2">
+                        <h1>ADDITION</h1>
+                        <img src="/static/image/2.png" alt="image"/>
+                    </div>
+                    <p>Besides creating a feeling like when we go to a coffee shop with friends and relatives at the shop. The group also wants to use this website so that users can connect with each other to help expand their personal relationships. Users can connect with each other through preferences about drinks, seats, favorite shops, etc., thereby making it easier for people to start conversations and make friends.</p>
+                </div>
+            </div>
+            <div class="image_2_mob">
+                <img src="/static/image/about_img_2.png" alt="image">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

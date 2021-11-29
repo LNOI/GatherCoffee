@@ -1,10 +1,5 @@
-body{
-    -moz-user-select: none !important;
-    -webkit-touch-callout: none!important;
-    -webkit-user-select: none!important;
-    -khtml-user-select: none!important;
-    -moz-user-select: none!important;
-    -ms-user-select: none!important;
+#canvas{
+    margin: 0 0 0 0;
 }
 #myMoney{
     position: absolute;
@@ -66,6 +61,7 @@ body{
     position: absolute;
     top: 0px;
     left: 0px;
+    z-index: 10;
 }
 .eventCustomer #event-Order{
     position: absolute;
@@ -137,7 +133,6 @@ body{
     color: white;
     font-weight: bold;
     float: right;
-
 }
 .btn-order{
     width: 100px;
@@ -177,11 +172,12 @@ body{
     right: 0;
     font-size: 30px;
 }
-
+#exitCheckout{
+    float:right;
+}
 .checkoutPaypal{
     position: absolute;
-    width: 600px;
-    height: 500px;
+   
     left: 500px;
     top: 100px;
     background-color: thistle;
@@ -190,4 +186,47 @@ body{
 
 #namefriend {
     width: 150px;
+}
+
+@media screen and (max-width: 500px) {
+    .eventCustomer #event-Order{
+        left: 80px;
+        top: 100px;
+        width: 300px;
+    }
+    div.checkoutPaypal{
+        width: 100%;
+        left: 0px;
+        top: 150px;
+    }
+    div.shareMoney{
+        width: 100%;
+        left: 0px;
+        top: 150px;
+    }
+    div.menu{
+        width: 100%;
+        left: 0px;
+        top: 150px;
+        background-size: 100% 100%;
+    }
+    ul.menu1{
+       position: absolute;
+        left: -20px;
+        top: 150px;
+    }
+    ul.menu2{
+        position: absolute;
+        left: 240px;
+    }
+    ul.menu3{
+        position: absolute;
+        left: 110px;
+        top: 270px;
+    }
+    .btn-exitMenu{
+        position: absolute;
+        left: 370px;
+    }
+  
 }

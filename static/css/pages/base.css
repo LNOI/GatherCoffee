@@ -109,6 +109,7 @@
     color: white;
 
 }
+
 .text-end .box-information .panel-info #btn-logout{
     width:150px;
     height: 36px;
@@ -118,7 +119,6 @@
     font-family: Rokkitt; 
     border: white solid 3px;
     color: white;
-
 }
 @media screen and (max-width: 500px) {
     .head_con .container .head .title_head{

@@ -2,9 +2,10 @@
 var avtCharacters=sessionStorage.getItem("avtCharacters");
 const canvas=document.getElementById("canvas");
 const context=canvas.getContext("2d");
+ 
+const width=canvas.width=document.body.clientWidth;
+const height=canvas.height=document.body.clientHeight;
 
-const width=canvas.width=window.innerWidth;
-const height=canvas.height=window.innerHeight;
 const fps=60;
 const spriteSheet=new Image();
 spriteSheet.src="/static/image/animate-"+avtCharacters+".png"
@@ -60,7 +61,6 @@ xy.forEach(e=>{
         if(!isNaN(e.split("=")[1])){
             xPos=parseInt(e.split("=")[1]);
         }
-        
     }
     if(e.includes("y")){
         if(!isNaN(e.split("=")[1])){
@@ -216,11 +216,13 @@ function frame(){
 }
 const walk=20;
 var checkKey=0;
+canvas.style.marginTop="0px";
 document.addEventListener("keydown",(e)=>{
     if(e.key=='d'){
         checkKey=1;
         reverse=0;
         xPos+=walk;
+        
         if (xPos>=(width/2+30)) {
             if(bgframex+bgWidth<=widthJangNam){
             
@@ -265,9 +267,10 @@ document.addEventListener("keydown",(e)=>{
         if (yPos>=height-150) yPos=height-150;
     }
     else if (e.key=="e"|| e.key=="E"){
-        if(!eventOrder.hidden){
-            Menu.hidden=false;
-
+        
+        if(eventOrder.style.display=='block'){
+            console.log("display1");
+            Menu.style.display="block";
         }
     }
     if(e.key=='s'||e.key=='a'||e.key=="d"||e.key=="w"){
@@ -313,11 +316,12 @@ function CheckArea(){
   
 }
 function CheckOrder(){
+   
     if(xPos+bgframex>=470 &&xPos+bgframex<=830&&yPos+bgframey<=220&&yPos+bgframey>=60){
-        eventOrder.hidden=false;
+        eventOrder.style.display="block";
     }
     else{
-        eventOrder.hidden=true;
+        eventOrder.style.display="none";
     }
 }
 frame();
@@ -342,24 +346,56 @@ commonSocket=new WebSocket(
     +'/ws/common/'
 )
 commonSocket.onopen=function(e){  
+
 }
 commonSocket.onmessage=function(e){
     
     const data = JSON.parse(e.data);
     if(data.username!=userName){
-        const indexRoom=data.indexRoom;
-        const toast=` <div class="toast show " role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <img src="/static/image/avtUser/p4.jpg" style="width: 15%;" class="rounded me-2" alt="...">
-          <strong class="me-auto">`+userName+`</strong>
-          <small class="text-muted">just now</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-        `+'Moi ban vao JangNam'+` <button type="button" onclick="gonow(`+indexRoom+`)" class="btn btn-danger float-end" style="margin-top: -10px;" id="JangNam" >Go now</button>
-        </div>
-        </div>`
-        document.querySelector(".notification  .toast-container").innerHTML+=toast;
+
+        if(data.message.split(":")[1]==userName){
+           
+            if(data.message.split(":")[0]=="AddFriend"){
+                const toast=` <div class="toast show alertInvite noti-`+data.username+`" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                  <img src="/static/image/avtUser/p4.jpg" style="width: 15%;" class="rounded me-2" alt="...">
+                  <strong class="me-auto">`+data.username+`</strong>
+                  <small class="text-muted">just now</small>
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                  `+'Kết bạn khum'+` <button type="button" onclick="addFriendNow('`+data.username+`')" class="btn btn-danger float-end" style="margin-top: -10px;" id="JangNam" >Add</button>
+                </div>
+                </div>`
+                document.querySelector(".notification  .toast-container").innerHTML+=toast;
+            }else if(data.message.split(":")[0]=="InviteRoom"){
+                const indexRoom=data.indexRoom
+                const toast=` <div class="toast show alertInvite" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                  <img src="/static/image/avtUser/p4.jpg" style="width: 15%;" class="rounded me-2" alt="...">
+                  <strong class="me-auto">`+data.username+`</strong>
+                  <small class="text-muted">just now</small>
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                  `+'Moi ban vao JangNam'+` <button type="button" onclick="gonow(`+indexRoom+`)" class="btn btn-danger float-end" style="margin-top: -10px;" id="JangNam" >Go now</button>
+                </div>
+                </div>`
+                document.querySelector(".notification  .toast-container").innerHTML+=toast;
+            }
+        }
+    }else{
+        if (data.message.split(":")[0]=="GetInfo"){
+            const dataU=data.dataInfo.split(":");
+            document.getElementById("aliasU").innerHTML=dataU[0];
+            document.getElementById("p-fullname").innerHTML=dataU[1];
+            document.getElementById("p-address").innerHTML=dataU[2];
+            document.getElementById("p-sex").innerHTML=dataU[3];
+            document.getElementById("p-age").innerHTML=dataU[4];
+            document.getElementById("p-email").innerHTML=dataU[5];
+            document.getElementById("p-phone").innerHTML=dataU[6];
+            document.querySelector(".informationUser").style.display="block";
+        }
     }
 }
 commonSocket.onclose = function(e) {
@@ -398,16 +434,15 @@ const chatSocket = new WebSocket(
 
 chatSocket.onopen=function(e){
 
-    avatar=`<div class="dropdown">
-                                <button class="btn dropdown-toggle" style="height: 40px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <img class="bg-transparent float-start" src="/static/image/avtUser/p2.png" alt="avatart" style="width: 15%;">
-                                  <p class="text-white float-start mx-2 fs-5">`+userName+`</p>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                  <li><a class="dropdown-item" href="#">info</a></li>
-                                  <li><a class="dropdown-item" href="#">AddFriend</a></li>
-                                </ul>
-    </div>`
+     avatar=`<div class="dropdown">
+        <button class="btn dropdown-toggle" style="height: 40px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <img class="bg-transparent float-start" src="/static/image/avtUser/p2.png" alt="avatart" style="width: 15%;">
+        <p class="text-white float-start mx-2 fs-5">`+userName+`</p>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" onclick="funcInfo('`+userName+`')" id="btnInfo" href="#">My Info</a></li>
+        </ul>
+        </div>`
     document.querySelector(".box-friends").innerHTML+=avatar;
     chatSocket.send(JSON.stringify({
         'message': "Connecting",
@@ -482,17 +517,38 @@ chatSocket.onmessage = function(e) {
         } 
     }
     if(!statePlayer.states[friend]&&friend!=userName){
-        favatar=`<div class="dropdown" id="icon-`+friend+`">
+        const aa=document.querySelectorAll(".box-myfriends .invite");
+        let checkInList=0;
+        aa.forEach(e=>{
+            if(friend==e.id){
+                checkInList=1;
+            }
+        })
+        if(checkInList){
+            favatar=`<div class="dropdown "  id="icon-`+friend+`">
             <button class="btn dropdown-toggle" style="height: 40px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <img class="bg-transparent float-start" src="/static/image/avtUser/p2.png" alt="avatart" style="width: 15%;">
             <p class="text-white float-start mx-2 fs-5">`+friend+`</p>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">info</a></li>
-            <li><a class="dropdown-item" href="#">AddFriend</a></li>
+            <li><a class="dropdown-item" onclick="funcInfo('`+friend+`')" id="btnInfo" href="#">Info</a></li>
+           
             </ul>
-        </div>`
-        document.querySelector(".box-friends").innerHTML+=favatar;
+            </div>`
+            document.querySelector(".box-friends").innerHTML+=favatar;
+        }else{
+            favatar=`<div class="dropdown "  id="icon-`+friend+`">
+            <button class="btn dropdown-toggle" style="height: 40px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="bg-transparent float-start" src="/static/image/avtUser/p2.png" alt="avatart" style="width: 15%;">
+            <p class="text-white float-start mx-2 fs-5">`+friend+`</p>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" onclick="funcInfo('`+friend+`')" id="btnInfo" href="#">Info</a></li>
+            <li><a class="dropdown-item"  onclick="funcAddFriend('`+friend+`')" id="btnAddFriend" href="#">AddFriend</a></li>
+            </ul>
+            </div>`
+            document.querySelector(".box-friends").innerHTML+=favatar;
+        }
         
         let bMess=document.createElement("div");
         bMess.id=friend+"Messenger";
@@ -587,7 +643,8 @@ listMyFriend.forEach(e=>{
         commonSocket.send(JSON.stringify({
             'message':"Moi ban vao  :"+e.id,
             'username':userName,
-            'indexRoom':1
+            'indexRoom':1,
+            'dataInfo':''
         }));
     })
 })
@@ -607,7 +664,6 @@ function TimeHideMess(){
             'checkCoffee':0,
             'idCoffee':0
         }));
-
         boxMessengerOwner.style.display="none";
         
     },10000);
@@ -650,13 +706,13 @@ function initMenu(){
             }));
         })
     });
-    Menu.hidden=true;
-    eventOrder.hidden=true;
+    Menu.style.display="none";
+    eventOrder.style.display="none";
     btnExitMenu.addEventListener("click",()=>{
-        Menu.hidden=true;
+        Menu.style.display="none";
     })
     btnOrderMenu.addEventListener("click",()=>{
-        Menu.hidden=true;
+        Menu.style.display="none";
         console.log("#"+idCoffee+" p.price")
         priceCoffee=document.querySelector("#"+idCoffee+" p.price").innerHTML.split("$")[0];
         valueMoney.innerHTML=parseInt(valueMoney.innerHTML)-parseInt(priceCoffee);
@@ -735,8 +791,35 @@ function initMenu(){
 }
 
 initMenu();
+function funcAddFriend(name){
+    commonSocket.send(JSON.stringify({
+        'message':"AddFriend:"+name,
+        'username':userName,
+        'indexRoom':0,
+        'dataInfo':''
+    }));
+}
+function addFriendNow(name) {
+    commonSocket.send(JSON.stringify({
+        'message':"OkeFriend:"+name,
+        'username':userName,
+        'indexRoom':0,
+        'dataInfo':''
+    }));
+    const v=document.querySelectorAll(".noti-"+name);
+    v.forEach(e=>{
+        e.style.display="none";
+    })
 
-
+}
+function funcInfo(name){
+    commonSocket.send(JSON.stringify({
+        'message':"GetInfo:"+name,
+        'username':userName,
+        'indexRoom':0,
+        'dataInfo':''
+    }));
+}
 
 
 

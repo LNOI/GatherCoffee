@@ -16,8 +16,16 @@ const btnDeposit=document.querySelector("#deposit");
 const btnExitChekout=document.querySelector("#exitCheckout");
 const boxCheckout=document.querySelector(".checkoutPaypal");
 const boxGroup=document.querySelector("#box-group");
+const boxInfo=document.querySelector(".informationUser");
+const btnExitInfo=document.getElementById("closeInfo");
 
-subPanel.hidden=true;
+if(boxInfo){
+    boxInfo.style.display="none";
+    btnExitInfo.addEventListener("click",(e)=>{
+        boxInfo.style.display="none";
+    })
+}
+subPanel.style.display="none";
 if(boxGroup){
     boxGroup.style.display="none";
     boxmyFriends.style.display="none";
@@ -57,28 +65,29 @@ if(boxShareMoney&&subboxMoney){
 
 btnMessenger.addEventListener("click",()=>{
     boxGroup.style.display="none";
-    subPanel.hidden=!subPanel.hidden;
-    boxEmoji.hidden=false;
-    boxFriends.hidden=true;
-    boxChat.hidden=false;
-    boxSend.style.display = "";
+    boxmyFriends.style.display="none";
+    subPanel.style.display="block";
+    boxEmoji.style.display="block";
+    boxFriends.style.display="none";
+    boxChat.style.display="block";
+    boxSend.style.display = "block";
     scrollToBottom();
     console.log("Click Messenger");
 });
 
 btnFriends.addEventListener("click",()=>{
-    boxGroup.style.display=""
-    subPanel.hidden=!subPanel.hidden;   
-    boxEmoji.hidden=true;
-    boxFriends.hidden=false;
-    boxChat.hidden=true;
+    boxGroup.style.display="block"
+    subPanel.style.display="block";   
+    boxEmoji.style.display="none";
+    boxFriends.style.display="block";
+    boxChat.style.display="none";
     boxSend.style.display = "none";
     scrollToBottom();
     console.log("Click Friends");
 });
 
 hdnavChat.addEventListener("click",()=>{
-    subPanel.hidden=!subPanel.hidden;
+    subPanel.style.display="none";
 });
 function scrollToBottom() {  
     boxChat.scrollTop = boxChat.scrollHeight;

@@ -3,10 +3,11 @@ var btnLogout=document.querySelector("#btn-logout")
 var btnGetUser=document.querySelector("#btn-getuser")
 var panelInfo=document.querySelector(".panel-info");
 
+
+
 const btnGocoffee=document.querySelector("#btn-gocoffee");
 const btnlogin=document.querySelector("#btn-login");
 const btnRegister=document.querySelector("#btn-register");
-
 
 const uname=document.getElementById("uname");
 if(uname&&uname.innerHTML!=""){
@@ -42,8 +43,6 @@ if(uname&&uname.innerHTML!=""){
     }
 }
 
-
-
 function InitBase(){
     if(panelInfo){
         panelInfo.hidden=true;
@@ -61,8 +60,10 @@ function InitBase(){
     }
     if(btnGetUser){
         btnGetUser.addEventListener("click",()=>{
-            var name=document.querySelector(".box-information #info-users p").innerHTML;
-            window.location.href = "/info/?username="+name;
+
+            console.log("Click btn get user");
+            // var name=document.querySelector(".box-information #info-users p").innerHTML;
+            window.location.href = "/info/?username="+uname.innerHTML;
         })
     }
 

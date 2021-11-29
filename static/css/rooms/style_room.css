@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fruktur&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
 body{
     -moz-user-select: none !important;
     -webkit-touch-callout: none!important;
@@ -18,8 +23,9 @@ body{
     height: 100vh;
 }
 #canvas {  
-    display: block;
+   
     position: absolute;
+    margin-top: 0px;
 } 
 .container{
     position: absolute;
@@ -42,11 +48,11 @@ body{
     height: 100vh;
     top: 0px;
     right: -12px;
-    background-color: rgb(58, 63, 78);
+    
 
 }
 .section .panel-user .lobby,.home{
-    background-color: rgb(90, 206, 206);
+    background-color: transparent;
     width: 100%;
     color: white;
     border: none;
@@ -61,13 +67,11 @@ body{
     bottom: 100px;
     left: 10px;
     background-color: transparent;
-    color: white;
     border: none;
 }
 .section .panel-user .btn-messenger img{
     width: 60px;
     height: 60px;
-    
 }
 
 .section .panel-user .btn-messenger img:hover{
@@ -100,7 +104,7 @@ body{
     width: 250px;
     height: 100vh;
     top: 0px;
-    right: 65px;
+    right: -15px;
     background-color: rgb(50, 58, 80);
     opacity: 0.9;
 }
@@ -150,6 +154,7 @@ body{
     height: 65vh;
     color: white;
     padding: 10px;
+    overflow-y: scroll;
 }
 
 
@@ -166,13 +171,15 @@ body{
     border: none;
     padding: 5px;
     margin: auto;
+    margin-top: 10px;
 }
 .sub-panel .sub-chat .box-send #chat-messenger-submit{
   
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 36px;
+    float: right;
+    font-size: 35px;
 }
 .sub-panel .sub-chat .box-send #chat-messenger-submit:hover{
     color: rgb(185, 7, 7);
@@ -258,4 +265,57 @@ body{
     width: 100px;
     height: 80px;
     overflow-y: scroll;
+}
+
+.checkoutPaypal{
+    width: 600px;
+    height: 345px;
+}
+.shareMoney{
+    width: 600px;
+    height: 350px;
+}
+.dropdown button{
+    height: 40px;
+}
+.informationUser{
+    position: absolute;
+    max-width: 800px;
+    height: 300px;
+    left: 25%;
+    top: 20%;
+    border: none;
+    border-radius: 20px;
+}
+.sex_age{
+    width: 200px;
+}
+.subtext{
+    margin-bottom: -5px;
+}
+@media screen and (max-width: 500px) {
+    div.alertInvite{
+        width: 40%;
+    }
+    div.informationUser{
+        z-index: 20;
+        width: 100%;
+        height: 300px;
+        left: 0px;
+        top: 120px;
+        height: 500px;
+    }
+    div.informationUser img{
+        width: 50%;
+       
+        margin-left: 25%;
+    }
+    div.informationUser #aliasU{
+        text-align: center;
+    }
+    #closeInfo{
+        position: absolute;
+        top: 0px;
+        right:  0px;
+    }
 }

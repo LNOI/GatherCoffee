@@ -1,65 +1,1009 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>GattherCoffee</title>
-        <link rel="stylesheet" href="{%static 'css/rooms/style_setting.css'%}">
-        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    </head>
-    <body>
-        <div class="nav-options">
-            <div class="cont-lef"> 
-                <h1 id="logo"> COFFEE &nbsp;&nbsp;&nbsp;&nbsp; GATHER</h1>
-                <img src="{%static 'image/background_HOME/Food/Coffee_1.png'%}" alt="img">
-            </div>
-            <div class="cont-right">
-                 <img src="{%static 'image/avtUser/p1.png'%}" alt="avatar"><h1 id="username">{{username}}</h1>
-            </div>
+
+<head>
+    <meta charset="utf-8" />
+    <title>GattherCoffee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{%static 'css/rooms/style_setting.css'%}">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Nav-options -->
+    <div class="nav-options">
+        <div class="cont-lef">
+            <h1 id="logo"> COFFEE &nbsp;&nbsp;&nbsp;&nbsp; GATHER</h1>
+            <img src="{%static 'image/background_HOME/Food/Coffee_1.png'%}" alt="img">
         </div>
-        <div class="container">
-            <h2>Customer</h2>
-            <input type="text" placeholder="Username" id="username-input">
-            <h2>Character</h2>
-            <div class="box-character">
-                <div class="prev"><i class='bx bx-skip-previous' ></i></div>
-                <div class="characters">
-                    <img src="{%static 'image/avt-dora.png'%}" alt="characters">
+        <div class="cont-right">
+            <img src="{%static 'image/avtUser/p1.png'%}" alt="avatar">
+            <h1 id="username">{{username}}</h1>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <h2>Customer</h2>
+        <input type="text" placeholder="Username" id="username-input">
+        <h2>Character</h2>
+        <div class="box-character">
+            <div class="prev"><i class='bx bx-skip-previous'></i></div>
+            <div class="characters">
+                <img src="{%static 'image/avt-dora.png'%}" alt="characters">
+            </div>
+            <div class="next"><i class='bx bx-skip-next'></i></div>
+        </div>
+        <div class="box-submit">
+            <!-- || an <button id="room-name-submit">Apply</button> || an -->
+            <button id="room-name-submit">
+                <div class="apply_btn">
+                    <a href=""><span>Apply</span></a>
                 </div>
-                <div class="next"><i class='bx bx-skip-next' ></i></div>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- background-HOp -->
+    <section class="section_icon">
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
             </div>
-            <div class="box-submit">
-                <button id="room-name-submit">Apply</button>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
             </div>
         </div>
-        <script>
-            var avtIndex=1;
-            function Character(index){
-                var avt=document.querySelector(".characters img");
-                if (index==1) avt.src="{%static 'image/avt-1.png'%}";
-                else if (index==2) avt.src="{%static 'image/avt-2.png'%}";
-                else avt.src="{%static 'image/avt-3.png'%}";
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="row-icon">
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+            <div class="div-icon">
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-address-book" aria-hidden="true"></i>
+                <i class="i-icon fa fa-battery-quarter" aria-hidden="true"></i>
+                <i class="i-icon fa fa-bluetooth" aria-hidden="true"></i>
+                <i class="i-icon fa fa-coffee" aria-hidden="true"></i>
+                <i class="i-icon fa fa-flask" aria-hidden="true"></i>
+                <i class="i-icon fa fa-gift" aria-hidden="true"></i>
+                <i class="i-icon fa fa-television" aria-hidden="true"></i>
+                <i class="i-icon fa fa-heart-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-wifi" aria-hidden="true"></i>
+                <i class="i-icon fa fa-paper-plane" aria-hidden="true"></i>
+                <i class="i-icon fa fa-beer" aria-hidden="true"></i>
+                <i class="i-icon fa fa-music" aria-hidden="true"></i>
+                <i class="i-icon fa fa-btc" aria-hidden="true"></i>
+                <i class="i-icon fa fa-rocket" aria-hidden="true"></i>
+                <i class="i-icon fa fa-star" aria-hidden="true"></i>
+                <i class="i-icon fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-moon-o" aria-hidden="true"></i>
+                <i class="i-icon fa fa-comments" aria-hidden="true"></i>
+                <i class="i-icon fa fa-birthday-cake" aria-hidden="true"></i>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Script -->
+    <script>
+        var avtIndex = 1;
+
+        function Character(index) {
+            var avt = document.querySelector(".characters img");
+            if (index == 1) avt.src = "{%static 'image/avt-1.png'%}";
+            else if (index == 2) avt.src = "{%static 'image/avt-2.png'%}";
+            else avt.src = "{%static 'image/avt-3.png'%}";
+        }
+        Character(avtIndex);
+        document.querySelector(".prev").addEventListener("click", () => {
+            avtIndex--;
+            if (avtIndex < 1) {
+                avtIndex = 3;
             }
             Character(avtIndex);
-            document.querySelector(".prev").addEventListener("click",()=>{
-                avtIndex--;
-                if(avtIndex<1){
-                    avtIndex=3;
-                }
-                Character(avtIndex);
-            })
-            document.querySelector(".next").addEventListener("click",()=>{
-                avtIndex++;
-                if(avtIndex>3){
-                    avtIndex=1;
-                }
-                Character(avtIndex);
-            })
-            document.querySelector('#room-name-submit').onclick = function(e) {
-                sessionStorage.setItem("avtCharacters",avtIndex);
-                var userName = document.querySelector('#username').innerHTML;
-                window.location.replace('lobby' + '/?username=' + userName);
-            };
-        </script>
-    </body>
+        })
+        document.querySelector(".next").addEventListener("click", () => {
+            avtIndex++;
+            if (avtIndex > 3) {
+                avtIndex = 1;
+            }
+            Character(avtIndex);
+        })
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            sessionStorage.setItem("avtCharacters", avtIndex);
+            var userName = document.querySelector('#username').innerHTML;
+            window.location.replace('lobby' + '/?username=' + userName);
+        };
+    </script>
+</body>
+
 </html>

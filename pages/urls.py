@@ -7,6 +7,7 @@ urlpatterns = [
     path('create/',Create_page,name="CreatePage"),
     path('about/',About_page,name="AboutPage"),
     path('logout/',LogOutAccount,name="LogOutAccount"),
+    path('saveInfo/',saveInfo,name='saveInfo'),
     path('info/',InformationUser,name="InformationUser")
 ]
 

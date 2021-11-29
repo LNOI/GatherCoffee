@@ -1,95 +1,193 @@
 {% extends "./base.html" %}
  {% load static %} 
  {% block stylecss%}
-<link rel="stylesheet" href="{% static 'css/pages/info.css'%}"> {% endblock %} 
+<link rel="stylesheet" href="{% static 'css/pages/info.css'%}"> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+
+{% endblock %} 
+
 {% block content %}
 
-<div class="container-info">
+<div class="container">
 
-    <div class="info-left">
-        <img src="/static/image/avtUser/p3.png" alt="info" class="info-left-image">
+    <div class="card  informationUser ">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="/static/image/avtUser/p4.jpg" class="img-fluid rounded-start" alt="...">
+            <i class="bi bi-pencil-square editInfo"></i>
+            <i class="bi bi-card-checklist saveInfo"></i>
+          </div>
+          <div class="col-md-6 ">
+            <div class="card-body">
+              <h2 class="card-title border-bottom border-end-1 text-danger fw-bold" id="aliasU">{{username}}</h2>
+              <p class="card-text subtext"><small class="text-muted">Full name</small></p>
+              <input type="text"  class="form-control" id="inputFullName" >
+              <p class="card-text fw-bold" id="p-fullname">{{fullname}} </p>
 
-        <h2>{{username}}</h2>
+              <p class="card-text subtext"><small class="text-muted">Address</small></p>
+              <input type="text"  class="form-control" id="inputAddress" >
+              <p class="card-text fw-bold" id="p-address">{{address}}</p>
 
-        <button type="submit" onclick="myFunction()" class="js_click clickBtn">List Friend</button>
-      
-    </div>
-    <div class="info-right">
-        <div class="email">
-            <!-- <p class="info-first">Email</p> -->
-            <!-- <p>{{ email }}</p> -->
-            <!-- <p class="info-second">hopnguyen081101@gmail.com</p> -->
-            <div class="info-first">Email</div>
-            <div class="info-second">
-                <p>hopnguyen081101@gmail.com</p>
+
+              <div class="sex_age">
+                    <div class="d-sex">
+                        <p class="card-text subtext"><small class="text-muted">Sex</small></p>
+                        <input type="text"  class="form-control" id="inputSex" >
+                        <p class="card-text fw-bold" id="p-sex">{{sex}}</p>
+                    </div>
+                    <div class="d-age">
+                        <p class="card-text subtext"><small class="text-muted">Age</small></p>
+                        <input type="text"  class="form-control" id="inputAge" >
+                        <p class="card-text fw-bold" id="p-age">{{age}}</p>
+                    </div>
+              </div>
+              <div class="em_phone">
+                <div class="d-email">
+                    <p class="card-text subtext"><small class="text-muted">Email</small></p>
+                    <input type="text"  class="form-control" id="inputEmail" >
+                     <p class="card-text fw-bold" id="p-email">{{email}}</p>
+                </div>
+                <div class="d-phone">
+                    <p class="card-text subtext"><small class="text-muted">Phone</small></p>
+                    <input type="text"  class="form-control" id="inputPhone" >
+                    <p class="card-text fw-bold" id="p-phone">{{phonenumber}}</p>
+                </div>
+              </div>
+              
             </div>
+          </div>
         </div>
-        <div class="fullname">
-            <!-- <p class="info-first">Fullname</p> -->
-            <!-- <p> {{fullname}}</p> -->
-            <!-- <p class="info-second">Nguyen Ngoc Hop</p> -->
-            <div class="info-first">Full Name</div>
-            <div class="info-second">
-                <p>Nguyen Ngoc Hop</p>
-            </div>
-        </div>
-        <div class="phone">
-            <!-- <p class="info-first">Phone Number</p> -->
-            <!-- <p>{{ phonenumber}}</p> -->
-            <!-- <p class="info-second">0944894457</p> -->
-            <div class="info-first">Phone Number</div>
-            <div class="info-second">
-                <p>09448944457</p>
-            </div>
-        </div>
-        <div class="address">
-          
-            <div class="info-first">Address</div>
-            <div class="info-second">
-                <p>Tinh Long, Quang Ngai, Viet Nam</p>
-            </div>
-        </div>
-
-        <div class="div-friend js_div_friend" id="FRIEND_LIST">
-            <ul class="ul-friend">
-                <li class="friend-item">
-                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
-                    <div class="friend-info">NAME ??</div>
-                </li>
-                <li class="friend-item">
-                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
-                    <div class="friend-info">NAME ??</div>
-                </li>
-                <li class="friend-item">
-                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
-                    <div class="friend-info">NAME ??</div>
-                </li>
-                <li class="friend-item">
-                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
-                    <div class="friend-info">NAME ??</div>
-                </li>
-                <li class="friend-item">
-                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
-                    <div class="friend-info">NAME ??</div>
-                </li>
-                <li class="friend-item">
-                    <div class="friend-image"><img src="/static/image/avtUser/p3.png" alt="" class="img-fr"></div>
-                    <div class="friend-info">NAME ??</div>
-                </li>
-            </ul>
-
-        </div>
-      
-    </div>
+      </div>
 </div>
 <script>
-    function myFunction() {
-        var x = document.getElementById("FRIEND_LIST");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
+    const alias=document.getElementById('aliasU');
+    const editInfo=document.querySelector(".editInfo");
+    const saveInfo=document.querySelector(".saveInfo");
+
+    const ipFullName=document.getElementById("inputFullName");
+    const ipAddress=document.getElementById("inputAddress");
+
+    const ipSex=document.getElementById("inputSex");
+    const ipAge=document.getElementById("inputAge");
+
+    const ipEmail=document.getElementById("inputEmail");
+    const ipPhone=document.getElementById("inputPhone");
+
+
+    const pFullName=document.getElementById("p-fullname");
+    const pAddress=document.getElementById("p-address");
+
+    const pSex=document.getElementById("p-sex");
+    const pAge=document.getElementById("p-age");
+
+    const pEmail=document.getElementById("p-email");
+    const pPhone=document.getElementById("p-phone");
+
+    if(editInfo && saveInfo){
+        editInfo.style.display="block";
+        saveInfo.style.display="none";
+
+        pFullName.style.display="block"
+        pAddress.style.display="block"
+        pSex.style.display="block"
+        pAge.style.display="block"
+        pEmail.style.display="block"
+        pPhone.style.display="block"
+
+        ipFullName.style.display="none";
+        ipAddress.style.display="none";
+        ipSex.style.display="none";
+        ipAge.style.display="none";
+        ipEmail.style.display="none";
+        ipPhone.style.display="none";  
+
+
+        editInfo.addEventListener("click",(e)=>{
+            editInfo.style.display="none";
+            saveInfo.style.display="block";
+            ipFullName.style.display="block"
+            ipAddress.style.display="block"
+            ipSex.style.display="block"
+            ipAge.style.display="block"
+            ipEmail.style.display="block"
+            ipPhone.style.display="block"
+
+            ipFullName.value=pFullName.innerHTML
+            ipAddress.value=pAddress.innerHTML
+            ipSex.value=pSex.innerHTML
+            ipAge.value=pAge.innerHTML
+            ipEmail.value=pEmail.innerHTML
+            ipPhone.value=pPhone.innerHTML
+
+
+            pFullName.style.display="none"
+            pAddress.style.display="none"
+            pSex.style.display="none"
+            pAge.style.display="none"
+            pEmail.style.display="none"
+            pPhone.style.display="none"
+            
+        })
+        saveInfo.addEventListener("click",(e)=>{
+            editInfo.style.display="block";
+            saveInfo.style.display="none";
+            ipFullName.style.display="none";
+            ipAddress.style.display="none";
+            ipSex.style.display="none";
+            ipAge.style.display="none";
+            ipEmail.style.display="none";
+            ipPhone.style.display="none";  
+
+            pFullName.style.display="block"
+            pAddress.style.display="block"
+            pSex.style.display="block"
+            pAge.style.display="block"
+            pEmail.style.display="block"
+            pPhone.style.display="block"
+            TestSave()
+            
+        })
     }
+    async function TestSave(){
+        function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie !== '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = cookies[i].trim();
+                     if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                         break;
+                     }
+                 }
+             }
+             return cookieValue;
+            }
+            var dataInfo={
+                'username':alias.innerHTML,
+                'fullname':ipFullName.value,
+                'address':ipAddress.value,
+                'sex':ipSex.value,
+                'age':ipAge.value,
+                'email':ipEmail.value,
+                'phone':ipPhone.value
+
+            }
+            var url = "{% url 'saveInfo' %}"
+            var csrftoken =await getCookie('csrftoken');
+            const noti= await fetch(url, {
+                  method:'POST',
+                  headers:{
+                      'Content-type':'application/json',
+                      'X-CSRFToken':csrftoken,
+                  },
+                  body:JSON.stringify(dataInfo)
+            })
+            location.reload();   
+    }
+
+
+
 </script>
 {% endblock %}

@@ -2,10 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%static 'css/pages/base.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -15,36 +17,75 @@
     <title>GatherCoffee</title>
 </head>
 <body>
-    <header class="head_con" style="background-color: #c5eaff;">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start head">
-                <img src="/static/image/background_HOME/Food/logo_1.png" alt="coffe">
-                <h1 class="title_head"> COFFEE GATHER</h1>
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-3 justify-content-center mb-md-0 functions">
-                    <li><a href="/" class="nav-link px-2">Home</a></li>
-                    <li><a href="/about" class="nav-link px-2">About</a></li>
-                    <li><a href="https://www.facebook.com/groups/458427545655312" class="nav-link px-2">Facebook</a></li>
-                </ul>
-
-                <div class="text-end float-end  position-relative">
-                    {% if username == "" %}
-                        <button type="button" id="btn-login" class="btn-outline-light me-9">LOGIN</button>
-                    {% else  %}
-                        <div class="box-information position-absolute ">
-                            <img src="/static/image/avtUser/p1.png" class="float-start " alt="info"><p id="uname">{{username}}</p>
-                            <div class="panel-info">
-                                <button id="btn-getuser"><i class='bx bxs-user-circle' ></i><p>Infomation User</p> </button>
-                                <button id="btn-logout"><i class='bx bx-log-out' ></i> <p>Log Out</p> </button>
-                            </div>
-                        </div>
-                    {% endif %}
+    <header>
+        <div class="container-fluid ">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start head row">
+                <div class="col-5" id="logoCoffee">
+                    <img src="/static/image/background_HOME/Food/logo_1.png" id="logoMain" alt="coffe">
+                    <h1 id="th1" class="title_head">COFFEE</h1>
+                    <h1 id="th2" class="title_head">GATHER</h1>
                 </div>
+                <i class="bi bi-justify-right" id="alignCenter"></i>
+                <div class="col-7  row " id="nav-mobile">
+                    <div class="col-8" id="navbar">
+                        <ul class="nav ">
+                            <li><a href="/" >Home</a></li>
+                            <li><a href="/about" >About</a></li>
+                            <li><a href="https://www.facebook.com/groups/458427545655312">Facebook</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4" id="mainUser">
+                        {% if username == "" %}
+                            <button  type="button" id="btn-login">LOGIN</button>
+                        {% else  %}
+                            <div class="box-information">
+                                <img src="/static/image/avtUser/p1.png"   alt="info"><p id="uname">{{username}}</p>
+                                <div class="panel-info">
+                                    <button id="btn-getuser">Information</button>
+                                    <button id="btn-logout">Logout </button>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
             </div>
         </div>
     </header>
     {% block content %}
     {% endblock %}
-    <div class="p-2 mb-8 foot_con" >
+    <div class="container" >
+        <footer class="row  py-5 my-5 border-top" id="ffter">
+          <div class="col" id="col1">
+            <img src="/static/image/Drink_of_Store_1/Drink_cof9.png" alt="">
+            <p class="text-muted">&copy; 2021</p>
+          </div>
+      
+      
+          <div class="col-7" id="col2">
+            <h5>Team</h5>
+            <ul class="nav flex-column " id="boxTeam">
+              <li class="nav-item mb-2"><a href="#" class=" text-nowrap nav-link p-0 text-muted">Leader Nguyễn Thành Lợi </a></li>
+              <li class="nav-item mb-2"><a href="#" class=" text-nowrap nav-link p-0 text-muted">Team Vice Nguyễn Ngọc Họp</a></li>
+              <li class="nav-item mb-2"><a href="#" class=" text-nowrap nav-link p-0 text-muted">Team Vice Đoàn Ngọc Luân</a></li>
+            </ul>
+          </div>
+        
+      
+          <div class="col-3" id="col3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Facebook</a></li>
+
+            </ul>
+          </div>
+      
+        
+        </footer>
+      </div>
+    <!-- <div class="p-2 mb-8 foot_con" >
         <div class="container">
             <footer class="row row-cols-5 py-3 my-3 border-top">
             <div class="col-md-3 img_foot">
@@ -142,7 +183,7 @@
             </div>
             </footer>
         </div>
-    </div>
+    </div> -->
     <script src="/static/js/base.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

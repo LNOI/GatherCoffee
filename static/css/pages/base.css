@@ -1,212 +1,225 @@
-.head_con .container .head .title_head{
-    font-size: 30px; 
-    font-family: Rokkitt; 
-    font-weight: 800; 
-    margin-top: 35px;
-    color: white;
+body{
+    -moz-user-select: none !important;
+    -webkit-touch-callout: none!important;
+    -webkit-user-select: none!important;
+    -khtml-user-select: none!important;
+    -moz-user-select: none!important;
+    -ms-user-select: none!important;
 }
-.head_con .container .head .functions{
-    margin-top:25px;
-    margin-left: 610px;
-}
-.head_con .container .functions  li a{
-    font-weight: 700; 
-    font-size: 23px; 
-    font-family: Rokkitt; 
-    color: #86d3ff;
-}
-.head_con .container .head .text-end #btn-login{
-    width:100px; 
-    background-color: #86d3ff; 
-    font-weight: 700; 
-    font-size: 18px; 
-    font-family: Rokkitt; 
-    border: white solid 3px; 
-    margin-top:18px;
-    margin-left: 5px;
-}
-.head_con .container .head .text-end #btn-login:hover{
-    width:110px;
-    background-color: #ffffff; 
-    font-weight: 700; 
-    font-size: 18px;
-    font-family: Rokkitt; 
-    border: #86d3ff solid 3px; 
-    margin-top:18px;
-    text-align: center;
-    margin-left: 0px;
-    color: #86d3ff;
-}
-.foot_con{
-    height: 188px; 
-    background-color: rgb(32, 32, 59);
-}
-.foot_con .container .img_foot img{
-    margin-left: 120px;
-}
-.foot_con .container .img_foot h1{
-    height: auto;
-    width: auto;
-    font-size: 22px; 
-    font-family: Rokkitt; 
-    font-weight: 800; 
-    color: white;
-    margin-top: 12px;
-    text-align: center;
-}
-.foot_con .container .mem h5{
-    color: rgb(133, 133, 133); 
-    font-weight: 800; 
-    font-size: 22px; 
-    font-family: Rokkitt; 
-}
-.foot_con .container .link h5{
-    color: rgb(133, 133, 133); 
-    font-weight: 800; 
-    font-size: 22px; 
-    font-family: Rokkitt; 
-    
-}
-.foot_con .container .add h5{
-    color: rgb(133, 133, 133); 
-    font-weight: 800; 
-    font-size: 22px; 
-    font-family: Rokkitt; 
-}
-.text-end{
-    width: 100px;
-}
-.foot_con_mob{
-    height: 188px; 
-    background-color: #20203b;
+::-webkit-scrollbar{
     display: none;
 }
-.text-end .box-information{
-    width: auto;
-    top: -30px; 
-    left: 0px;
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
-.text-end .box-information img{
-    width:60px;
-    height: 60px;
-    display:inline-block;
-}
-.text-end .box-information{
-    display: inline-block;
-}
-.text-end .box-information .panel-info{
-    margin-top: 69px;
-    margin-left: 0px;
-}
-.text-end .box-information .panel-info #btn-getuser{
-    width:150px;
-    height: 36px;
-    background-color: #86d3ff; 
-    font-weight: 700; 
-    font-size: 18px;
-    font-family: Rokkitt; 
-    border: white solid 3px;
-    color: white;
-
+header{
+   padding-top: 20px;
+   min-height: 100px;
 }
 
-.text-end .box-information .panel-info #btn-logout{
-    width:150px;
-    height: 36px;
-    background-color: #86d3ff; 
-    font-weight: 700; 
-    font-size: 18px;
-    font-family: Rokkitt; 
-    border: white solid 3px;
+#logoCoffee img{
+    position: absolute;
+    top: 10px;
+    left: 279px;
+}
+#logoCoffee #th1{
+    position: absolute;
+    top: 25px;
+    left: 135px;
+}
+#logoCoffee #th2{
+    position: absolute;
+    top: 25px;
+    left: 340px;
+}
+#navbar{
+    font-size: 20px;
+    font-weight: bold;
+    list-style: none;
+}
+#navbar ul {
+    margin-top: 5px;
+    display: flex;
+    justify-content: end;
+}
+#navbar ul li a:hover{
+    border-bottom: rgb(5, 7, 173) 1px solid;   
+}
+#navbar ul li{
+    margin-left: 20px;
+}
+#navbar ul li a{
+    text-decoration: none;
+}
+#mainUser{
+    position:relative;  
+}
+#mainUser #btn-login{
+    position: absolute;
+    left: 10%;
+    top: 5px;
+    background-color: rgb(181, 201, 255);
+    color: rgb(117, 102, 102);
+    font-size: 20px;
+    width: 100px;
+    height: 35px;
+    border: 0.5px;
+    border-radius: 10px;
+}
+.box-information{
+    
+    width: 150px;
+    height: 50px;
+    padding: 5px 0 0 5px;
+    position: absolute;
+}
+.box-information img{
+    position: absolute;
+    width: 30%;
+    top: 2px;
+    left: 5px;
+}
+.box-information #uname{
+    position: absolute;
+    top: 5px;
+    left: 60px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.box-information  .panel-info{
+    position: absolute;
+    width: 150px;
+    height: 80px;
+    top: 50px;
+}
+.box-information  .panel-info button{
+    margin-top: 5px;
+    border: none;
+    border-top: black 1px solid;
+    background-color: transparent;
+    width: 100%;
+    font-weight: bold;
+}
+.box-information  .panel-info button:hover{
+    background-color: rgb(228, 65, 6);
     color: white;
 }
+#alignCenter{
+    width: 50px;
+    position: absolute;
+    display: none;
+}
+
+
+
+
 @media screen and (max-width: 500px) {
-    .head_con .container .head .title_head{
-        font-size: 30px; 
-        font-family: Rokkitt; 
-        font-weight: 800; 
-        margin-top: 30px;
-        color: white;
-        display: block;
+
+    header{
+        padding: 0px;
+       
     }
-    .head_con .container .head .functions{
-        margin:auto;
-        height: 25px;
-        width: 100%;
+    #logoCoffee {
+        min-height: 100px;
     }
-    .head_con .container .functions  li a{
-        font-weight: 700; 
-        font-size: 20px; 
-        font-family: Rokkitt; 
-        color: #86d3ff;
-        margin-top: 0px;
-        padding-top: 0px;
+    #logoCoffee img{
+        top: 20px;
+        left: 20px;
     }
-    .head_con .container .head .text-end #btn-login{
-        width:80px; 
-        background-color: #86d3ff; 
-        font-weight: 700; 
-        font-size: 16px; 
-        font-family: Rokkitt; 
-        border: white solid 3px; 
-        margin:auto;
-        margin-bottom: 10px;
+    #logoCoffee #th1{
+        top: 20px;
+        left: 80px;
     }
-    .foot_con{
+    #logoCoffee #th2{
+        top: 50px;
+        left: 80px;
+    }
+    #alignCenter{
+        position: absolute;
+        z-index: 10;
+        display:block;
+        top: 20px;
+        right:0px;
+        font-size: 40px;
+    }
+    #nav-mobile{
         display: none;
     }
-    .foot_con_mob{
-        display: block;
-        height: auto;
+    #navbar{
+       margin-top: 100px;
+       width: 100%;
+        
     }
-    .foot_con_mob .container .img_foot{
-        width: 100%;
-        padding-bottom: 20px;
+    #navbar .nav{
+        display: flex;
+        flex-direction: column;
     }
-    .foot_con_mob .container .img_foot img{
-        margin-left:150px;
-    }
-    .foot_con_mob .container .img_foot h1{
-        font-size: 20px; 
-        font-family: Rokkitt; 
-        font-weight: 800; 
-        margin-top: 5px; 
+    #navbar .nav li{
+        margin-left: -150px;
         text-align: center;
-        color: white;
     }
-    .foot_con_mob .container .mem{
-        margin: auto;
+    #navbar .nav li:hover{
+        border-bottom: 1px black solid;
+    }
+    #mainUser{
         width: 100%;
-        border-top: rgb(14, 0, 46) solid 1px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        height: 50px;
     }
-    .foot_con_mob .container .mem ul{
-        margin-left: 0px;
-        background-color: rgb(32, 32, 59);
+    #mainUser #btn-login{
+        width: 150%;
+        border-radius: 5px;
+        margin-left: -150px;
     }
+    .box-information{
+        margin-left: -40px;
+    }
+    .box-information #btn-getuser{
+        position: absolute;
+        left: -150px;
+        top: -25px;
+        z-index: 10;
+    }
+    .box-information #btn-logout{
+        position: absolute;
+        left: 100px;
+        top: -25px;
+        z-index: 10;
+    }
+    #ffter{
+        position: relative;
+        height: 260px;
+    }
+    #ffter div{
+        position: absolute;
+        top: 20px;
+        left: 0px;
+    }
+    #ffter #col1{
+        
+        left: 5px;
+    }
+    #ffter #col2{
+      
+        left: 90px;
+    }
+    #ffter #col3{
+      
+        left: 320px;
+    }
+    /* #boxTeam{
+        background-color: cadetblue;
+        font-size: 10px;
 
-    .foot_con_mob .container .link{
-        margin: auto;
-        width: 100%;
-        border-top: rgb(14, 0, 46) solid 1px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
+    } */
+    
+    
 
-    .foot_con_mob .container .link ul{
-        margin-left: 0px;
-        background-color: rgb(32, 32, 59);
-    }
-    .foot_con_mob .container .add{
-        margin: auto;
-        width: 100%;
-        border-top: rgb(14, 0, 46) solid 1px;
-        padding-top: 10px;
-    }
-    .foot_con_mob .container .add ul{
-        margin-left: 0px;
-        margin-right: 0pxpx;
-        background-color: rgb(32, 32, 59);
-    }
 }
+
+
+
+
+
+

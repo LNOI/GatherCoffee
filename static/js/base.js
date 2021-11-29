@@ -2,9 +2,9 @@ var btnInformation=document.querySelector(".box-information");
 var btnLogout=document.querySelector("#btn-logout")
 var btnGetUser=document.querySelector("#btn-getuser")
 var panelInfo=document.querySelector(".panel-info");
-
-
-
+const logoMain=document.getElementById('logoMain');
+const aligCenter=document.getElementById("alignCenter");
+const navMobile=document.getElementById('nav-mobile');
 const btnGocoffee=document.querySelector("#btn-gocoffee");
 const btnlogin=document.querySelector("#btn-login");
 const btnRegister=document.querySelector("#btn-register");
@@ -43,7 +43,25 @@ if(uname&&uname.innerHTML!=""){
     }
 }
 
+
 function InitBase(){
+    
+    if(logoMain){
+        logoMain.addEventListener('click',(e)=>{
+            window.location.href = "/";
+            
+        })
+    }
+    if(aligCenter){
+        aligCenter.addEventListener("click",()=>{
+            if(navMobile.style.display=="block"){
+                navMobile.style.display="none";
+            }else{
+                navMobile.style.display="block";
+            }
+           
+        })
+    }
     if(panelInfo){
         panelInfo.hidden=true;
     }

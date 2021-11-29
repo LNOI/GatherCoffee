@@ -1,115 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-}
 
-.nav-options{
-    height: 50px;
-    width: 100%;
- 
-    display: flex;
-    justify-content: space-between;
+body{
+    -moz-user-select: none !important;
+    -webkit-touch-callout: none!important;
+    -webkit-user-select: none!important;
+    -khtml-user-select: none!important;
+    -moz-user-select: none!important;
+    -ms-user-select: none!important;
 }
-.nav-options .cont-lef{
-    padding: 5px;
-    width: 25%;
-    height: 100%;
+::-webkit-scrollbar{
+    display: none;
+}
+.boxlogo{
     position: relative;
-    color: rgb(27, 175, 126);
 }
-.nav-options .cont-lef img{
+.boxlogo #t1{
+    
     position: absolute;
-    left: 130px;
-    top: -10px;
-    width: 60px;
-    height: 60px;
+    top: 50px;
+}
+.boxlogo #t2{
+    position: absolute;
+    top: 50px;
+    left: 200px;
+}
+.boxlogo #logoCoffee{
+    position: absolute;
+    top: 10px;
+    left: 135px;
+}
+#logoUser{
+    width: 15%;
 }
 
-
-.nav-options .cont-right{
-    width: 10%;
-    height: 100%;
-    text-align: center;
-  
+.boxUser{
+   position: relative;
 }
-.nav-options .cont-right img{
-    width: 50px;
-    height: 50px;
-    display: inline-block;
+.boxUser #logoUser{
+    position: absolute;
+    right: 100px;
 }
-.nav-options .cont-right h1 {
-    margin: 0 0 5px 10px;
-    display: inline-block;
-    text-align: center;
+.boxUser #username{
+    position: absolute;
+    right: 0px;
+    top: 25px;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
-    margin-top: 5%;
-    width: 40%;
+.boxImage{
+    margin-left: 40%;
+    margin-bottom: 120px;
+}
+@media screen and (max-width: 500px) {
+
+    .boxlogo #t1{
+        top: 15px;
+        left: 105px;
+    }
+    .boxlogo #t2{
+        top: 50px;
+        left: 100px;
+    }
+    .boxlogo #logoCoffee{
+        top: 10px;
+        left: 40px;
+    }
+    #logoUser{
+        width: 15%;
+    }
+    
+    .boxUser{
+       position: relative;
+    }
+    .boxUser #logoUser{
+        position: absolute;
+        right: 40px;
+        font-size: 20%;
+        top: 25px;
+    }
+    .boxUser #username{
+        position: absolute;
+        right: 20px;
+        top: 50px;
+    }
+    
+    .boxImage{
+        margin-left: 40%;
+        margin-bottom: 120px;
+    }
+    .boxImage{
+        margin-left: 20%;
+        margin-bottom: 100px;
+    }
 
 }
-.container>h2{
-    margin: 20px 5px 0 40%;
-    width: 20%;
-    height: 30px;
-    font-size: 20px;
-    opacity: 0.7;
-    color: rgb(135, 148, 148);
-}
-.box-character{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.box-character .next,.prev{
-    font-size: 60px;
-    width: 60px;
-    height: 60px;
-   
-    margin: auto;
-}
-.box-character .next:hover,.prev:hover{
-    color: white;
-    border: 1px white solid;
-    background-color: red;
-}
-
-.box-character .characters{
-    background-color: bisque;
-    width: 50%;
-    height: 100%;
-}
-.box-character .characters img{
-    width: 100%;
-}
-
-#username-input{
-    margin: 10px 20px 0 35%;
-    width: 30%;
-    height: 30px;
-    text-align: center;
-    border: 1px black dotted ;
-    border-radius: 5px;
-}
-.box-submit button{
-    margin: 20px 20px 0 45%;
-    width: 10%;
-    height: 30px;
-    text-align: center;
-    border: 1px black dotted ;
-    border-radius: 5px;
-    background-color: cornflowerblue;
-}
-
-
-
-
-
-

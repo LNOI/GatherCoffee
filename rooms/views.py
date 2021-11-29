@@ -50,3 +50,4 @@ def paymentComplete(request):
     acc.money=str(int(acc.money)+money)
     acc.save()
     return JsonResponse("Payment completed!",safe=False)
+

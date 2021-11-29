@@ -5,6 +5,8 @@ from .forms import FormLogin,FormCreate
 from django.http import HttpResponseRedirect
 from .models import Account_data
 from rooms import commonUser,routing
+import json
+from django.http import JsonResponse
 import hashlib
 # Create your views here.
 def Home_page(request):
@@ -105,6 +107,24 @@ def InformationUser(request):
                 "fullname":info_user.fullname,
                 "phonenumber":info_user.phoneNumber,
                 "address":info_user.address,
+                "sex":info_user.sex,
+                "age":info_user.age,
                 "friend":listfriend
             }
     return render(request,"base/info.html",context)
+def saveInfo(request):
+    data=json.loads(request.body)
+    try:
+        userInfo=Account_data.objects.get(username=data['username'])
+        print(userInfo)
+        userInfo.fullname=data['fullname']
+        userInfo.address=data['address']
+        userInfo.sex=data['sex']
+        userInfo.age=data['age']
+        userInfo.email=data['email']
+        userInfo.phoneNumber=data['phone']
+        userInfo.save()
+    except:
+        print("Error Save")
+        return JsonResponse("Fail!",safe=False)
+    return JsonResponse("Success1111111111111111!",safe=False)

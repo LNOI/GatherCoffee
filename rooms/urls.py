@@ -7,4 +7,5 @@ urlpatterns = [
     path('lobby/', lobby ,name='Lobby'),
     path('complete/', paymentComplete, name="complete"),
     path('<str:index_area>/',areaCoffe, name='areaCoffee'),
+    
 ]

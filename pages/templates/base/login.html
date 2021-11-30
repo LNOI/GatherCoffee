@@ -8,7 +8,7 @@
  -->
 {% endblock %} 
 {% block content %}
-<section>
+<section id="bodyLogin">
     <div class="imgBx">
         <img src="{%static 'image/cofe_create.jpg'%}">
     </div>
@@ -43,7 +43,7 @@
                 </div>
                 {% else %}
                 <div class="inputBx">
-                    <div>If you have account:<a href="/login" class="link-primary">     Login   </a></div>
+                    <div>If you have account:<a href="/login" class="link-primary" id="btnLoginForm">     Login   </a></div>
                 </div>
                 {% endif %}
             </form>

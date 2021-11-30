@@ -146,3 +146,81 @@ hr{
 
     }
 }
+
+@media screen and   (min-width: 500px) and  (max-width: 850px) {
+    .content .content_intro{
+        height: auto;
+        margin: auto;
+        display: block;
+    }
+    .content .content_intro .context{
+        display: block;
+        width: 100%;
+    }
+    .content .content_intro .context .title_1 h1{
+        margin: 0px 5px 0 0;
+        font-family: "Rokkitt";
+        font-size: 28px;
+        display: inline;
+    }
+    .content .content_intro .context .title_1 img{
+        height: 30px;
+        width: auto;
+        margin-bottom: 20px;
+        display: inline;
+    }
+    .content .content_intro .context p{
+        margin: 0px;
+        font-family: "Roboto";
+        font-size: 16px;
+    }
+    .content .content_intro .image img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+
+
+    .content .content_add{
+        height: auto;
+        margin-top: 15px;
+        margin-left: 0px;
+        display: block;
+    }
+    .content .content_add .context_2 .title_2 img{
+        height: 30px;
+        width: auto;
+        margin-bottom: 20px;
+        display: inline;
+    }
+    .content .content_add .image_2 img{
+        display: none;
+        width: 100%;
+        height: auto;
+    }
+    .content .content_add .context_2{
+        display: block;
+        width: 100%;
+    }
+    .content .content_add .context_2 .title_2 h1{
+        margin: 0px 5px 0 0;
+        font-family: "Rokkitt";
+        font-size: 28px;
+        display: inline;
+    }
+    .content .content_add .context_2 p{
+        margin: 0px;
+        font-family: "Roboto";
+        font-size: 16px;
+    }
+    .content .image_2_mob{
+        display: block;
+    }
+    .content .image_2_mob img{
+        height: 270px;
+        width: auto;
+        margin-left: 55px;
+
+    }
+}

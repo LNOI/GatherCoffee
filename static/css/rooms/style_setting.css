@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap');
 body{
     -moz-user-select: none !important;
     -webkit-touch-callout: none!important;
@@ -14,22 +14,22 @@ body{
     position: relative;
 }
 .boxlogo #t1{
-    
+    font-family: 'Outfit', sans-serif;
     position: absolute;
     top: 50px;
+    color: white;
 }
 .boxlogo #t2{
     position: absolute;
+    font-family: 'Outfit', sans-serif;
     top: 50px;
-    left: 200px;
+    left: 230px;
+    color: white;
 }
 .boxlogo #logoCoffee{
     position: absolute;
     top: 10px;
-    left: 135px;
-}
-#logoUser{
-    width: 15%;
+    left: 170px;
 }
 
 .boxUser{
@@ -37,7 +37,9 @@ body{
 }
 .boxUser #logoUser{
     position: absolute;
-    right: 100px;
+    width: 10%;
+    right: 130px;
+    top: 15px;
 }
 .boxUser #username{
     position: absolute;
@@ -50,7 +52,6 @@ body{
     margin-bottom: 120px;
 }
 @media screen and (max-width: 500px) {
-
     .boxlogo #t1{
         top: 15px;
         left: 105px;
@@ -63,8 +64,8 @@ body{
         top: 10px;
         left: 40px;
     }
-    #logoUser{
-        width: 15%;
+    .boxUser #logoUser{
+        width: 25%;
     }
     
     .boxUser{
@@ -72,14 +73,14 @@ body{
     }
     .boxUser #logoUser{
         position: absolute;
-        right: 40px;
+        right: 47px;
         font-size: 20%;
-        top: 25px;
+        top: 15px;
     }
     .boxUser #username{
         position: absolute;
         right: 20px;
-        top: 50px;
+        top: 65px;
     }
     
     .boxImage{
@@ -90,5 +91,187 @@ body{
         margin-left: 20%;
         margin-bottom: 100px;
     }
+    .nameCha{
+        position: absolute;
+        top: 20px;
+        left: 190px;
+        width: 200px;
+        text-align: center;
+    }
 
+}
+.container{
+    min-height: 150px;
+}
+.nameCha{
+    color: rgb(65, 62, 62);
+    font-size: 25px;
+}
+@media screen and   (min-width: 500px) and  (max-width: 850px)  {
+
+    .container{
+        min-height: 100px;
+    }
+    .boxlogo #t1{
+        top: 15px;
+        left: 105px;
+    }
+    .boxlogo #t2{
+        top: 50px;
+        left: 100px;
+    }
+    .boxlogo #logoCoffee{
+        top: 10px;
+        left: 40px;
+    }
+    .boxUser #logoUser{
+        width: 25%;
+    }
+    
+    .boxUser{
+       position: relative;
+    }
+    .boxUser #logoUser{
+        position: absolute;
+        right: 47px;
+        font-size: 15%;
+        top: 0px;
+    }
+    .boxUser #username{
+        position: absolute;
+        right: 32px;
+        top: 80px;
+    }
+    
+    .boxImage{
+        margin-left: 40%;
+        margin-bottom: 120px;
+    }
+    .boxImage{
+        margin-left: 20%;
+        margin-bottom: 100px;
+    }
+    .container{
+        min-height: 100px;
+    }
+    #cha1,#cha2,#cha3{
+        margin-top: -15px;
+        margin-left: 35%;
+        margin-bottom: 50px;
+        height: 300px;
+    }
+    .nameCha{
+        position: absolute;
+        top: 20px;
+        left: 190px;
+        width: 200px;
+        text-align: center;
+    }
+}
+
+
+
+
+.section_icon {
+    /* position: relative; */
+    width: 100%;
+    height: 100vh;
+    /* background: #111; */
+    background: linear-gradient(to bottom right, #008cff, rgb(156, 232, 235), #ffffff);
+    /* background: white; */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: -100;
+    /*  */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.section_icon .row-icon {
+    position: relative;
+    top: -50%;
+    width: 100%;
+    display: flex;
+    padding: 10px 0;
+    white-space: nowrap;
+    font-size: 64px;
+    transform: rotate(-30deg);
+}
+
+.i-icon {
+    color: rgba(0, 0, 0, 0.5);
+    transition: 1s;
+    padding: 0 5px;
+    user-select: none;
+    cursor: default;
+    color: rgba(0, 162, 255, 0.541);
+    /* color: white; */
+}
+
+.i-icon:hover {
+    transition: 0s;
+    color: #0f0;
+    text-shadow: 0 0 120px #0f0;
+}
+
+.section_icon .row-icon .div-icon {
+    animation: animate1 80s linear infinite;
+    animation-delay: -80s;
+}
+
+.section_icon .row-icon .div-icon:nth-child(2) {
+    animation: animate2 80s linear infinite;
+    animation-delay: -40s;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+
+/*  */
+
+.section_icon .row-icon:nth-child(even) .div-icon {
+    animation: animate3 80s linear infinite;
+    animation-delay: -80s;
+}
+
+.section_icon .row-icon:nth-child(even) .div-icon:nth-child(2) {
+    animation: animate4 80s linear infinite;
+    animation-delay: -40s;
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes animate4 {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

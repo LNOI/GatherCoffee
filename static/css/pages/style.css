@@ -5,19 +5,19 @@
 .p-3 .row{
     padding-top:40px;
 }
-.p-3 .row .col-md-5 .text-truncate{
+.p-3 .row .col-lg-5 .text-truncate{
     font-size: 30px;
     color: #86d3ff;
     font-weight: 800;
     font-family: Rokkitt;
     text-align: center;
 }
-.p-3 .row .col-md-5 img{
+.p-3 .row .col-lg-5 img{
     display: block;
     margin-left: 60px;
 }
 
-.p-3 .row .col-md-5 .btn-group .btn{
+.p-3 .row .col-lg-5 .btn-group .btn{
     background-color: #86d3ff;
     font-weight: 800;
     font-family: Rokkitt;
@@ -26,7 +26,7 @@
     margin-top: 40px;
     margin-left: 180px;
 }
-.p-3 .row .col-md-5 .btn-group .btn:hover{
+.p-3 .row .col-lg-5 .btn-group .btn:hover{
     background-color: white;
     font-weight: 800;
     font-family: Rokkitt;
@@ -36,6 +36,10 @@
     color: #86d3ff;
     border: #86d3ff solid 3px;
 }
+#text{
+    opacity: 0.5;
+   
+}
 @media screen and (max-width: 500px) {
     .p-3{
         background-color: white;
@@ -44,20 +48,20 @@
     .p-3 .row{
         padding-top:0px;
     }
-    .p-3 .row .col-md-5 .text-truncate{
+    .p-3 .row .col-lg-5 .text-truncate{
         font-size: 20px;
         color: #858585;
         font-weight: 800;
         font-family: Rokkitt;
         text-align: center;
     }
-    .p-3 .row .col-md-5 img{
+    .p-3 .row .col-lg-5 img{
         height: 200px;
         display: block;
         margin-left: 60px;
         margin-top: 0px;
     }
-    .p-3 .row .col-md-5 .btn-group .btn{
+    .p-3 .row .col-lg-5 .btn-group .btn{
         background-color: #86d3ff;
         font-weight: 800;
         font-family: Rokkitt;
@@ -66,7 +70,51 @@
         margin-top: 20px;
         margin-left: 120px;
     }
-    .p-3 .row .col-md-7 img{
+    .p-3 .row .col-lg-7 img{
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 12px;
+    }
+}
+@media screen and   (min-width: 500px) and  (max-width: 850px)  {
+    #text{
+        margin-left: 213px;
+        font-size: 13px;
+       
+    }
+    .p-3{
+        background-color: white;
+        padding-top: 0px;
+    }
+    .p-3 .row{
+        padding-top:0px;
+    }
+    .p-3 .row .col-lg-5 .text-truncate{
+        font-size: 20px;
+        color: #858585;
+        font-weight: 800;
+        font-family: Rokkitt;
+        text-align: center;
+    }
+    .p-3 .row .col-lg-5 img{
+        height: 200px;
+        display: block;
+        margin-left: 60px;
+        margin-top: 0px;
+    }
+    .p-3 .row .col-lg-5 .btn-group .btn{
+        background-color: #86d3ff;
+        font-weight: 800;
+        font-family: Rokkitt;
+        font-size: 20px;
+        color: white;
+        position: absolute;
+        top: -150px;
+        left: 350px;
+        width: 170px;
+    }
+    .p-3 .row .col-lg-7 img{
         display: block;
         width: 100%;
         margin-top: 20px;

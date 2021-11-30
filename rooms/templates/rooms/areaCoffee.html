@@ -64,7 +64,7 @@
                 </div>
                 <button class="btn-order">Order1</button>
             </div>
-            <div class="card  checkoutPaypal position-absolute" >
+            <div class="card  checkoutPaypal position-absolute px-4" >
                 <div class="row g-0">
                   <div class="col-xs-4 bg-success">
                   </div>
@@ -88,18 +88,17 @@
 
             <div class="card mb-3 shareMoney position-absolute " >
                 <div class="row g-0">
-                  <div class="col-md-4 bg-warning">
-                   
-                  </div>
+                  <div  class="col-md-4 ">
+                    <img id="imgMoney" src="https://thumbs.dreamstime.com/z/upset-businessman-money-head-portrait-stressed-young-dollars-his-43047604.jpg" alt="money">
+                </div>
                   <div class="col-md-8">
                     <button type="button " id="btnExitShare" class="btn btn-danger float-end"><i class="bi bi-box-arrow-right"></i></button>
 
                     <div class="card-body">
-                      <h5 class="card-title text-warning">Chuyển Tiền</h5>
-                      <p class="card-text">This is a wider card with </p>
+                      <h5 class="card-title text-warning">Chuyển tiền </h5>
+                      <p class="card-text">Cho bạn mượn tiền - Mất tiền mất bạn? </p>
                       <div>
-                        <label for="namefriend" class="form-label fs-6 mt-4 ">Chào bạn của mình:</label>
-
+                        <label for="namefriend" class="form-label fs-6 mt-4 ">Chọn người mà bạn tin tưởng để chuyển tiền :</label>
                         <select name="namefriend" id="namefriend">
                             {% for user in friend %}
                                 <option value="{{user}}">{{user}}</option>
@@ -108,7 +107,13 @@
                      </div>
                      <div>
                         <label for="valueMoney" class="form-label fs-6 mt-4 ">Nhập số tiền bạn muốn chuyển</label>
-                        <input id="valueMoney" type="text">
+                        <div class="input-group mb-3">
+                            <div class="input-group-text">
+                            <i class="bi bi-currency-dollar"></i>
+                            </div>
+                            <input type="text" id="valueMoney" class="form-control" aria-label="Text input with checkbox">
+                        </div>
+                        <!-- <input id="valueMoney" type="text"> -->
                     </div>
                     <div>
 

@@ -293,6 +293,7 @@ body{
 .subtext{
     margin-bottom: -5px;
 }
+
 @media screen and (max-width: 500px) {
     div.alertInvite{
         width: 40%;
@@ -308,6 +309,138 @@ body{
     div.informationUser img{
         width: 50%;
        
+        margin-left: 25%;
+    }
+    div.informationUser #aliasU{
+        text-align: center;
+    }
+    #closeInfo{
+        position: absolute;
+        top: 0px;
+        right:  0px;
+    }
+    .emoji{
+        margin-top: 25px;
+    }
+    #input-messenger{
+        margin-top: 20px;
+    }
+    #chat-messenger-submit{
+        margin-top: 0px;
+    }
+    /* div.shareMoney {
+        height: 300px;
+    } */
+    #imgMoney{
+        display: none;
+    }
+
+}
+.checkoutPaypal{
+    z-index: 10;
+    height: 400px;
+}
+.menu {
+    z-index: 10;
+}
+#imgMoney{
+   
+    width: 100%;
+    height: 100%;
+}
+.menu3 {
+    top: 264px;
+    left: 185px;
+}
+.shareMoney{
+    left: 30%;
+    z-index: 10;
+}
+@media screen and  (min-width: 500px) and  (max-width: 850px)  {
+    div.shareMoney {
+        height: 350px;
+    }
+    #titleChat{
+        margin: 5px 0 0 10px;
+    }
+    .hidden-nav-chat img{
+        margin: 10px 0 0 0 ;
+    }
+    .navcoffee{
+        height: 25px;
+    }
+    .navcoffee img{
+        width: 60%;
+    }
+    #imgMoney{
+        
+        width: 100%;
+        height: 100%;
+    }
+    .sub-panel .sub-chat .box-chat,.box-friends,.box-myfriends{
+        height: 55vh;
+    }
+    .eventCustomer #event-Order{
+        left: 265px;
+        top: 90px;
+    }
+    .menu {
+        position: absolute;
+        top: 6px;
+        left: 20%;
+        width: 552px;
+        height: 377px;
+        background-image: url(../../image/MenuCoffee.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 10;
+    }
+    .card{
+        top: 30px;
+        left: 135px;
+        height: 370px;
+    }
+    .btn-order{
+        position: absolute;
+        right: 0px;
+        bottom: -20px;
+    }
+    .navcoffee{
+        margin-top: 0px;
+    }
+    div.alertInvite{
+        width: 40%;
+    }
+    .box-chat div{
+        margin-bottom: 0px;
+    }
+    .box-chat div img{
+        width: 10%;
+    }
+    .box-chat div b{
+        font-size: 15px;
+        margin-bottom: 0px;
+        margin-left: 10px;
+    }
+    .box-chat div p{
+        font-size: 12px;
+        margin-bottom: 0px;
+        margin-left: 25px;
+    }
+    .box-chat div p img{
+        width: 70px;
+        height: 70px;
+    }
+    div.informationUser{
+        z-index: 20;
+        width: 100%;
+        height: 300px;
+        left: 0px;
+        top: 120px;
+        height: 500px;
+    }
+    div.informationUser img{
+        width: 50%;
         margin-left: 25%;
     }
     div.informationUser #aliasU{

@@ -242,29 +242,34 @@ body{
 }
 .bg_boxMessenger{
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 115px;
+    height: 110px;
 }
 .icon_boxMessenger{
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 20px;
     width:70px;
     z-index: 10px;
 }
 .headMess{
     position: absolute;
     top: 0px;
-    left: 0px;
+    left: 10px;
+    color: red;
 }
 .text_boxMessenger{
     position: absolute;
     top: 20px;
     left: 5px;
-    font-size: 12px;
-    width: 100px;
-    height: 80px;
-    overflow-y: scroll;
+    font-size: 14px;
+    max-width: 100px;
+    max-height:  65px;
+    text-overflow: ellipsis;
+    overflow-y: hidden;
+    /* overflow: scroll; */
+    word-wrap: break-word;
+    color: white;
 }
 
 .checkoutPaypal{

@@ -1,3 +1,7 @@
+const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
+
+const userName = JSON.parse(document.getElementById('json-username').textContent);
+
 
 var avtCharacters=sessionStorage.getItem("avtCharacters");
 const canvas=document.getElementById("canvas");
@@ -16,7 +20,12 @@ const frameWidth=150;
 const frameHeight=170;
 
 const Background=new Image();
-Background.src="/static/image/JangNam.png";
+if(roomName=="area-1"){
+    Background.src="/static/image/JangNam.png";
+}else if(roomName=="area-2"){
+    Background.src="/static/image/SixCoffee.png";
+}
+
 const widthJangNam=3112;
 const heightJangNam=1868;
 var bgframex=0;
@@ -217,7 +226,9 @@ function frame(){
 const walk=20;
 var checkKey=0;
 canvas.style.marginTop="0px";
+var checkInput=0;
 document.addEventListener("keydown",(e)=>{
+    if(checkInput) return;
     if(e.key=='d'){
         checkKey=1;
         reverse=0;
@@ -316,22 +327,28 @@ function CheckArea(){
   
 }
 function CheckOrder(){
+   if(roomName=="area-1"){
+        if(xPos+bgframex>=470 &&xPos+bgframex<=830&&yPos+bgframey<=220&&yPos+bgframey>=60){
+            eventOrder.style.display="block";
+        }
+        else{
+            eventOrder.style.display="none";
+        }
+   }else if(roomName=="area-2"){
+        if(xPos+bgframex>=100 &&xPos+bgframex<=430&&yPos+bgframey<=1000&&yPos+bgframey>=525){
+            eventOrder.style.display="block";
+        }
+        else{
+            eventOrder.style.display="none";
+        }
+   }
+  
    
-    if(xPos+bgframex>=470 &&xPos+bgframex<=830&&yPos+bgframey<=220&&yPos+bgframey>=60){
-        eventOrder.style.display="block";
-    }
-    else{
-        eventOrder.style.display="none";
-    }
 }
 frame();
 
 
 var indexArea=0;
-const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
-
-const userName = JSON.parse(document.getElementById('json-username').textContent);
-
 
 var boxMessengerOwner=document.getElementById(userName+"Messenger");
 boxMessengerOwner.style.display="none";
@@ -630,7 +647,7 @@ var lobby=document.querySelector(".lobby");
 const fieldInput=document.querySelector("#input-messenger");
 const btnMessSubmit=document.querySelector("#chat-messenger-submit");
 const valueMoney=document.querySelector("#myMoney p");
-
+const ssection=document.querySelector(".section");
 var listEmoji=document.querySelectorAll(".emoji ul li");
 
 const btnShareMoney=document.getElementById("shareMoney");
@@ -670,6 +687,17 @@ function TimeHideMess(){
 }
 
 function initMenu(){
+    if(fieldInput){
+        fieldInput.addEventListener("focus",()=>{
+            console.log("click input");
+            checkInput=1;
+        })
+        fieldInput.addEventListener("blur",()=>{
+            console.log("out input");
+            checkInput=0;
+        })
+    }
+    
     listDrinkCoffee.forEach((e)=>{
         e.addEventListener("click",()=>{
             e.style.background="rgb(65, 168, 236)";
@@ -774,7 +802,9 @@ function initMenu(){
    btnShareMoney.addEventListener("click",()=>{
         u=document.getElementById("namefriend").value;
         vMoney=document.getElementById("valueMoney").value;
-        if(!vMoney) return;
+        mmmyMoney=document.getElementById("mm").innerHTML;
+        if(!vMoney && parseInt(vMoney)> parseInt(mmmyMoney)) return;
+        
         chatSocket.send(JSON.stringify({
             'message': userName+"-shareMoney-"+u+"-"+vMoney,
             'username': userName,

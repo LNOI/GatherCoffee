@@ -13,7 +13,10 @@ def settingUser(request):
 def areaCoffe(request, index_area):
     user_name = request.GET.get('username', 'Anonymous')
     count=len(Message.objects.filter(room=index_area))
-    messages = Message.objects.filter(room=index_area)[count-20:]
+    try:
+        messages = Message.objects.filter(room=index_area)[count-20:]
+    except:
+        messages=Message.objects.filter(room=index_area)
     acc=Account_data.objects.get(username=user_name)
     lcoffee=Coffee.objects.all()
     listfiend=acc.friend.split(',')
@@ -25,8 +28,9 @@ def areaCoffe(request, index_area):
         'friend':listfiend,
         'lcoffee':lcoffee
     }
+    
     return render(request, 'rooms/areaCoffee.html', context)
-  
+
 def lobby(request):
     username = request.GET.get('username', 'Anonymous')
     acc=Account_data.objects.get(username=username)

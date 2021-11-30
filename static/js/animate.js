@@ -111,7 +111,9 @@ function frame(){
 }
 const walk=20;
 var check=0;
+var checkInput=0;
 document.addEventListener("keydown",(e)=>{
+    if(checkInput) return;
     if(e.key=='d'){
         reverse=0;
         xPos+=walk;
@@ -191,10 +193,13 @@ document.addEventListener("keydown",(e)=>{
     CheckArea();
 }) 
 function CheckArea(){
-   
+  
     if(xPos+bgframex>=230 && bgframex+xPos<=510 && yPos+bgframey>=320 && bgframey+yPos<=470){
         indexArea=1;
        
+    }else  if(xPos+bgframex>=700 && bgframex+xPos<=970 && yPos+bgframey>=320 && bgframey+yPos<=470){
+        indexArea=2;
+        console.log("Index 2");
     }else{
         indexArea=0;
     }
@@ -530,6 +535,16 @@ function TimeHideMess(){
 }
 
 function init(){
+    if(fieldInput){
+        fieldInput.addEventListener("focus",()=>{
+            console.log("click input");
+            checkInput=1;
+        })
+        fieldInput.addEventListener("blur",()=>{
+            console.log("out input");
+            checkInput=0;
+        })
+    }
     listEmoji.forEach((e)=>{
         e.addEventListener("click",()=>{
             my_mess=e.id+"__loop";

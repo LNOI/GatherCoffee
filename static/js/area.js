@@ -810,7 +810,8 @@ function initMenu(){
    btnShareMoney.addEventListener("click",()=>{
         u=document.getElementById("namefriend").value;
         vMoney=document.getElementById("valueMoney").value;
-        mmmyMoney=document.getElementById("mm").innerHTML;
+        var mmmyMoney=document.getElementById("mn").innerHTML;
+        console.log(mmmyMoney)
         if(!vMoney && parseInt(vMoney)> parseInt(mmmyMoney)) return;
         
         chatSocket.send(JSON.stringify({

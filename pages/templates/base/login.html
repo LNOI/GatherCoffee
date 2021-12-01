@@ -15,6 +15,20 @@
     <div class="contentBx">
         <div class="formBx">
             <h2>COFFE GATHER</h2>
+            {% if success == '1' %}
+                <div class="alert alert-warning" id="alertSucess" role="alert">
+                    Account successfully created
+                </div>
+            {% elif  success == '2' %}
+                <div class="alert alert-danger" role="alert">
+                    Error
+                </div>
+            {% elif  success == '3' %}
+                <div class="alert alert-danger" role="alert">
+                    Account already exists
+                </div>
+            
+            {% endif %}
             <form action="" method="post">{% csrf_token %} {% for field in form %} {% if field.name == 'email'%}
                 <div class="inputBx">
                     <span for="exampleInputEmail1">Email address</span> {{field}}
@@ -30,7 +44,7 @@
                 </div>
                 {% elif field.name == 'repassword'%}
                 <div class="inputBx">
-                    <label for="exampleInputPassword1">Re Password</label> {{field}}
+                    <label for="exampleInputPassword1">Confirm password</label> {{field}}
                 </div>
                 {% endif %} {% endfor%}
                 <div class="inputBx">

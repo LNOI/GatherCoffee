@@ -79,17 +79,37 @@ def Create_page(request):
                     }
                     print(hashlib.md5(request.POST["password"].encode()))
                     Account_data.objects.create(**account)
+                    context= {
+                        'form':forms_create,
+                        'login':False,
+                        'success':'1'
+                    }
+                    print("Successing 1")
+                    return render(request,'base/login.html',context)
                 else:
+                    context= {
+                        'form':forms_create,
+                        'login':False,
+                        'success':'3'
+                    }
+                    print(context)
                     return render(request,'base/login.html',context)
             else:
-                print("Not create")
+                context= {
+                        'form':forms_create,
+                        'login':False,
+                        'success':'2'
+                }
+                print("PASSOWRD ERROR")
+                print(context)
+                return render(request,'base/login.html',context)
     else:
-        print('else')
         forms_create=FormCreate()
 
     context={
         'form':forms_create,
         'login':False,
+        'success':'0'
 
     }
     return render(request,'base/login.html',context)

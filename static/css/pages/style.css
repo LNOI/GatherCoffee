@@ -26,16 +26,6 @@
     margin-top: 40px;
     margin-left: 180px;
 }
-.p-3 .row .col-lg-5 .btn-group .btn:hover{
-    background-color: white;
-    font-weight: 800;
-    font-family: Rokkitt;
-    font-size: 35px;
-    margin-top: 30px;
-    margin-left: 155px;
-    color: #86d3ff;
-    border: #86d3ff solid 3px;
-}
 #text{
     opacity: 0.5;
    

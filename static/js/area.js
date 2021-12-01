@@ -386,7 +386,16 @@ commonSocket.onmessage=function(e){
                 </div>`
                 document.querySelector(".notification  .toast-container").innerHTML+=toast;
             }else if(data.message.split(":")[0]=="InviteRoom"){
+                console.log("cO 1 NGUOI MOI BAN="+ data.username);
                 const indexRoom=data.indexRoom
+                var nameRoom="";
+                if(indexRoom==1){
+                    nameRoom="JangNam"
+                }else if(indexRoom==2) {
+                    nameRoom="SixCoffee"
+                }else{
+                    nameRoom="Lobby"
+                }
                 const toast=` <div class="toast show alertInvite" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
                   <img src="/static/image/avtUser/p4.jpg" style="width: 15%;" class="rounded me-2" alt="...">
@@ -395,7 +404,7 @@ commonSocket.onmessage=function(e){
                   <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
-                  `+'Moi ban vao JangNam'+` <button type="button" onclick="gonow(`+indexRoom+`)" class="btn btn-danger float-end" style="margin-top: -10px;" id="JangNam" >Go now</button>
+                  `+nameRoom+` Khum<button type="button" onclick="gonow(`+indexRoom+`)" class="btn btn-danger float-end" style="margin-top: -10px;" id="JangNam" >Go now</button>
                 </div>
                 </div>`
                 document.querySelector(".notification  .toast-container").innerHTML+=toast;
@@ -434,10 +443,9 @@ function gonow(index){
     }));
     if(index==0){
         window.location.replace('/room/lobby/?username='+userName);
-    }else
-    if(index==1){
+    }
+    else {
         window.location.replace('/room/area-'+index+"/?username="+userName);
-
     }
 }
 
@@ -451,7 +459,7 @@ const chatSocket = new WebSocket(
 
 chatSocket.onopen=function(e){
 
-     avatar=`<div class="dropdown">
+    avatar=`<div class="dropdown">
         <button class="btn dropdown-toggle" style="height: 40px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
         <img class="bg-transparent float-start" src="/static/image/avtUser/p2.png" alt="avatart" style="width: 15%;">
         <p class="text-white float-start mx-2 fs-5">`+userName+`</p>
@@ -484,7 +492,7 @@ chatSocket.onmessage = function(e) {
         console.log("Disconect");
         return;
     }
-    if (data.message){
+    if (data.message!=""){
 
         if(data.message.includes("__loop")){
             
@@ -658,9 +666,9 @@ listMyFriend.forEach(e=>{
     e.addEventListener("click",()=>{
         console.log("Moi ban vao phong nay :"+e.id);
         commonSocket.send(JSON.stringify({
-            'message':"Moi ban vao  :"+e.id,
+            'message':"InviteRoom:"+e.id,
             'username':userName,
-            'indexRoom':1,
+            'indexRoom':parseInt(roomName.split('-')[1]),
             'dataInfo':''
         }));
     })

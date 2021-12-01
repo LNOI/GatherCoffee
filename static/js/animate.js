@@ -228,7 +228,7 @@ commonSocket.onmessage=function(e){
     
     const data = JSON.parse(e.data);
     if(data.username!=userName){
-
+        console.log(data);
         if(data.message.split(":")[1]==userName){
            
             if(data.message.split(":")[0]=="AddFriend"){
@@ -245,7 +245,16 @@ commonSocket.onmessage=function(e){
                 </div>`
                 document.querySelector(".notification  .toast-container").innerHTML+=toast;
             }else if(data.message.split(":")[0]=="InviteRoom"){
+                console.log("cO 1 NGUOI DANG MOI BAN"+data.username);
                 const indexRoom=data.indexRoom
+                var nameRoom="";
+                if(indexRoom==1){
+                    nameRoom="JangNam"
+                }else if(indexRoom==2) {
+                    nameRoom="SixCoffee"
+                }else{
+                    nameRoom="Lobby"
+                }
                 const toast=` <div class="toast show alertInvite" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
                   <img src="/static/image/avtUser/p4.jpg" style="width: 15%;" class="rounded me-2" alt="...">
@@ -254,7 +263,7 @@ commonSocket.onmessage=function(e){
                   <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
-                  `+'Moi ban vao JangNam'+` <button type="button" onclick="gonow(`+indexRoom+`)" class="btn btn-danger float-end" style="margin-top: -10px;" id="JangNam" >Go now</button>
+                  `+nameRoom+` Khumm<button type="button" onclick="gonow(`+indexRoom+`)" class="btn btn-danger float-end" style="margin-top: -10px;" id="JangNam" >Go now</button>
                 </div>
                 </div>`
                 document.querySelector(".notification  .toast-container").innerHTML+=toast;
@@ -294,7 +303,7 @@ function gonow(index){
     if(index==0){
         window.location.replace('/room/lobby/?username='+userName);
     }
-    else if(index==1){
+    else {
         window.location.replace('/room/area-'+index+"/?username="+userName);
     }
 }
@@ -336,12 +345,12 @@ chatSocket.onmessage = function(e) {
     const data = JSON.parse(e.data);
     const friend=data.username;
     if(data.message=="disconnect"){
+        delete statePlayer.states[friend];
         const iconD=document.getElementById("icon-"+friend);
         iconD.parentNode.removeChild(iconD);
-        delete statePlayer.states[friend];
         console.log("Disconect");
         return;
-    } 
+    }
     if (data.message!=""){
         if(data.message.includes("__loop")){
            

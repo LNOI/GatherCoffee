@@ -861,4 +861,18 @@ function funcInfo(name){
 }
 
 
+var mySong=document.getElementById("mysong");
+var icon=document.getElementById("boxMusic");
+console.log(mySong)
+console.log(icon);
+if(icon&&mySong){
+    icon.addEventListener("click",(e)=>{
+        console.log("clickicon mysong");
+        if(mySong.paused){
+            mySong.play();
 
+        }else{
+            mySong.pause();
+        }
+    })
+}

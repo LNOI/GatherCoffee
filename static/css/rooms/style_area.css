@@ -18,6 +18,14 @@
     top: 0px;
     z-index: 1;
 }
+#myMoney  div  #boxMusic{
+    position: absolute;
+    font-size: 30px;
+    left: 150px;
+    color: white;
+    z-index: 20;
+    top: 0px;
+}
 
 #myMoney div p{
     display: block;

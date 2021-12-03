@@ -36,7 +36,11 @@ def lobby(request):
     acc=Account_data.objects.get(username=username)
     listfiend=acc.friend.split(',')
     count=len(Message.objects.filter(room='lobby'))
-    messages = Message.objects.filter(room='lobby')[count-20:]
+    messages=''
+    try:
+        messages = Message.objects.filter(room='lobby')[count-20:]
+    except:
+        messages=Message.objects.filter(room='lobby')
     context={
         'room_name':'lobby',
         'username':username,

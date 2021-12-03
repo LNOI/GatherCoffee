@@ -13,6 +13,7 @@ def settingUser(request):
 def areaCoffe(request, index_area):
     user_name = request.GET.get('username', 'Anonymous')
     count=len(Message.objects.filter(room=index_area))
+    messages={}
     try:
         messages = Message.objects.filter(room=index_area)[count-20:]
     except:
@@ -36,11 +37,12 @@ def lobby(request):
     acc=Account_data.objects.get(username=username)
     listfiend=acc.friend.split(',')
     count=len(Message.objects.filter(room='lobby'))
-    messages=''
+    messages={}
     try:
         messages = Message.objects.filter(room='lobby')[count-20:]
     except:
         messages=Message.objects.filter(room='lobby')
+    
     context={
         'room_name':'lobby',
         'username':username,

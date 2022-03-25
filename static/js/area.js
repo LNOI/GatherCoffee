@@ -293,7 +293,6 @@ document.addEventListener("keydown",(e)=>{
             if (frameIndex >5){
                 frameIndex=0;
             }
-            
             count++;
             boxMessengerOwner.style.left=xPos+"px";
             boxMessengerOwner.style.top=(yPos-60)+"px";
@@ -309,7 +308,6 @@ document.addEventListener("keydown",(e)=>{
                 'checkCoffee':getCoffee,
                 'idCoffee':idCoffee
             }));
-        
             document.cookie="x="+xPos;
             document.cookie="y="+yPos;
             document.cookie="idcoffee="+idCoffee;
@@ -342,8 +340,6 @@ function CheckOrder(){
             eventOrder.style.display="none";
         }
    }
-  
-   
 }
 frame();
 

@@ -18,7 +18,6 @@ const boxCheckout=document.querySelector(".checkoutPaypal");
 const boxGroup=document.querySelector("#box-group");
 const boxInfo=document.querySelector(".informationUser");
 const btnExitInfo=document.getElementById("closeInfo");
-
 if(boxInfo){
     boxInfo.style.display="none";
     btnExitInfo.addEventListener("click",(e)=>{
@@ -89,7 +88,7 @@ btnFriends.addEventListener("click",()=>{
 hdnavChat.addEventListener("click",()=>{
     subPanel.style.display="none";
 });
-function scrollToBottom() {  
+function scrollToBottom(){  
     boxChat.scrollTop = boxChat.scrollHeight;
     boxFriends.scrollTop = boxFriends.scrollHeight;
 }
@@ -99,8 +98,6 @@ if (boxMoney){
             subboxMoney.style.display="none";
         }else{
             subboxMoney.style.display="block";
-        }
-       
+        }       
     });
-    
 }

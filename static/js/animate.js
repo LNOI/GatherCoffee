@@ -6,7 +6,6 @@ const context=canvas.getContext("2d");
 const width=canvas.width=document.body.clientWidth;
 const height=canvas.height=document.body.clientHeight;
 
-
 const fps=60;
 const spriteSheet=new Image();
 spriteSheet.src="/static/image/animate-"+avtCharacters+".png"
@@ -225,7 +224,6 @@ commonSocket.onopen=function(e){
     
 }
 commonSocket.onmessage=function(e){
-    
     const data = JSON.parse(e.data);
     if(data.username!=userName){
         console.log(data);
@@ -466,7 +464,6 @@ chatSocket.onmessage = function(e) {
         statePlayer.states[friend].yPosFriend=data.yPos;
         statePlayer.states[friend].avtCharacters=data.avtCharacters;
         if (data.message=="Connecting" ){
-            
             chatSocket.send(JSON.stringify({
                 'message': '',
                 'username': userName,

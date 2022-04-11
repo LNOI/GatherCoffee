@@ -1,11 +1,6 @@
 version: "3.3"
    
 services:
-    redis:
-      image: redis:5
-      command: redis-server
-      ports:
-        - '6379:6379'
     django:
       build: .
       container_name: django
@@ -18,5 +13,3 @@ services:
       environment:
         - DEBUG=1
         - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
-      depends_on:
-        - redis

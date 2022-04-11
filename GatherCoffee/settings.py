@@ -133,8 +133,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     Path.joinpath(BASE_DIR, "static/"),
 )
-CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
-CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -11,4 +11,4 @@ services:
         - "80:8000"
       environment:
         - DEBUG=1
-        - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+        - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn [::1]

@@ -24,8 +24,8 @@ SECRET_KEY = 'django-insecure-ox0^m_w1+(wx#81y7u30@4e@o!@cq&7nv&nzclxqqtdli1ykxj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn','127.0.0.1','3.215.180.98']
-CSRF_TRUSTED_ORIGINS = ['https://a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn']
+ALLOWED_HOSTS = ['ec2-35-172-225-202.compute-1.amazonaws.com','35.172.225.202']
+# CSRF_TRUSTED_ORIGINS = ['https://a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn']
 
 # Application definition
 
@@ -77,7 +77,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [('3.215.180.98', 6379)],
+            'hosts': [('ec2-35-172-225-202.compute-1.amazonaws.com', 6379)],
         }
     }
 }

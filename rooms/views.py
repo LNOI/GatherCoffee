@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from pages.models import Account_data
+from pages.models import Account
 import json
 from django.http import JsonResponse
 from .models import Coffee, Message
@@ -18,7 +18,7 @@ def areaCoffe(request, index_area):
         messages = Message.objects.filter(room=index_area)[count-20:]
     except:
         messages=Message.objects.filter(room=index_area)
-    acc=Account_data.objects.get(username=user_name)
+    acc=Account.objects.get(username=user_name)
     lcoffee=Coffee.objects.all()
     listfiend=acc.friend.split(',')
     context={
@@ -29,12 +29,11 @@ def areaCoffe(request, index_area):
         'friend':listfiend,
         'lcoffee':lcoffee
     }
-    
     return render(request, 'rooms/areaCoffee.html', context)
 
 def lobby(request):
     username = request.GET.get('username', 'Anonymous')
-    acc=Account_data.objects.get(username=username)
+    acc=Account.objects.get(username=username)
     listfiend=acc.friend.split(',')
     count=len(Message.objects.filter(room='lobby'))
     messages={}

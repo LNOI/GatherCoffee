@@ -29,6 +29,11 @@
                 </div>
             
             {% endif %}
+            {% if accountValid == False %}
+                <div class="alert alert-danger" role="alert">
+                    Account not valid information!
+                </div>
+            {% endif %}
             <form action="" method="post">{% csrf_token %} {% for field in form %} {% if field.name == 'email'%}
                 <div class="inputBx">
                     <span for="exampleInputEmail1">Email address</span> {{field}}
@@ -50,7 +55,6 @@
                 <div class="inputBx">
                     <input type="submit" value="Sign in" name="">
                 </div>
-
                 {% if login == True %}
                 <div class="inputBx">
                     <div>If you don't have account:<a href="/create" class="link-primary ">Create</a></div>

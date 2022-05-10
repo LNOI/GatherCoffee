@@ -3,3 +3,5 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /usr/src/app
 COPY requirements.txt ./
 RUN pip install  -r ./requirements.txt
+RUN python manager.py migrations
+RUN python manager.py migrate

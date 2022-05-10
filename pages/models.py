@@ -2,7 +2,7 @@
 from django.db import models
 
 # Create your models here.
-class Account_data(models.Model):
+class Account(models.Model):
     email=models.CharField(blank=True,max_length=20,default="x")
     fullname=models.CharField(blank=True,null=True,max_length=30,default="x")
     username=models.CharField(blank=False,null=False,max_length=30)

@@ -14,8 +14,8 @@ class FormLogin(forms.Form):
         'class':'form-control',
         'type':'password',
         'id':'InputPassword',
-        'placeholder':'Password'
-      
+        'placeholder':'Password',
+        'value':''
     }))
 class FormCreate(forms.Form):
     email=forms.EmailField(required=True,widget=forms.TextInput(attrs={

@@ -3,11 +3,12 @@ from django.db.models.query_utils import PathInfo
 from django.shortcuts import redirect, render
 from .forms import FormLogin,FormCreate
 from django.http import HttpResponseRedirect
-from .models import Account_data
+from .models import Account
 from rooms import commonUser,routing
 import json
 from django.http import JsonResponse
 import hashlib
+import re
 # Create your views here.
 def Home_page(request):
     context={}
@@ -34,43 +35,55 @@ def About_page(request):
     return render(request,"base/about.html",{})
 def Login_page(request):
     forms_login=FormLogin(request.POST)
+    acountValid=True
+    context={}
     if request.method=="POST":
         forms_login=FormLogin(request.POST)
         print(request.POST)
         if forms_login.is_valid():
-            print("Invalid")
+          
             user=request.POST["username"]
             passwd=hashlib.md5(request.POST["password"].encode()).hexdigest()
-            ac=Account_data.objects.all().filter(username=user,password=passwd)
+            ac=Account.objects.all().filter(username=user,password=passwd)
             if ac:
                 print("Login thanhconmg")
                 request.session['username']=user
                 request.session['password']=passwd
-
                 print("crearte session")
                 return redirect('/')
             else:
-                print("Not login")         
+                
+                acountValid=False
     else:
         forms_login=FormLogin()
     context={
         'form':forms_login,
         'login':True,
     }
+    if acountValid==False:
+        print("Invalid")
+        context={
+            'form':forms_login,
+            'login':True,
+            'accountValid':False
+        }
     return render(request,'base/login.html',context)
 
 def Create_page(request):
     forms_create=FormCreate(request.POST)
-    print('1')
+    print('----------Create Account----------')
     if request.method=="POST":
         forms_create=FormCreate(request.POST)
-        print('2')
+        
         print(request.POST)
         if forms_create.is_valid():
-            print('3')
             if request.POST["password"]== request.POST["repassword"]:
-                
-                if Account_data.objects.filter(username=request.POST["username"]).count()==0:
+                if Account.objects.filter(username=request.POST["username"]).count()==0:
+                    
+                    pattern = "^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$"
+                    
+                    result = re.findall(pattern, request.POST["password"])
+                    print("Result=",result)
                     account={
                         "email":request.POST["email"],
                         "fullname":request.POST["fullname"],
@@ -78,15 +91,17 @@ def Create_page(request):
                         "password": hashlib.md5(request.POST["password"].encode()).hexdigest()
                     }
                     print(hashlib.md5(request.POST["password"].encode()))
-                    Account_data.objects.create(**account)
+                    Account.objects.create(**account)
+                    forms_login=FormLogin(request.POST)
                     context= {
-                        'form':forms_create,
-                        'login':False,
+                        'form':forms_login,
+                        'login':True,
                         'success':'1'
                     }
                     print("Successing 1")
                     return render(request,'base/login.html',context)
                 else:
+                    
                     context= {
                         'form':forms_create,
                         'login':False,
@@ -110,7 +125,6 @@ def Create_page(request):
         'form':forms_create,
         'login':False,
         'success':'0'
-
     }
     return render(request,'base/login.html',context)
 def InformationUser(request):
@@ -118,7 +132,7 @@ def InformationUser(request):
     if request.method=="GET":
         if request.GET["username"]:
             info_name=request.GET["username"]
-            info_user=Account_data.objects.filter(username=info_name)[0]
+            info_user=Account.objects.filter(username=info_name)[0]
            
             listfriend=info_user.friend.split(',')
             context={
@@ -135,7 +149,7 @@ def InformationUser(request):
 def saveInfo(request):
     data=json.loads(request.body)
     try:
-        userInfo=Account_data.objects.get(username=data['username'])
+        userInfo=Account.objects.get(username=data['username'])
         print(userInfo)
         userInfo.fullname=data['fullname']
         userInfo.address=data['address']

@@ -2,7 +2,7 @@ import json
 from threading import active_count
 from channels.generic.websocket import AsyncWebsocketConsumer
 from asgiref.sync import sync_to_async
-from pages.models import Account_data
+from pages.models import Account
 from .models import Message
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):

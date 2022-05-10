@@ -11,7 +11,10 @@ def settingUser(request):
     return render(request, 'rooms/settingUser.html',context)
 
 def areaCoffe(request, index_area):
-    user_name = request.GET.get('username', 'Anonymous')
+    user_name = request.session["username"]
+    print("----------------------------------------------")
+    print("Session user = ",request.session['username'])
+    print("----------------------------------------------")
     count=len(Message.objects.filter(room=index_area))
     messages={}
     try:
@@ -32,7 +35,10 @@ def areaCoffe(request, index_area):
     return render(request, 'rooms/areaCoffee.html', context)
 
 def lobby(request):
-    username = request.GET.get('username', 'Anonymous')
+    username = request.session["username"]
+    print("----------------------------------------------")
+    print("Session user = ",request.session['username'])
+    print("----------------------------------------------")
     acc=Account.objects.get(username=username)
     listfiend=acc.friend.split(',')
     count=len(Message.objects.filter(room='lobby'))

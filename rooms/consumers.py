@@ -61,13 +61,13 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 o=message.split("-")[0]
                 u=message.split("-")[2]
                 v=message.split("-")[3]
-                acc_o=Account_data.objects.get(username=o)
+                acc_o=Account.objects.get(username=o)
                 money_o=int(acc_o.money)
                 if money_o<=int(v):
                  
                     return
                 try:
-                    acc=Account_data.objects.get(username=u)
+                    acc=Account.objects.get(username=u)
                     print(acc.money)
                     acc.money=str(int(acc.money)+int(v))
                     print(acc.money)
@@ -77,7 +77,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 except :
                     print("ObjectDoesNotExist")
             elif "-" in message:
-                acc=Account_data.objects.get(username=username)
+                acc=Account.objects.get(username=username)
                 acc.money=str(int(acc.money)+int(message))
                 acc.save()
             else:

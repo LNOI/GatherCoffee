@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-ox0^m_w1+(wx#81y7u30@4e@o!@cq&7nv&nzclxqqtdli1ykxj
 DEBUG = True
 
 ALLOWED_HOSTS = ["a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn","0.0.0.0"]
-
-CSRF_TRUSTED_ORIGINS = ["a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn"]
+CSRF_TRUSTED_ORIGINS = ['https://a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn']
 # Application definition
 
 INSTALLED_APPS = [

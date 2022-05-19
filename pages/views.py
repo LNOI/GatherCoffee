@@ -74,7 +74,7 @@ def Create_page(request):
     print('----------Create Account----------')
     if request.method=="POST":
         forms_create=FormCreate(request.POST)
-        
+
         print(request.POST)
         if forms_create.is_valid():
             if request.POST["password"]== request.POST["repassword"]:
@@ -99,15 +99,13 @@ def Create_page(request):
                         'success':'1'
                     }
                     print("Successing 1")
-                    return render(request,'base/login.html',context)
+                    return redirect('/login')
                 else:
-                    
                     context= {
                         'form':forms_create,
                         'login':False,
                         'success':'3'
                     }
-                    print(context)
                     return render(request,'base/login.html',context)
             else:
                 context= {

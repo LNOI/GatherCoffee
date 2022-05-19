@@ -64,7 +64,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 acc_o=Account.objects.get(username=o)
                 money_o=int(acc_o.money)
                 if money_o<=int(v):
-                 
                     return
                 try:
                     acc=Account.objects.get(username=u)
@@ -81,4 +80,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 acc.money=str(int(acc.money)+int(message))
                 acc.save()
             else:
-                Message.objects.create(username=username, room=room, content=message)
+                print("Message = ",message)
+                if "Connected to Lobby" not in message:
+                    Message.objects.create(username=username, room=room, content=message)

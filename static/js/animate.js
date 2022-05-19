@@ -187,7 +187,6 @@ document.addEventListener("keydown",(e)=>{
             check=0;
         }
         
-       
     }
     CheckArea();
 }) 
@@ -326,9 +325,9 @@ chatSocket.onopen=function(e){
         </div>`
     document.querySelector(".box-friends").innerHTML+=avatar;
     chatSocket.send(JSON.stringify({
-        'message': "Connecting",
+        'message': "Connected to Lobby",
         'username': userName,
-        'room': roomName,
+        'room': roomName,   
         'indexFrame':0,
         'frameReverse':0,
         'xPos':10,
@@ -346,7 +345,7 @@ chatSocket.onmessage = function(e) {
         delete statePlayer.states[friend];
         const iconD=document.getElementById("icon-"+friend);
         iconD.parentNode.removeChild(iconD);
-        console.log("Disconect");
+        console.log("Disconnect");
         return;
     }
     if (data.message!=""){
@@ -362,7 +361,6 @@ chatSocket.onmessage = function(e) {
                     document.getElementById(friend+"Messenger").style.display="none";
                 }, 10000);
             }
-            
             document.querySelector('.box-chat').innerHTML +=  ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p> <img src="/static/image/emoji/' + data.message+ '.gif" alt="emoji"></p> </div>');
 
         }else{
@@ -379,7 +377,6 @@ chatSocket.onmessage = function(e) {
             }
            
             document.querySelector('.box-chat').innerHTML += ('<div><img src="/static/image/avtUser/p2.png" alt=""><b>'+ data.username + '</b>: <p>' + data.message + '</p> </div>');
-           
         }
     }
     if(!statePlayer.states[friend]&&friend!=userName){

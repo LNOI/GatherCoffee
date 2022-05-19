@@ -13,16 +13,19 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 # from pickle import TRUE
 import os
+import json
+with open("/etc/config.json") as config_file:
+    config=json.load(config_file)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ox0^m_w1+(wx#81y7u30@4e@o!@cq&7nv&nzclxqqtdli1ykxj'
+SECRET_KEY = config["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn","0.0.0.0","127.0.0.1"]
 # CSRF_TRUSTED_ORIGINS = ['https://a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn']

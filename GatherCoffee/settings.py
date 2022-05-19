@@ -28,7 +28,7 @@ SECRET_KEY = config["SECRET_KEY"]
 DEBUG = True
 
 ALLOWED_HOSTS = ["a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn","0.0.0.0","127.0.0.1"]
-# CSRF_TRUSTED_ORIGINS = ['https://a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn']
+CSRF_TRUSTED_ORIGINS = ['https://a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn']
 # Application definition
 
 INSTALLED_APPS = [

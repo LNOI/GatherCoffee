@@ -43,7 +43,7 @@ def Login_page(request):
         if forms_login.is_valid():
           
             user=request.POST["username"]
-            passwd=hashlib.md5(request.POST["password"].encode()).hexdigest()
+            passwd=hashlib.sha3_512(request.POST["password"].encode()).hexdigest()
             ac=Account.objects.all().filter(username=user,password=passwd)
             if ac:
                 print("Login thanhconmg")
@@ -74,32 +74,38 @@ def Create_page(request):
     print('----------Create Account----------')
     if request.method=="POST":
         forms_create=FormCreate(request.POST)
-
-        print(request.POST)
+        print(forms_create)
         if forms_create.is_valid():
             if request.POST["password"]== request.POST["repassword"]:
                 if Account.objects.filter(username=request.POST["username"]).count()==0:
                     
-                    pattern = "^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$"
+                    pattern = "^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=\.]).*$"
                     
-                    result = re.findall(pattern, request.POST["password"])
-                    print("Result=",result)
-                    account={
-                        "email":request.POST["email"],
-                        "fullname":request.POST["fullname"],
-                        "username":request.POST["username"],
-                        "password": hashlib.md5(request.POST["password"].encode()).hexdigest()
-                    }
-                    print(hashlib.md5(request.POST["password"].encode()))
-                    Account.objects.create(**account)
-                    forms_login=FormLogin(request.POST)
-                    context= {
-                        'form':forms_login,
-                        'login':True,
-                        'success':'1'
-                    }
-                    print("Successing 1")
-                    return redirect('/login')
+                    if re.findall(pattern, request.POST["password"]):
+                        account={
+                            "email":request.POST["email"],
+                            "fullname":request.POST["fullname"],
+                            "username":request.POST["username"],
+                            "password": hashlib.sha3_512(request.POST["password"].encode()).hexdigest()
+                        }
+                        print(hashlib.sha3_512(request.POST["password"].encode()))
+                        Account.objects.create(**account)
+                        forms_login=FormLogin(request.POST)
+                        context= {
+                            'form':forms_login,
+                            'login':True,
+                            'success':'1'
+                        }
+                        print("Successing 1")
+                        return redirect('/login')
+                    else:
+                        
+                        context= {
+                        'form':forms_create,
+                        'login':False,
+                        'success':'2'
+                        }
+                        return render(request,'base/login.html',context)
                 else:
                     context= {
                         'form':forms_create,

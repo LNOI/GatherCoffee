@@ -118,12 +118,9 @@
                             </div>
                             <input type="text" id="valueMoney" class="form-control" aria-label="Text input with checkbox">
                         </div>
-                        <!-- <input id="valueMoney" type="text"> -->
                     </div>
                     <div>
-
                         <button type="button"  id="shareMoney" class="btn btn-outline-warning w-100 mt-3">Share</button>
-                      
                     </div>
                     </div>
                   </div>
@@ -270,7 +267,6 @@
               paymm=document.getElementById("mn");
               paymm.innerHTML=parseInt(paymm.innerHTML)+parseInt(document.getElementById("checkoutMoney").value)
               var url = "{% url 'complete' %}"
- 
               fetch(url, {
                   method:'POST',
                   headers:{

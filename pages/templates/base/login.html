@@ -4,8 +4,6 @@
 {% block stylecss %}
 
 <link rel="stylesheet" href="{% static 'css/pages/stylelogin.css'%}">
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
- -->
 {% endblock %} 
 {% block content %}
 <section id="bodyLogin">
@@ -19,13 +17,14 @@
                 <div class="alert alert-warning" id="alertSucess" role="alert">
                     Account successfully created
                 </div>
+
             {% elif  success == '2' %}
                 <div class="alert alert-danger" role="alert">
-                    Error
+                    Passwords must have at least 8 characters and regex (a-z,A-Z,0-9,.*[@#$%^&+=])
                 </div>
             {% elif  success == '3' %}
                 <div class="alert alert-danger" role="alert">
-                    Account already exists
+                    Username already exists
                 </div>
             
             {% endif %}
@@ -39,7 +38,11 @@
                     <span for="exampleInputEmail1">Email address</span> {{field}}
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
-                {% elif field.name == 'fullname' or field.name == 'username'%}
+                {% elif field.name == 'fullname'%}
+                <div class="inputBx">
+                    <span for="exampleInputEmail1">Full Name</span> {{field}}
+                </div>
+                {% elif field.name == 'username'%}
                 <div class="inputBx">
                     <span for="exampleInputEmail1">User Name</span> {{field}}
                 </div>
@@ -52,16 +55,20 @@
                     <label for="exampleInputPassword1">Confirm password</label> {{field}}
                 </div>
                 {% endif %} {% endfor%}
-                <div class="inputBx">
-                    <input type="submit" value="Sign in" name="">
-                </div>
+               
                 {% if login == True %}
-                <div class="inputBx">
-                    <div>If you don't have account:<a href="/create" class="link-primary ">Create</a></div>
+                <div class="inputBx" >
+                    <input type="submit" value="Sign in" name="" id="submitform">
+                </div>
+                <div class="inputBx" >
+                    <div>If you don't have account:<a href="/create" class="link-primary">Sign up</a></div>
                 </div>
                 {% else %}
+                <div class="inputBx"  >
+                    <input type="submit" value="Sign up" name="" id="submitform">
+                </div>
                 <div class="inputBx">
-                    <div>If you have account:<a href="/login" class="link-primary" id="btnLoginForm">     Login   </a></div>
+                    <div>If you have account:<a href="/login" class="link-primary" id="btnLoginForm">Sign in</a></div>
                 </div>
                 {% endif %}
             </form>
@@ -71,9 +78,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
-<script>
-    document.getElementById("btn-home").addEventListener("click", () => {
-        window.location.href = "/"
-    })
-</script>
+
 {% endblock %}

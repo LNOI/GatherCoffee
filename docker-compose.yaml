@@ -3,12 +3,12 @@ services:
     django:
       build: .
       container_name: GatherCoffee
-      command: python manage.py runserver 0.0.0.0:8000
       volumes:
         - .:/usr/src/app/
+      command: >
+        sh -c python3 manage.py migrate &&
+              python3 manage.py runserver 0.0.0.0:8000
       ports:
         - "80:8000"
-      # environment:
-      #   - DEBUG=1
-      #   - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn [::1]
+    
       

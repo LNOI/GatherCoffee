@@ -1,6 +1,7 @@
-FROM python:3.8.5-alpine
+FROM python:3.7
+WORKDIR /usr/src/app
 RUN pip install --upgrade pip
 COPY ./requirements.txt  .
 RUN pip install  -r ./requirements.txt 
-EXPOSE 8000
-WORKDIR /usr/src/app
+
+

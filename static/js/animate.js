@@ -34,7 +34,6 @@ var arrBoxMessenger=[]
 context.scale(1,1);
 var my_mess=""
  
-
 function animateMain(){
     context.drawImage(
         Background,
@@ -484,19 +483,19 @@ chatSocket.onclose = function(e) {
 
 document.addEventListener("keydown",(e)=>{
     if(e.key=="Enter" && indexArea){
-    chatSocket.send(JSON.stringify({
-                'message': 'disconnect',
-                'username': userName,
-                'room': roomName,
-                'indexFrame':0,
-                'frameReverse':0,
-                'xPos':0,
-                'yPos':0,
-                'avtCharacters':avtCharacters,
-                'checkCoffee':0,
-                'idCoffee':0,
-    }));
-    window.location.replace('/room/area-'+indexArea+"/?username="+userName);
+        chatSocket.send(JSON.stringify({
+                    'message': 'disconnect',
+                    'username': userName,
+                    'room': roomName,
+                    'indexFrame':0,
+                    'frameReverse':0,
+                    'xPos':0,
+                    'yPos':0,
+                    'avtCharacters':avtCharacters,
+                    'checkCoffee':0,
+                    'idCoffee':0,
+        }));
+        window.location.replace('/room/area-'+indexArea);
     }
 })
 
@@ -516,7 +515,6 @@ listMyFriend.forEach(e=>{
         }));
     })
 })
-
 
 function TimeHideMess(){
     setTimeout(()=>{

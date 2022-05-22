@@ -438,10 +438,10 @@ function gonow(index){
         'idCoffee':0,
     }));
     if(index==0){
-        window.location.replace('/room/lobby/?username='+userName);
+        window.location.replace('/room/lobby/');
     }
     else {
-        window.location.replace('/room/area-'+index+"/?username="+userName);
+        window.location.replace('/room/area-'+index);
     }
 }
 
@@ -775,7 +775,7 @@ function initMenu(){
             'checkCoffee':0,
             'idCoffee':0,
         }));
-        window.location.href="/room/lobby/?username="+userName;
+        window.location.href="/room/lobby/";
 
     });
     btnMessSubmit.addEventListener("click",()=>{

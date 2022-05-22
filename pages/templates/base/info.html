@@ -93,8 +93,7 @@
         ipAge.style.display="none";
         ipEmail.style.display="none";
         ipPhone.style.display="none";  
-
-
+        
         editInfo.addEventListener("click",(e)=>{
             editInfo.style.display="none";
             saveInfo.style.display="block";
@@ -104,7 +103,6 @@
             ipAge.style.display="block"
             ipEmail.style.display="block"
             ipPhone.style.display="block"
-
             ipFullName.value=pFullName.innerHTML
             ipAddress.value=pAddress.innerHTML
             ipSex.value=pSex.innerHTML
@@ -155,8 +153,8 @@
                  }
              }
              return cookieValue;
-            }
-            var dataInfo={
+        }
+        var dataInfo={
                 'username':alias.innerHTML,
                 'fullname':ipFullName.value,
                 'address':ipAddress.value,
@@ -164,18 +162,18 @@
                 'age':ipAge.value,
                 'email':ipEmail.value,
                 'phone':ipPhone.value
-            }
-            var url = "{% url 'saveInfo' %}"
-            var csrftoken =await getCookie('csrftoken');
-            const noti= await fetch(url, {
+        }
+        var url = "{% url 'saveInfo' %}"
+        var csrftoken =await getCookie('csrftoken');
+        const noti= await fetch(url, {
                   method:'POST',
                   headers:{
                       'Content-type':'application/json',
                       'X-CSRFToken':csrftoken,
                   },
                   body:JSON.stringify(dataInfo)
-            })
-            location.reload();   
+        })
+        location.reload();   
     }
 </script>
 {% endblock %}

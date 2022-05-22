@@ -59,7 +59,6 @@ function InitBase(){
             }else{
                 navMobile.style.display="block";
             }
-           
         })
     }
     if(panelInfo){
@@ -72,25 +71,21 @@ function InitBase(){
     }
     if(btnLogout){
         btnLogout.addEventListener("click",()=>{
-            console.log("pl");
             window.location.href = "/logout";
         })
     }
     if(btnGetUser){
-        btnGetUser.addEventListener("click",()=>{
-
-            console.log("Click btn get user");
-            // var name=document.querySelector(".box-information #info-users p").innerHTML;
-            window.location.href = "/info/?username="+uname.innerHTML;
+        btnGetUser.addEventListener("click",()=>{ 
+            $.post("info/", {'username': uname.innerHTML}, function(result){
+                $("span").html(result);
+            });
         })
     }
-
     if(btnlogin){
         btnlogin.addEventListener("click", () => {
             window.location.href = "/login";
         });
     }
-    
     if(btnRegister){
         btnRegister.addEventListener("click", () => {
             window.location.href = "/create";

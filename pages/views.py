@@ -133,11 +133,11 @@ def Create_page(request):
     return render(request,'base/login.html',context)
 def InformationUser(request):
     context={}
-    if request.method=="GET":
-        if request.GET["username"]:
-            info_name=request.GET["username"]
+    if request.method=="POST":
+        if request.POST["username"]:
+            
+            info_name=request.POST["username"]
             info_user=Account.objects.filter(username=info_name)[0]
-           
             listfriend=info_user.friend.split(',')
             context={
                 "email":info_user.email,
@@ -154,7 +154,6 @@ def saveInfo(request):
     data=json.loads(request.body)
     try:
         userInfo=Account.objects.get(username=data['username'])
-        print(userInfo)
         userInfo.fullname=data['fullname']
         userInfo.address=data['address']
         userInfo.sex=data['sex']
@@ -165,4 +164,4 @@ def saveInfo(request):
     except:
         print("Error Save")
         return JsonResponse("Fail!",safe=False)
-    return JsonResponse("Success1111111111111111!",safe=False)
+    return JsonResponse("Success!",safe=False)

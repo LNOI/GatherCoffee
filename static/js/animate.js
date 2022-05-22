@@ -349,7 +349,7 @@ chatSocket.onmessage = function(e) {
     }
     if (data.message!=""){
         if(data.message.includes("__loop")){
-           
+            
         }else if(data.message.includes("emoji")){
             if(friend!=userName){
                 document.getElementById(friend+"Messenger").style.display="block";
@@ -412,7 +412,6 @@ chatSocket.onmessage = function(e) {
             document.querySelector(".box-friends").innerHTML+=favatar;
         }
         
-
         let bMess=document.createElement("div");
         bMess.id=friend+"Messenger";
         bMess.className="boxMessenger";
@@ -548,7 +547,7 @@ function init(){
     }
     listEmoji.forEach((e)=>{
         e.addEventListener("click",()=>{
-            my_mess=e.id+"__loop";
+           
             boxMessengerOwner.style.display="block";
             textMessengerOwner.style.display="none";
             iconMessengerOwner.style.display="block";
@@ -576,15 +575,14 @@ function init(){
          var mess=fieldInput.value;
          
          if(mess!=""){
-          
             boxMessengerOwner.style.display="block";
-            my_mess=mess+"__loop";
+            my_mess=jsEscape(mess)+"__loop";
             textMessengerOwner.style.display="block";
             iconMessengerOwner.style.display="none";
-            textMessengerOwner.innerHTML=mess;
+            textMessengerOwner.innerHTML=jsEscape(mess);
             TimeHideMess();
             chatSocket.send(JSON.stringify({
-                'message': mess,
+                'message': my_mess,
                 'username': userName,
                 'room': roomName,
                 'indexFrame':frameIndex,
@@ -628,4 +626,10 @@ function funcInfo(name){
         'indexRoom':0,
         'dataInfo':''
     }));
+}
+
+function jsEscape(str){
+    return String(str).replace(/[^\w. ]/gi, function(c){
+        return '\\u'+('0000'+c.charCodeAt(0).toString(16)).slice(-4);
+    });
 }

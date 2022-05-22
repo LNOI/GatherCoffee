@@ -26,12 +26,17 @@
                 <div class="alert alert-danger" role="alert">
                     Username already exists
                 </div>
-            
             {% endif %}
             {% if accountValid == False %}
-                <div class="alert alert-danger" role="alert">
-                    Account not valid information!
-                </div>
+                {% if bruteforce == True %}
+                    <div class="alert alert-danger" role="alert">
+                        Try to login your account after 5 minutes because you have exceeded the number of login attempts
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger" role="alert">
+                        Account not valid information!
+                    </div>
+                {% endif %}
             {% endif %}
             <form action="" method="post">{% csrf_token %} {% for field in form %} {% if field.name == 'email'%}
                 <div class="inputBx">

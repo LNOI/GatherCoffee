@@ -9,6 +9,7 @@ import json
 from django.http import JsonResponse
 import hashlib
 import re
+import time
 # Create your views here.
 def Home_page(request):
     context={}
@@ -36,26 +37,51 @@ def About_page(request):
 def Login_page(request):
     forms_login=FormLogin(request.POST)
     acountValid=True
+    bruteforce=False
     context={}
     if request.method=="POST":
         forms_login=FormLogin(request.POST)
         print(request.POST)
         if forms_login.is_valid():
-          
             user=request.POST["username"]
             passwd=hashlib.sha3_512(request.POST["password"].encode()).hexdigest()
-            ac=Account.objects.all().filter(username=user,password=passwd)
-            if ac:
-                print("Login thanhconmg")
-                request.session['username']=user
-                request.session['password']=passwd
-                print("crearte session")
-                return redirect('/')
-            else:
-                
-                acountValid=False
+            existUser=Account.objects.filter(username=user).count()
+            if existUser>0:
+                acc=Account.objects.get(username=user)
+                getNumberLogin=int(acc.checkLogin.split(":")[1])
+                startLogin=int(acc.checkLogin.split("-number:")[0])
+                endLogin=int(time.time())
+                if getNumberLogin > 5:
+                    if endLogin - startLogin > 300:
+                        bruteforce=False
+                        acc.checkLogin=str(int(time.time()))+"-number:1"
+                        acc.save()
+                        if acc.password==str(passwd):
+                            request.session['username']=user
+                            request.session['password']=passwd
+                            return redirect('/')
+                    else:
+                        bruteforce=True
+                    acountValid=False
+                else:
+                    if acc.password==str(passwd):
+                        
+                        request.session['username']=user
+                        request.session['password']=passwd
+                        acc.checkLogin=str(int(time.time()))+"-number:1"
+                        acc.save()
+                        return redirect('/')
+                    else:
+                        if endLogin - startLogin > 60:
+                            acc.checkLogin=str(int(time.time()))+"-number:1"
+                        else:
+                            acc.checkLogin=str(int(time.time()))+"-number:"+str(int(acc.checkLogin.split("-number:")[1])+1)
+                        acc.save()
+                        acountValid=False
+    
     else:
         forms_login=FormLogin()
+        
     context={
         'form':forms_login,
         'login':True,
@@ -65,7 +91,8 @@ def Login_page(request):
         context={
             'form':forms_login,
             'login':True,
-            'accountValid':False
+            'accountValid':False,
+            'bruteforce':bruteforce
         }
     return render(request,'base/login.html',context)
 
@@ -78,9 +105,7 @@ def Create_page(request):
         if forms_create.is_valid():
             if request.POST["password"]== request.POST["repassword"]:
                 if Account.objects.filter(username=request.POST["username"]).count()==0:
-                    
                     pattern = "^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=\.]).*$"
-                    
                     if re.findall(pattern, request.POST["password"]):
                         account={
                             "email":request.POST["email"],
@@ -124,7 +149,7 @@ def Create_page(request):
                 return render(request,'base/login.html',context)
     else:
         forms_create=FormCreate()
-
+        
     context={
         'form':forms_create,
         'login':False,
@@ -135,7 +160,6 @@ def InformationUser(request):
     context={}
     if request.method=="POST":
         if request.POST["username"]:
-            
             info_name=request.POST["username"]
             info_user=Account.objects.filter(username=info_name)[0]
             listfriend=info_user.friend.split(',')

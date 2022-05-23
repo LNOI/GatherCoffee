@@ -13,7 +13,7 @@ class Account(models.Model):
     age=models.CharField(blank=True,max_length=10,default="xxx")
     money=models.CharField(blank=True,max_length=100,default="100")
     friend=models.TextField(blank=True)
-    checkLogin=models.CharField(blank=False,max_length=100,default="")
+    checkLogin=models.CharField(blank=False,max_length=100,default="0-number:0")
     def __str__(self):
         return self.username
     

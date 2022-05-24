@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 # from pickle import TRUE
 import os
-# import json
+import json
 # with open("/etc/config.json") as config_file:
 #     config=json.load(config_file)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

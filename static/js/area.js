@@ -354,7 +354,7 @@ const textMessengerOwner=document.getElementById(userName+"-text");
 
 
 commonSocket=new WebSocket(
-    'https://'
+    'wss://'
     + window.location.host
     +'/ws/common/'
 )
@@ -446,7 +446,7 @@ function gonow(index){
 }
 
 const chatSocket = new WebSocket(
-    'https://'
+    'wss://'
     + window.location.host
     + '/ws/'
     + roomName

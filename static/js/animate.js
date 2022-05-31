@@ -214,9 +214,9 @@ const textMessengerOwner=document.getElementById(userName+"-text");
 
 
 commonSocket=new WebSocket(
-    'ws://'
+    'wss://'
     + window.location.host
-    +'/ws/common/'
+    +'//common/'
 )
 commonSocket.onopen=function(e){
     
@@ -305,7 +305,7 @@ function gonow(index){
 }
 
 const chatSocket = new WebSocket(
-    'ws://'
+    'wss://'
     + window.location.host
     + '/ws/'
     + roomName

@@ -27,8 +27,8 @@ SECRET_KEY = 'django-insecure-ox0^m_w1+(wx#81y7u30@4e@o!@cq&7nv&nzclxqqtdli1ykxj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn","0.0.0.0",'52.77.255.112']
-CSRF_TRUSTED_ORIGINS = ['https://a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn']
+ALLOWED_HOSTS = ["ec2-54-169-128-92.ap-southeast-1.compute.amazonaws.com","0.0.0.0"]
+# CSRF_TRUSTED_ORIGINS = ['https://a084742fa316491c8c78564efcbce9e0-9a075eac-vm-80.vlab2.uit.edu.vn']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -78,7 +78,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [('52.77.255.112', 8080)],
+            'hosts': [('ec2-54-169-128-92.ap-southeast-1.compute.amazonaws.com', 6379)],
         }
     }
 }

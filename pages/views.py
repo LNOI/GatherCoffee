@@ -65,7 +65,6 @@ def Login_page(request):
                     acountValid=False
                 else:
                     if acc.password==str(passwd):
-                        
                         request.session['username']=user
                         request.session['password']=passwd
                         acc.checkLogin=str(int(time.time()))+"-number:1"

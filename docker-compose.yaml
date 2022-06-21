@@ -1,13 +1,18 @@
-version: "3.3"
+version: "3.7"
 services:
+
     django:
-      build: .
+      restart: always
+      build: 
+        context: .
+      ports:
+        - "8000:8000"
       container_name: GatherCoffee
       volumes:
         - .:/usr/src/app/
-      command: python manage.py runserver 0.0.0.0:8000
-      ports:
-        - "80:8000"
-      
-    
-      
+      command: >
+        sh -c "python3 manage.py migrate &&
+              python3 manage.py runserver 0.0.0.0:8000"
+    redis:
+      container_name: redis_cont
+      image: redis:alpine    
